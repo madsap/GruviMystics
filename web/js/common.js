@@ -129,7 +129,7 @@ function refreshReadersTeaser(activity, page){
                     $("#readers_teaser_cnt").html(data.data.html);
                 }else{
                     if(typeof window.RTTimout === 'undefined'){
-                        window.RTTimout = setTimeout("refreshReadersTeaser('"+activity+"', '"+page+"');", 4096);
+                        //window.RTTimout = setTimeout("refreshReadersTeaser('"+activity+"', '"+page+"');", 4096); // %PSG: disable to fix pagination jump
                     }
                 }
                 return false;

@@ -79,7 +79,7 @@ use \yii\helpers\Url;
 
 <script>
     if(typeof window.RTTimout === 'undefined'){
-        window.RTTimout = setTimeout("refreshReadersTeaser('<?= $filter['activity']; ?>', 0);", 4096);
+        //window.RTTimout = setTimeout("refreshReadersTeaser('<?= $filter['activity']; ?>', 0);", 4096); // %PSG: disable to fix pagination jump
         $('.page_lnk').click(function() {
             refreshReadersTeaser('<?= $filter['activity']; ?>', $(this).attr("data-page"));
             return false;
