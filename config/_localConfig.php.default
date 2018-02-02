@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author Aleksandr Mokhonko
+ * Date: 06.07.17
+ */
+
+const MYSQL_HOST                = '127.0.0.1';
+const MYSQL_DB                  = 'gruvi_db';
+const MYSQL_USER                = 'gruvi_us';
+const MYSQL_PASSWORD            = 'hJFyyrHOFjjhHGSGFKKOO2354';
+const MYSQL_PORT                = 3306; //3306-4040
+
+const DOMAIN                    = 'gruvi.loc';
+
+const PASS_SALT                 = 'khTeh93Kri&fk(d"kfjOfp092J';
+const CRON_RUN                  = true;
+const DS                        = DIRECTORY_SEPARATOR;
