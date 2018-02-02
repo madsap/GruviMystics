@@ -65,4 +65,5 @@ config/_localConfig.php
 *.swo
 *.zip
 *.tgz
+.htaccess
 
