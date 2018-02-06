@@ -143,9 +143,24 @@ class SiteController extends MainController
     /**
      * @return string
      */
+    public function actionPrivacyPolicyes()
+    {
+        return $this->render('privacyPolicyes');
+    }
+
+    /**
+     * @return string
+     */
+    public function actionTermsAndCondition()
+    {
+        return $this->render('termsAndCondition');
+    }
+    /**
+     * @return string
+     */
     public function actionPrivacyPolicy()
     {
-        return $this->render('privacyPolicy');
+        return $this->renderPartial('privacyPolicy');
     }
 
     /**
@@ -153,7 +168,7 @@ class SiteController extends MainController
      */
     public function actionTermsAndService()
     {
-        return $this->render('termsAndService');
+        return $this->renderPartial('termsAndService');
     }
 
     /**
