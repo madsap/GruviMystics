@@ -75,6 +75,13 @@ use \yii\helpers\Url;
             
         </div>
     </div>
+    <div class="main_container_pagination" style="text-align:right">
+        <?= LinkPager::widget([
+            'pagination' => $readers['pages'],
+            'linkOptions' => ['class' => 'page_lnk']
+        ]);
+        ?>
+    </div>
 </div> 
 
 <script>
