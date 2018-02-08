@@ -5,7 +5,7 @@ use \app\models\User;
 use \yii\helpers\Url;
 ?>
 
-<div class="main_container">
+<div class="main_container" data-current_page="<?=$readers['pages']->getPage(); ?>">
     <div class="main_container_header">
         <div class="pull-right num_readers text-yellow h4">
             <input type="text" onchange="$('#reader_keyword_input').prop('disabled', true);refreshReadersTeaser('<?= $filter['activity']; ?>', 0);" placeholder="Search.." style="color:black" id="reader_keyword_input" value="<?= Html::encode($filter['keyword']); ?>">
@@ -74,6 +74,13 @@ use \yii\helpers\Url;
             
             
         </div>
+    </div>
+    <div class="main_container_pagination" style="text-align:right">
+        <?= LinkPager::widget([
+            'pagination' => $readers['pages'],
+            'linkOptions' => ['class' => 'page_lnk']
+        ]);
+        ?>
     </div>
 </div> 
 
