@@ -668,3 +668,18 @@ background-size: 100% 100%;*/
   font-weight: bold;
 }
 /*# sourceMappingURL=default.css.map */
+
+html .pagination > li > span,
+html .pagination > li > a {
+    color: #3A0A64; /* purple-ish */
+}
+html .pagination > .active > a,
+html .pagination > .active > span,
+html .pagination > .active > a:hover,
+html .pagination > .active > span:hover,
+html .pagination > .active > a:focus,
+html .pagination > .active > span:focus {
+    color: #fff;
+    background-color: #3A0A64;
+    border-color: #3A0A64;
+}
