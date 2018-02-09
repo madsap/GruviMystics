@@ -24,9 +24,6 @@ $sessionUser = Yii::$app->user;
     <div class="page-container panel panel-default">
         <div class="panel-body">
 
-
-
-
             <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'class' => 'form-custom']]); ?>
 
             <div class="row">
@@ -50,7 +47,7 @@ $sessionUser = Yii::$app->user;
                                     <?= $form->field($model, 'telephone')->textInput(['maxlength' => true]) ?>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+                                    <?= $form->field($model, 'displayname')->textInput(['maxlength' => true])->label('Display Name') ?>
                                     <div class="form-control-notes">up to 20 characters - this is the name that users will see on the listings page.</div>
                                 </div>
                             </div>
