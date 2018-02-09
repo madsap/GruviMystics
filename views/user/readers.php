@@ -12,7 +12,7 @@ use \yii\helpers\Url;
 $this->title = 'Reader Activity';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-wrapper bg-default">
+<div class="page-wrapper bg-default tag-views.user.readers">
     <?php if (Yii::$app->session->hasFlash('success')) { ?>
         <div class="alert alert-success alert-dismissable">
         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
