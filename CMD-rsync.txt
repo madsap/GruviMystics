@@ -1,0 +1,3 @@
+
+rsync -az --force --delete --progress --chmod=g+w       --rsync-path='rsync'       --exclude-from=rsyncconfig/exclude-update.txt       ./       gmystics:/var/www/server-gruvi/codebase-A/gruvi
+

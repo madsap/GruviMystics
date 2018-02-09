@@ -257,7 +257,7 @@ class UserController extends MainController
         
         $model->delete();     
         
-        Yii::app()->user->setFlash('success', "Reader deleted successfully.");
+        Yii::$app->session->setFlash('success', "Reader deleted successfully.");
         return $this->redirect(['user/readers']);
     }
     
