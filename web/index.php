@@ -9,7 +9,12 @@ require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 $config = require(__DIR__ . '/../config/web.php');
 
-(new yii\web\Application($config))->run();
+//require_once(__DIR__ . '/../components/functions.php'); // %PSG: debug only
+//(new yii\web\Application($config))->run();
+
+$app = new yii\web\Application($config);
+require(__DIR__ . '/../components/functions.php'); // %PSG: debug only
+$app->run();
 
 /* Placeholder, removed by PSG for dev
 <!Doctype html>
