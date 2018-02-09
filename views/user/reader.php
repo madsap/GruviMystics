@@ -8,7 +8,13 @@ use \yii\helpers\Url;
 
 $this->title = 'About';
 ?>
-<div class="page-wrapper">
+<div class="page-wrapper tag-views.user.reader">
+    <?php if (Yii::$app->session->hasFlash('success')) { ?>
+        <div class="alert alert-success alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <?= Yii::$app->session->getFlash('success') ?>
+        </div>
+    <?php } ?>
 <?php 
 $sessionUser = Yii::$app->user;
 //var_dump($sessionUser->identity->role);
