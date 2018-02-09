@@ -196,6 +196,7 @@ class UserController extends MainController
      *
      * @return Response|string
      */
+    // %PSG: handles both GET & POST (show, edit, update, etc)
     public function actionReader($id = null)
     {
         if(empty($id) || !User::isAdmin())$id = Yii::$app->user->identity->id;
@@ -218,6 +219,7 @@ class UserController extends MainController
                 unset($post['status']);
             }
             if($this->saveReader($model, $post)){
+                Yii::$app->session->setFlash('success', "Reader updated successfully.");
                 return $this->redirect(['user/reader', 'id' => $model->id]);
             }
         }
