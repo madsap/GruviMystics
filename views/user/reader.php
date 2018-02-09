@@ -9,6 +9,11 @@ use \yii\helpers\Url;
 $this->title = 'About';
 ?>
 <div class="page-wrapper">
+<?php 
+$sessionUser = Yii::$app->user;
+//var_dump($sessionUser->identity->role);
+//die;
+ ?>
     <div class="page-title text-default h3">READER: <?= ($model->isNewRecord)?"ADD":Html::encode($model->firstName.' '.$model->lastName); ?></div>
     <div class="page-container panel panel-default">
         <div class="panel-body">
@@ -102,7 +107,7 @@ $this->title = 'About';
                         <div class="col-sm-5 col-md-5 text-bold text-violet h4 text-left">/min</div>
                     </div>
                     <h2 class="text-pink">SET ROLE</h2>
-                    <div style="margin:30px 0px;">
+                    <div class="tag-select_role" style="margin:30px 0px;">
                         <select name="User[role]" id="role" class="form-control">
                             <?php
                             $role = $model->role;
@@ -127,6 +132,8 @@ $this->title = 'About';
                             <option value="<?= User::ROLE_READER ?>"><?=User::ROLE_READER?></option>
                             <?php
                             }
+                            /* %PSG: only admin user can upgrade users to admin */
+                            if ( 'admin' == $sessionUser->identity->role ) {
                             if($role == User::ROLE_ADMIN){
                             ?>
                             <option value="<?= User::ROLE_ADMIN ?>" selected="selected"><?=User::ROLE_ADMIN?></option>
@@ -136,6 +143,7 @@ $this->title = 'About';
                             <option value="<?= User::ROLE_ADMIN ?>"><?=User::ROLE_ADMIN?></option>
                             <?php
                             }
+                            } // admin == $sessionUser->role
                             ?>
                         </select>
                     </div>
