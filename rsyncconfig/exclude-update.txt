@@ -50,3 +50,4 @@ node_modules/*
 HERE.txt
 
 web/phpMyAdmin*
+CMD.txt
