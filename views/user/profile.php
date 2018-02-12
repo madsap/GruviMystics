@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use \app\models\User;
 use \yii\helpers\Url;
 ?>
-<div class="page-wrapper tag-views.user.profile">
+<div class="page-wrapper tag-views_user_profile">
     
     <?php if($model->getAttribute('role') == User::ROLE_READER){ ?>
     <div class="text-default bg-violet page-title-default">        
