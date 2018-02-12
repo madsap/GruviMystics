@@ -8,7 +8,7 @@ use \yii\helpers\Url;
 
 $this->title = 'About';
 ?>
-<div class="page-wrapper tag-views.user.reader">
+<div class="page-wrapper tag-views_user_reader">
     <?php if (Yii::$app->session->hasFlash('success')) { ?>
         <div class="alert alert-success alert-dismissable">
         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
