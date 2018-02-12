@@ -5,7 +5,7 @@ use \app\models\User;
 use \yii\helpers\Url;
 ?>
 
-<div class="main_container" data-current_page="<?=$readers['pages']->getPage(); ?>">
+<div class="main_container tag-components_widgets_views_readers_teaser" data-current_page="<?=$readers['pages']->getPage(); ?>">
     <div class="main_container_header">
         <div class="pull-right num_readers text-yellow h4">
             <input type="text" onchange="$('#reader_keyword_input').prop('disabled', true);refreshReadersTeaser('<?= $filter['activity']; ?>', 0);" placeholder="Search.." style="color:black" id="reader_keyword_input" value="<?= Html::encode($filter['keyword']); ?>">
@@ -26,12 +26,15 @@ use \yii\helpers\Url;
         <?php 
         if($readers['readers']){
             foreach($readers['readers'] as  $item){ ?>
+<?php
+//hh($item);
+?>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
-                        <div class="reader_card">
+                        <div class="reader_card" data-pkid="<?= $item->id; ?>">
                             <div class="photo">
                                 <img src="<?= $item->getProfilePicUrl();?>" alt=""/>
-                                <div class="photo_bottom text-default"><?= Html::encode($item->firstName); ?></div>
+                                <div class="photo_bottom text-default"><?= Html::encode($item->renderDisplayName()); ?></div>
                             </div>
                             <div class="content_reader_card">
                                 <div class="text-pink">
