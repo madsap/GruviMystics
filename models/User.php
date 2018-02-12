@@ -122,6 +122,15 @@ class User extends ActiveRecord implements IdentityInterface {
         return 'u' . $this->id . '_' . $hash;
     }
 
+    public function renderDisplayName() {
+        if ( !empty($this->displayname) ) {
+            $name = $this->displayname;
+        } else {
+            $name = $this->firstName;
+        }
+        return $name;
+    }
+
     /**
      * @param null  $names
      * @param array $except
