@@ -122,6 +122,15 @@ class User extends ActiveRecord implements IdentityInterface {
         return 'u' . $this->id . '_' . $hash;
     }
 
+    public function renderDisplayName() {
+        if ( !empty($this->displayname) ) {
+            $name = $this->displayname;
+        } else {
+            $name = $this->firstName;
+        }
+        return $name;
+    }
+
     /**
      * @param null  $names
      * @param array $except
@@ -542,6 +551,7 @@ class User extends ActiveRecord implements IdentityInterface {
             [['registrationType', 'social'], 'in', 'range' => self::$arraySocials],
             [['status'], 'default', 'value' => self::STATUS_ACTIVE, 'on' => ['save']],
             [['username'], 'default', 'value' => NULL, 'on' => ['update']],
+            [['displayname'], 'default', 'value' => NULL, 'on' => ['update']],
             [['rate'], 'default', 'value' => '0.00'],
             [['tagLine', 'telephone'], 'default', 'value' => ''],
             [['status'], 'in', 'range' => self::$arrayStatuses],
