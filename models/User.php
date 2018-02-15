@@ -551,7 +551,7 @@ class User extends ActiveRecord implements IdentityInterface {
             [['registrationType', 'social'], 'in', 'range' => self::$arraySocials],
             [['status'], 'default', 'value' => self::STATUS_ACTIVE, 'on' => ['save']],
             [['username'], 'default', 'value' => NULL, 'on' => ['update']],
-            [['displayname'], 'default', 'value' => NULL, 'on' => ['update']],
+            [['displayname'], 'default', 'value' => NULL, 'on' => ['addReader','update']],
             [['rate'], 'default', 'value' => '0.00'],
             [['tagLine', 'telephone'], 'default', 'value' => ''],
             [['status'], 'in', 'range' => self::$arrayStatuses],
