@@ -296,6 +296,7 @@ class UserController extends MainController
         return $this->render('reader', [
             'model' => $model,
             'fileErrors' => $this->fileErrors,
+            'is_action_add_reader' => true,
             'attributes' => []
         ]);
     }
