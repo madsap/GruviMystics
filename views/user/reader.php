@@ -42,6 +42,7 @@ $sessionUser = Yii::$app->user;
                                     <?= $form->field($model, 'lastName')->textInput(['maxlength' => true]) ?>
                                 </div>
                             </div>
+<?php if ( empty($is_action_add_reader) ) { ?>
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <?= $form->field($model, 'telephone')->textInput(['maxlength' => true]) ?>
@@ -51,6 +52,23 @@ $sessionUser = Yii::$app->user;
                                     <div class="form-control-notes">up to 20 characters - this is the name that users will see on the listings page.</div>
                                 </div>
                             </div>
+<?php } else { ?>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <?= $form->field($model, 'telephone')->textInput(['maxlength' => true]) ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <?= $form->field($model, 'username')->textInput(['maxlength' => true])->label('User Name') ?>
+                                    <div class="form-control-notes">up to 20 characters - Please enter a unique username.</div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <?= $form->field($model, 'displayname')->textInput(['maxlength' => true])->label('Display Name') ?>
+                                    <div class="form-control-notes">up to 20 characters - this is the name that users will see on the listings page.</div>
+                                </div>
+                            </div>
+<?php } ?>
                             <?= $form->field($model, 'tagLine')->textInput(['maxlength' => true]) ?>
                             <div class="form-control-notes">up to 140 characters - this is the tagline that users will see on the listings page.</div>
                             <br/>

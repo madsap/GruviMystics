@@ -9,7 +9,7 @@ use \yii\helpers\Url;
     <div class="text-default bg-violet page-title-default">        
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4">
-                <h3><?= Html::encode($model->firstName/*.' '.$model->lastName*/); ?></h3>
+                <h3><?= Html::encode($model->displayname/*.' '.$model->lastName*/); ?></h3>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 text-center">
                 <?php if($editable){ ?>
