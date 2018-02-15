@@ -7,12 +7,11 @@ use \yii\helpers\Url;
 
 <div class="main_container">
     <div class="main_container_header">
-        <div class="pull-right num_readers text-yellow h4">
-            <input type="text" onchange="$('#reader_keyword_input').prop('disabled', true);refreshReadersTeaser('<?= $filter['activity']; ?>', 0);" placeholder="Search.." style="color:black" id="reader_keyword_input" value="<?= Html::encode($filter['keyword']); ?>">
-            <a href="#" onclick="refreshReadersTeaser('', 0);return false;" class="text-yellow <?php if(empty($filter['activity']) || $filter['activity'] != User::ACTIVITY_ONLINE)echo 'h3 text-bold'; ?>"><u>All</u></a> (<?= $readers['total_count']; ?>)&nbsp; 
-            <a href="#" onclick="refreshReadersTeaser('<?= User::ACTIVITY_ONLINE ?>', 0);return false;" class="text-yellow <?php if($filter['activity'] == User::ACTIVITY_ONLINE)echo 'h3 text-bold'; ?>">Available Now (<?= $readers['available']; ?>)</a>
+        <div class="num_readers">
+            <a href="#" onclick="refreshReadersTeaser('', 0);return false;" class="text-orange <?php if(empty($filter['activity']) || $filter['activity'] != User::ACTIVITY_ONLINE)echo 'text-bold active'; ?>">All (<?= $readers['total_count']; ?>)</a>
+            <a href="#" onclick="refreshReadersTeaser('<?= User::ACTIVITY_ONLINE ?>', 0);return false;" class="text-orange <?php if($filter['activity'] == User::ACTIVITY_ONLINE)echo 'text-bold active'; ?>">Available Now (<?= $readers['available']; ?>)</a>
+            <a href="#" class="text-orange">Recent (0)</a>
         </div>
-        <div class="pull-left h3 text-default text-bold">Meet our Readers</div>
     </div>
     <div class="main_container_pagination" style="text-align:right">
         <?= LinkPager::widget([
@@ -26,7 +25,7 @@ use \yii\helpers\Url;
         <?php 
         if($readers['readers']){
             foreach($readers['readers'] as  $item){ ?>
-                <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
                         <div class="reader_card">
                             <div class="photo">

@@ -3,12 +3,10 @@ body {
     height: 100%;
 }
 
-.wrap {
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
-}
+@xs-and-up: ~"only screen and (min-width : 480px)";
+@sm-and-up: ~"only screen and (min-width : 768px)";
+@md-and-up: ~"only screen and (min-width : 992px)";
+@lg-and-up: ~"only screen and (min-width : 1200px)";
 
 
 @font-face {
@@ -24,9 +22,9 @@ body {
     src: url("fonts/AvenirNextLTPro-It.otf");
 }
 body{
-    font-family: AvenirNext Regular;
+    //font-family: AvenirNext Regular;
     font-size:14px;
-     background: url("../images/delf-renniel-rivera-260193.jpg") no-repeat center center fixed; 
+     background: url("../images/background3.png");
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
@@ -35,9 +33,9 @@ body{
 @gruvi-default: #ffffff!important;
 @gruvi-pink: #db0081; /* this color use @brand-primary fron bootstrap.min.css*/
 @gruvi-blue: #40a7eb;
-@gruvi-light-blue: #ebf6fc;
+@gruvi-light-blue: #ebf6f;
 @gruvi-yellow: #fcef2d;
-@gruvi-orange: #ec6a44;
+@gruvi-orange: #FA7947;
 @gruvi-violet: #301948;
 @gruvi-green: #4ea645;
 @gruvi-light-grey: #f2f0f5;
@@ -98,7 +96,7 @@ body{
 }
 
 .btn_gruvi{
-    background: url("../images/Grad_Purple-2-Pink.png") no-repeat; 
+    background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
      background-size: 100% 100%;
      overflow: hidden;
      color:@gruvi-default!important;
@@ -136,84 +134,7 @@ body{
         margin-top:-10px;
     }
 }
-/* Header */
-header{
-    .navbar {
-        height: 90px;
-        margin-bottom: 0px;
-        border:0px;
-/*        background-color: @gruvi-violet;*/
-        background-color:transparent;
-        z-index: 20000;
-        position: relative;
-        border-radius: 0px;
-        .navbar-brand {
-            padding:23px 15px;
-            overflow:hidden;
-            height:90px;
-            img {
-                max-height: 44px;
-            }
-        } 
-        .navbar-nav{
-            padding: 20px 0px;
-            li{
-                a {
-                    padding: 4px 10px;
-                    margin:0px 5px;
-                    color:@gruvi-default;
-                }
-                a.btn{                    
-                    border: 1px solid @gruvi-pink;
-                    color:@gruvi-default!important;
-                }
-            }
-        }
-        .navbar-nav > li.dropdown {
-            .dropdown-menu {
-                margin-top: 0;
-                border-radius: 0;
-                border: 3px solid @gruvi-pink;
-                padding:12px 16px 16px 16px;
-                min-width: 220px;
-                .login_with_fb{
-                    background-color: @gruvi-grey;
-                    color:@gruvi-default;
-                    display:block;
-                    overflow:hidden;
-                    img{
-                        width:36px;
-                        float:left;
-                        margin: 7px 12px;
-                    }
-                    span{
-                        display: block;
-                        text-align: center;
-                        padding: 8px;
-                        line-height: 16px;
-                    }
-                }
-                
-                
-            }
-        }
-        .griviBucks_text{
-            position:absolute;
-            bottom: 10px;
-            right: 20px;
 
-        }
-        .navbar-collapse {
-           
-            li{
-                margin:10px;
-            }
-            .btn{
-                color:@gruvi-pink;
-            }
-        }
-    }
-}
 /* Footer */
 footer{
     background-color:@gruvi-violet;
@@ -235,43 +156,117 @@ footer{
     } 
 }
 /* Home page*/
-.jumbotron{
-    background: url("../images/delf-renniel-rivera-260193.jpg") center bottom no-repeat; 
-    position: relative;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    padding-left: 0px!important;
-    padding-right: 0px!important;
-    background-size: 100% auto;
-    border-radius: 0px!important; 
-/*    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;*/
-    height:422px;
-    width:100%; 
-    .bottom{
-        position:absolute;
-        width:100%;
-        bottom:26px;
+.gruvi-banner{
+    height:400px;
+    //padding-top: 45px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
+    background: #e5038c; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #e5038c 0%,#ad1283 100%,#a52792 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #e5038c 0%,#ad1283 100%,#a52792 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5038c', endColorstr='#a52792',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    .navbar-header {
+        .navbar-brand {
+            img {
+                width: 50%;
+                @media @md-and-up {
+                    width: 70%;
+                }
+            }
+        }
     }
-} 
-.jumbotron h1, .jumbotron .h1 {
-    color: @gruvi-default;
-    font-size:40px;
-} 
+    .navbar-toggle {
+        border-color: #a52792;
+        .icon-bar {
+            background-color: white;
+        }
+    }
+    .gruvi-menu {
+        ul > li > a {
+            color: white;
+            font-size: 18px;
+            &:hover {
+                background-color: #300760 !important;
+            }
+        }
+    }
+    .register-header {
+        background-color: #300760;
+        height: 70px;
+        position: relative;
+        .register-content {
+            margin: auto;
+            position: relative;
+            img {
+                margin: 0;
+                padding: 0;
+                &.register {
+                    position: relative;
+                    top: 17px;
+                }
+            }
+            .btn-lg {
+                position: relative;
+                top: 20px;
+                margin-left: 5px;
+                text-decoration: none;
+            }
+            @media @xs-and-up {
+                width: 95%;
+                top: -45%;
+                img.tagline {
+                    width: 70%;
+                }
+            }
+            @media @md-and-up {
+                width: 80%;
+                top: -60%;
+                img.tagline {
+                    width: 570px;
+                }
+            }
+            @media @lg-and-up {
+                width: 65%;
+            }
+        }
+    }
+    .tagline {
+        color: white;
+        @media @xs-and-up {
+            width: 100%;
+        }
+        @media @md-and-up {
+            width: 75%;
+        }
+        @media @lg-and-up {
+            width: 50%;
+        }
+        font-size: 46px;
+        margin: auto;
+        margin-top: 20px;
+        width: 50%;
+        text-align: center;
+    }
+}
 
+.gruvi-btn {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
+    background: #e5038c; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #e5038c 0%,#ad1283 100%,#a52792 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #e5038c 0%,#ad1283 100%,#a52792 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5038c', endColorstr='#a52792',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
 .main_container{
     min-height: 30vh;
     background-color:@gruvi-light-grey;
     .main_container_header{
-        background: url("../images/Grad_Purple-2-Pink.png") no-repeat; 
-        background-size: 100% auto;
+        background-color: white;
+        filter: drop-shadow(0px 5px 4px grey);
         overflow: hidden;
         padding: 15px 20px 20px 20px;
         height: 60px;
+        position: relative;
         h1, .h1,
         h2, .h2,
         h3, .h3,
@@ -279,6 +274,19 @@ footer{
         h5, .h5,
         h6, .h6{
             margin:0px auto;
+        }
+        .num_readers {
+            position: absolute;
+            bottom: 2px;
+            width: 100%;
+            text-align: center;
+            a {
+                margin: 0 5px 0 5px;
+                text-decoration: none;
+                &.active {
+                    border-bottom: 3px solid;
+                }
+            }
         }
     }
     .main_container_content{

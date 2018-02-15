@@ -1,0 +1,699 @@
+html,
+body {
+  height: 100%;
+}
+@font-face {
+  font-family: "AvenirNext Bold";
+  src: url("fonts/AvenirNextLTPro-Bold.otf");
+}
+@font-face {
+  font-family: "AvenirNext Regular";
+  src: url("fonts/AvenirNextLTPro-Regular.otf");
+}
+@font-face {
+  font-family: "AvenirNext It";
+  src: url("fonts/AvenirNextLTPro-It.otf");
+}
+body {
+  font-size: 14px;
+  background: url("../images/background3.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/* this color use @brand-primary fron bootstrap.min.css*/
+/*#cfcfcf;*/
+.text-default {
+  color: #ffffff !important;
+}
+.text-pink {
+  color: #db0081;
+}
+.text-blue {
+  color: #40a7eb;
+}
+.text-yellow {
+  color: #fcef2d;
+}
+.text-orange {
+  color: #FA7947;
+}
+.text-violet {
+  color: #301948;
+}
+.text-green {
+  color: #4ea645;
+}
+.text-light-grey {
+  color: #f2f0f5;
+}
+.text-grey {
+  color: #aeaeae;
+}
+.bg-default {
+  background-color: #ffffff !important;
+}
+.bg-orange {
+  background-color: #FA7947;
+}
+.bg-green {
+  background-color: #4ea645;
+}
+.bg-light-blue {
+  background-color: #ebf6f 6f;
+}
+.bg-light-grey {
+  background-color: #f2f0f5;
+}
+.bg-grey {
+  background-color: #aeaeae;
+}
+.bg-violet {
+  background-color: #301948;
+}
+.text-bold {
+  font-family: AvenirNext Bold;
+}
+.btn_gruvi {
+  background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  color: #ffffff !important;
+  font-size: 16px;
+}
+.btn-green {
+  color: #000;
+  background-color: #4ea645;
+  border-color: #4ea645;
+  border-radius: 0px;
+}
+.btn-default {
+  color: #ffffff !important;
+  background-color: #aeaeae;
+  border-color: #aeaeae;
+  border-radius: 0px;
+}
+.btn-red {
+  color: #fff;
+  background-color: #ac2925;
+  border-color: #ac2925;
+  border-radius: 0px;
+}
+/* form*/
+.form-custom .form-control {
+  border-radius: 0px;
+  border-color: #db0081;
+}
+.form-custom .control-label,
+.form-custom label {
+  color: #db0081;
+}
+.form-custom .form-control-notes {
+  font-size: 10px;
+  margin-top: -10px;
+}
+/* Footer */
+footer {
+  background-color: #301948;
+  color: #ffffff !important;
+  line-height: 60px;
+}
+footer a {
+  color: #ffffff !important;
+}
+footer p {
+  margin: 0px;
+}
+footer .navbar-brand {
+  padding: 6px 45px 6px 15px;
+  overflow: hidden;
+  height: 60px;
+}
+footer .navbar-brand img {
+  max-height: 44px;
+}
+/* Home page*/
+.gruvi-banner {
+  height: 400px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
+  background: #e5038c;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5038c', endColorstr='#a52792', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+.gruvi-banner .navbar-header .navbar-brand img {
+  width: 50%;
+}
+@media only screen and (min-width : 992px) {
+  .gruvi-banner .navbar-header .navbar-brand img {
+    width: 70%;
+  }
+}
+.gruvi-banner .navbar-toggle {
+  border-color: #a52792;
+}
+.gruvi-banner .navbar-toggle .icon-bar {
+  background-color: white;
+}
+.gruvi-banner .gruvi-menu ul > li > a {
+  color: white;
+  font-size: 18px;
+}
+.gruvi-banner .gruvi-menu ul > li > a:hover {
+  background-color: #300760 !important;
+}
+.gruvi-banner .register-header {
+  background-color: #300760;
+  height: 70px;
+  position: relative;
+}
+.gruvi-banner .register-header .register-content {
+  margin: auto;
+  position: relative;
+}
+.gruvi-banner .register-header .register-content img {
+  margin: 0;
+  padding: 0;
+}
+.gruvi-banner .register-header .register-content img.register {
+  position: relative;
+  top: 17px;
+}
+.gruvi-banner .register-header .register-content .btn-lg {
+  position: relative;
+  top: 20px;
+  margin-left: 5px;
+  text-decoration: none;
+}
+@media only screen and (min-width : 480px) {
+  .gruvi-banner .register-header .register-content {
+    width: 95%;
+    top: -45%;
+  }
+  .gruvi-banner .register-header .register-content img.tagline {
+    width: 70%;
+  }
+}
+@media only screen and (min-width : 992px) {
+  .gruvi-banner .register-header .register-content {
+    width: 80%;
+    top: -60%;
+  }
+  .gruvi-banner .register-header .register-content img.tagline {
+    width: 570px;
+  }
+}
+@media only screen and (min-width : 1200px) {
+  .gruvi-banner .register-header .register-content {
+    width: 65%;
+  }
+}
+.gruvi-banner .tagline {
+  color: white;
+  font-size: 46px;
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  text-align: center;
+}
+@media only screen and (min-width : 480px) {
+  .gruvi-banner .tagline {
+    width: 100%;
+  }
+}
+@media only screen and (min-width : 992px) {
+  .gruvi-banner .tagline {
+    width: 75%;
+  }
+}
+@media only screen and (min-width : 1200px) {
+  .gruvi-banner .tagline {
+    width: 50%;
+  }
+}
+.gruvi-btn {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
+  background: #e5038c;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5038c', endColorstr='#a52792', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+.main_container {
+  min-height: 30vh;
+  background-color: #f2f0f5;
+}
+.main_container .main_container_header {
+  background-color: white;
+  filter: drop-shadow(0px 5px 4px grey);
+  overflow: hidden;
+  padding: 15px 20px 20px 20px;
+  height: 60px;
+  position: relative;
+}
+.main_container .main_container_header h1,
+.main_container .main_container_header .h1,
+.main_container .main_container_header h2,
+.main_container .main_container_header .h2,
+.main_container .main_container_header h3,
+.main_container .main_container_header .h3,
+.main_container .main_container_header h4,
+.main_container .main_container_header .h4,
+.main_container .main_container_header h5,
+.main_container .main_container_header .h5,
+.main_container .main_container_header h6,
+.main_container .main_container_header .h6 {
+  margin: 0px auto;
+}
+.main_container .main_container_header .num_readers {
+  position: absolute;
+  bottom: 2px;
+  width: 100%;
+  text-align: center;
+}
+.main_container .main_container_header .num_readers a {
+  margin: 0 5px 0 5px;
+  text-decoration: none;
+}
+.main_container .main_container_header .num_readers a.active {
+  border-bottom: 3px solid;
+}
+.main_container .main_container_content {
+  padding: 20px;
+}
+.reader_card {
+  border-top-right-radius: 8px;
+  border: 1px solid #301948;
+  height: 240px;
+}
+.reader_card .photo {
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+  float: left;
+  position: relative;
+}
+.reader_card .photo img {
+  width: 100%;
+  height: auto;
+}
+.reader_card .photo .photo_bottom {
+  background: url("../images/Transparent-PINK-Fade.png") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 100000;
+  bottom: 0px;
+  padding: 5px;
+}
+.reader_card .content_reader_card {
+  width: 40%;
+  float: right;
+  padding: 5px;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.reader_card .content_reader_card .bottom {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 100000;
+  bottom: 0px;
+  padding: 5px;
+  color: #ffffff !important;
+  margin-left: -5px;
+}
+.home_bottom {
+  background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  padding: 20px;
+}
+.home_bottom .img-thumbnail {
+  height: 200px;
+  width: 200px;
+  padding: 0px;
+  border: 4px solid #db0081;
+}
+/* Page container - main rules */
+.page-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+}
+.page-wrapper .page-title-default {
+  padding: 15px 30px;
+  width: 100%;
+}
+.page-wrapper .page-title-default h2,
+.page-wrapper .page-title-default h3 {
+  margin-top: 10px;
+}
+.page-wrapper .page-title {
+  min-width: 400px;
+  height: 50px;
+  padding: 0px 30px;
+  background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
+  background-size: 100% auto;
+  overflow: hidden;
+  line-height: 50px;
+  display: inline-block;
+}
+.page-wrapper .page-title.h3 {
+  margin: 0px;
+}
+.page-wrapper .page-container {
+  margin: 30px;
+  min-height: 50vh;
+}
+.page-wrapper .page-box-container {
+  margin: 0px 0px 20px 0px;
+}
+.page-wrapper .panel {
+  background-color: #ffffff !important;
+  border-radius: 0px;
+}
+.page-wrapper .panel-default {
+  border: 2px solid #db0081;
+  overflow: hidden;
+}
+.page-wrapper .panel-info {
+  border: 2px solid #aeaeae;
+  overflow: hidden;
+}
+/* Sign Up */
+.signup_page {
+  width: 276px;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  padding: 20px;
+}
+.signup_page .login_with_fb {
+  background-color: #db0081;
+  color: #ffffff !important;
+  display: block;
+  overflow: hidden;
+}
+.signup_page .login_with_fb img {
+  width: 36px;
+  float: left;
+  margin: 5px 12px;
+}
+.signup_page .login_with_fb span {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  line-height: 36px;
+}
+.form-container {
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  /*        ::-webkit-input-placeholder { 
+            text-transform: uppercase;
+          }
+          ::-moz-placeholder { 
+            text-transform: uppercase;
+          }
+          :-ms-input-placeholder { 
+            text-transform: uppercase;
+          }
+          :-moz-placeholder { 
+            text-transform: uppercase;
+          }*/
+}
+.form-container .form-control {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #aeaeae;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  /*            text-transform: uppercase;*/
+  font-size: 13px;
+}
+.form-container .form-group:last-child .form-control {
+  border-bottom: 0px;
+}
+.form-container .form-group {
+  margin-bottom: 0px;
+  padding: 0px 10px 0px 0px;
+}
+.form-container .help-block-error {
+  margin: 0px!important;
+}
+/* Gruvi Bucks */
+.gruvi-bucks-create .add_title {
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.gruvi-bucks-create .add_title .add_number_container {
+  width: 66px;
+  height: 66px;
+  font-size: 54px;
+  text-align: center;
+  line-height: 66px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.gruvi-bucks-create .btn-green {
+  padding: 10px 40px;
+  font-size: 18px;
+  width: 100%;
+}
+.gruvi-bucks-create .enter_ammount {
+  margin: 40px 0px 0px 44px;
+  padding: 0px 5px;
+}
+.gruvi-bucks-create .enter_ammount .input_alt {
+  border: 2px solid #db0081;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  padding: 5px 0px;
+  color: #aeaeae;
+}
+/* Profile */
+.profile_container {
+  padding: 44px 500px 0 0px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.profile_container .profile_content {
+  padding-bottom: 99999px;
+  margin-bottom: -99999px;
+  float: left;
+  width: 100%;
+  background-color: #f2f0f5;
+}
+.profile_top_container {
+  /*    height:222px;*/
+  /*    margin:60px 0px 0px 0px;*/
+}
+.profile_top_container .reader_card {
+  background-color: #ffffff !important;
+  border-top-right-radius: 10px;
+  -webkit-box-shadow: 4px 9px 13px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 9px 13px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 9px 13px 3px rgba(0, 0, 0, 0.75);
+  max-height: 290px;
+  overflow: hidden;
+}
+.profile_top_container .reader_card .photo {
+  width: 40%;
+}
+.profile_top_container .reader_card .content_reader_card {
+  width: 60%;
+}
+.profile_top_container .profile_container_tags {
+  border-top: 1px solid #aeaeae;
+  border-bottom: 1px solid #aeaeae;
+  padding: 5px 0px;
+}
+.profile_top_container .profile_container_tags .profile_tags_cell {
+  width: 48%;
+  font-size: 18px;
+  display: inline-block;
+}
+.sidebar {
+  padding: 20px 10px;
+  background-color: #f2f0f5;
+}
+.profile_top_container_right {
+  /*    min-height:222px;*/
+}
+.profile_top_container_right .select_state {
+  border: 3px solid #aeaeae;
+  color: #db0081;
+}
+.profile_call_manage {
+  padding: 0px 30px;
+  border-top: 2px solid #40a7eb;
+  /* checkbox aspect */
+  /* checked mark aspect */
+  /* checked mark aspect changes */
+  /* disabled checkbox */
+  /* accessibility */
+  /* hover style just for information */
+}
+.profile_call_manage .title_row {
+  display: table;
+  margin-bottom: 10px;
+  width: 100%;
+  /*        height: 70px;*/
+}
+.profile_call_manage .title_row .icn {
+  height: 70px;
+  margin: 0px auto;
+  display: table-cell;
+}
+.profile_call_manage .title_row .text_for_icn {
+  height: 70px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.profile_call_manage [type="checkbox"]:not(:checked),
+.profile_call_manage [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+.profile_call_manage [type="checkbox"]:not(:checked) + label,
+.profile_call_manage [type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 4em;
+  cursor: pointer;
+  line-height: 2.4em;
+  margin-bottom: 0px;
+}
+.profile_call_manage [type="checkbox"]:not(:checked) + label:before,
+.profile_call_manage [type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.8em;
+  height: 2.4em;
+  border: 2px solid #db0081;
+  background: #f2f0f5;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.profile_call_manage [type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: -0.1em;
+  left: 0.2em;
+  font-size: 3.2em;
+  color: #51b25d;
+  transition: all .2s;
+  /*      content: url('../images/np_check.png');
+      background: url('../images/np_check.png');
+background-size: 100% 100%;*/
+}
+.profile_call_manage [type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+.profile_call_manage [type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+.profile_call_manage [type="checkbox"]:disabled:not(:checked) + label:before,
+.profile_call_manage [type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+.profile_call_manage [type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+.profile_call_manage [type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+.profile_call_manage [type="checkbox"]:checked:focus + label:before,
+.profile_call_manage [type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px dotted #aeaeae;
+}
+.profile_call_manage label:hover:before {
+  border: 2px solid #aeaeae !important;
+}
+/* profile tab chat */
+.profile_chat_container {
+  /*    padding:0px 15px;*/
+  padding-bottom: 99999px;
+  margin-bottom: -99999px;
+  float: right;
+  margin-right: -500px;
+  width: 500px;
+  background-color: #ebf6f 6f;
+  border: 2px solid #db0081;
+  position: relative;
+}
+.profile_chat_container h3 {
+  margin-top: -38px;
+  position: absolute;
+}
+.profile_chat_container .chat_message_row {
+  margin: 5px;
+}
+.profile_chat_container .chat_message_row .field_message {
+  background-color: #ffffff;
+  border: 1px solid #aeaeae;
+  padding: 10px;
+}
+.profile_chat_container .chat_message_row .delete_message {
+  position: absolute;
+  right: 7px;
+}
+.profile_chat_container .enter_message {
+  margin: 0px;
+}
+.profile_chat_container .enter_message input[type="text"] {
+  border: 0px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+.profile_chat_container .enter_message ::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #db0081;
+  opacity: 1;
+  font-weight: bold;
+}
+.profile_chat_container .enter_message ::-moz-placeholder {
+  text-transform: uppercase;
+  color: #db0081;
+  opacity: 1;
+  font-weight: bold;
+}
+.profile_chat_container .enter_message :-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #db0081;
+  opacity: 1;
+  font-weight: bold;
+}
+.profile_chat_container .enter_message :-moz-placeholder {
+  text-transform: uppercase;
+  color: #db0081;
+  opacity: 1;
+  font-weight: bold;
+}
