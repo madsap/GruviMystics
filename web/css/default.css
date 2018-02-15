@@ -293,49 +293,31 @@ footer .navbar-brand img {
 .main_container .main_container_content {
   padding: 20px;
 }
-.reader_card {
-  border-top-right-radius: 8px;
-  border: 1px solid #301948;
+.reader-card-new {
+  border-radius: 10px;
+  filter: drop-shadow(5px 5px 5px grey);
+  border: 1px solid #f2f0f5;
   height: 240px;
+  background-color: white;
+  margin: 10px -10px;
 }
-.reader_card .photo {
-  width: 60%;
-  height: 100%;
-  overflow: hidden;
-  float: left;
-  position: relative;
+.reader-card-new .card-text {
+  color: black;
 }
-.reader_card .photo img {
-  width: 100%;
-  height: auto;
+.reader-card-new .photo {
+  margin: 10px 0 0 10px;
 }
-.reader_card .photo .photo_bottom {
-  background: url("../images/Transparent-PINK-Fade.png") no-repeat;
-  background-size: 100% 100%;
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  z-index: 100000;
-  bottom: 0px;
-  padding: 5px;
+.reader-card-new .photo img {
+  height: 100px;
 }
-.reader_card .content_reader_card {
-  width: 40%;
-  float: right;
-  padding: 5px;
-  overflow: hidden;
+.reader-card-new .left-col {
   position: relative;
   height: 100%;
 }
-.reader_card .content_reader_card .bottom {
-  overflow: hidden;
+.reader-card-new .left-col .price-text {
   position: absolute;
-  width: 100%;
-  z-index: 100000;
-  bottom: 0px;
-  padding: 5px;
-  color: #ffffff !important;
-  margin-left: -5px;
+  bottom: 2px;
+  text-align: center;
 }
 .home_bottom {
   background: url("../images/Grad_Purple-2-Pink.png") no-repeat;

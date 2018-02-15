@@ -26,52 +26,61 @@ use \yii\helpers\Url;
         if($readers['readers']){
             foreach($readers['readers'] as  $item){ ?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
-                        <div class="reader_card">
-                            <div class="photo">
-                                <img src="<?= $item->getProfilePicUrl();?>" alt=""/>
-                                <div class="photo_bottom text-default"><?= Html::encode($item->firstName); ?></div>
-                            </div>
-                            <div class="content_reader_card">
-                                <div class="text-pink">
-                                    <span class="text-violet">$</span>
-                                    <span class="h4 text-bold"><?= $item->rate; ?></span>
-                                    <span>/min</span>
-                                </div>
-                                <div class="text-orange h4">
-                                    <?= Html::encode($item->tagLine); ?>
-                                </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
+                                <div class="reader-card-new">
+                                    <div class="col-xs-6 left-col">
+                                        <div class="photo">
+                                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">
+                                            <!-- <img class="ratio img-responsive img-circle" src="<?= $item->getProfilePicUrl();?>" alt=""/> -->
+                                        </div>
+                                        <div class="price-text">
+                                            <span>$<?= $item->rate; ?>/min</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 right-col">
+                                        <div class="card-text">
+                                            <?= Html::encode($item->firstName); ?>
+                                        </div>
+                                        <div class="content_reader_card">
+                                            <div class="card-text">
+                                                <?= Html::encode($item->tagLine); ?>
+                                            </div>
 
-                                <?php if($item->activity == User::ACTIVITY_ONLINE){ ?>
-                                        
-                                            <?php if($item->opt_voice){ ?>
-                                                <!-- <a href="#" onclick="showCallDetails(<?= $item->id; ?>);return false;">Call NOW</a> -->
-                                                <div class="bottom bg-green">Call NOW</div>
-                                            <?php }elseif($item->opt_chat){ ?>
-                                                <div class="bottom bg-green">Chat NOW</div>
-                                            <?php }else{ ?>
+                                            <?php if($item->activity == User::ACTIVITY_ONLINE){ ?>
+
+                                                <?php if($item->opt_voice){ ?>
+                                                    <!-- <a href="#" onclick="showCallDetails(<?= $item->id; ?>);return false;">Call NOW</a> -->
+                                                    <div class="bottom bg-green">Call NOW</div>
+                                                <?php }elseif($item->opt_chat){ ?>
+                                                    <div class="bottom bg-green">Chat NOW</div>
+                                                <?php }else{ ?>
+                                                    <div class="bottom bg-grey">Offline</div>
+                                                <?php } ?>
+
+                                            <?php } ?>
+                                            <?php if($item->activity == User::ACTIVITY_SESSION){ ?>
+                                                <div class="bottom bg-orange">In Session</div>
+                                                <div class="bottom bg-grey" style="display:none;">In Session</div>
+                                            <?php } ?>
+                                            <?php if($item->activity == User::ACTIVITY_OFFLINE){ ?>
+                                                <div class="bottom bg-light-grey" style="display:none;">Offline</div>
                                                 <div class="bottom bg-grey">Offline</div>
                                             <?php } ?>
-                                                
-                                <?php } ?>
-                                <?php if($item->activity == User::ACTIVITY_SESSION){ ?>
-                                        <div class="bottom bg-orange">In Session</div>
-                                        <div class="bottom bg-grey" style="display:none;">In Session</div>
-                                <?php } ?>
-                                <?php if($item->activity == User::ACTIVITY_OFFLINE){ ?>
-                                        <div class="bottom bg-light-grey" style="display:none;">Offline</div>
-                                        <div class="bottom bg-grey">Offline</div>
-                                <?php } ?>
-                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
         <?php
             }
         }
         ?>
-            
-            
+
+
         </div>
     </div>
 </div> 

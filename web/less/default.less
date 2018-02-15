@@ -293,52 +293,87 @@ footer{
         padding: 20px;
     }
 }
-.reader_card{
-    border-top-right-radius: 8px;
-    border:1px solid @gruvi-violet;
-    height:240px;
-
-    .photo{
-        width:60%;
-        height:100%;
-        overflow: hidden;
-        float:left;
-        position:relative;
-        img{
-            width:100%;
-            height:auto;
-        }
-        .photo_bottom{
-            background: url("../images/Transparent-PINK-Fade.png") no-repeat; 
-            background-size: 100% 100%;
-            overflow: hidden;
-            position: absolute;
-            width: 100%;
-            z-index: 100000;
-            bottom: 0px;
-            padding: 5px;
+.reader-card-new {
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 5px grey);
+    border:1px solid @gruvi-light-grey;
+    height:200px;
+    background-color: white;
+    margin: 10px -10px;
+    .card-text {
+        color: black;
+    }
+    .photo {
+        margin: 10px 0 0 10px;
+        img {
+            height: 100px;
         }
     }
-    .content_reader_card{
-        width:40%;
-        float:right;
-        padding:5px;
-        overflow: hidden;
+    .left-col {
         position: relative;
         height: 100%;
-
-        .bottom{
-            overflow: hidden;
+        .price-text {
             position: absolute;
-            width: 100%;
-            z-index: 100000;
-            bottom: 0px;
-            padding: 5px;
-            color:@gruvi-default;
-            margin-left: -5px;
+            bottom: 2px;
+            text-align: center;
+        }
+    }
+    .right-col {
+        position: relative;
+        height: 100%;
+        .status-button {
+            position: absolute;
+            bottom: 2px;
+            text-align: center;
         }
     }
 }
+//.reader_card{
+//    border-top-right-radius: 8px;
+//    border:1px solid @gruvi-violet;
+//    height:240px;
+//
+//    .photo{
+//        width:60%;
+//        height:100%;
+//        overflow: hidden;
+//        float:left;
+//        position:relative;
+//        img{
+//            width:100%;
+//            height:auto;
+//        }
+//        .photo_bottom{
+//            background: url("../images/Transparent-PINK-Fade.png") no-repeat;
+//            background-size: 100% 100%;
+//            overflow: hidden;
+//            position: absolute;
+//            width: 100%;
+//            z-index: 100000;
+//            bottom: 0px;
+//            padding: 5px;
+//        }
+//    }
+//    .content_reader_card{
+//        width:40%;
+//        float:right;
+//        padding:5px;
+//        overflow: hidden;
+//        position: relative;
+//        height: 100%;
+//
+//        .bottom{
+//            overflow: hidden;
+//            position: absolute;
+//            width: 100%;
+//            z-index: 100000;
+//            bottom: 0px;
+//            padding: 5px;
+//            color:@gruvi-default;
+//            margin-left: -5px;
+//        }
+//    }
+//}
 .home_bottom{
     background: url("../images/Grad_Purple-2-Pink.png") no-repeat; 
     background-size: 100% 100%;
