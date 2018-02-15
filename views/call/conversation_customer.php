@@ -15,7 +15,10 @@ $this->title = 'Conversation';
         </div>
         <div class="col-md-9 col-sm-9">
             <h3 class="text-pink">Outgoing call to:</h3>
+<!--
             <h4 class="text-orange"><?= Html::encode($reader->firstName.' '.$reader->lastName); ?> </h4>
+-->
+            <h4 class="text-orange"><?= Html::encode($reader->renderDisplayName()); ?></h4>
             <?php 
             if(empty($activeCall->status)){ ?>
                 <div id="user-call-log"></div>
