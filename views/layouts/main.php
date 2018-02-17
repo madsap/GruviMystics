@@ -27,7 +27,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!--
     <link href="css/default.css" rel="stylesheet" type="text/css" />-->
 <!--    <script src="--><?//= Url::to(["/css/bootstrap/js/bootstrap.min.js"], true);?><!--" type="text/javascript"></script>-->
