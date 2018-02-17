@@ -43,7 +43,7 @@ body {
   color: #301948;
 }
 .text-green {
-  color: #4ea645;
+  color: #45B248;
 }
 .text-light-grey {
   color: #f2f0f5;
@@ -58,7 +58,7 @@ body {
   background-color: #FA7947;
 }
 .bg-green {
-  background-color: #4ea645;
+  background-color: #45B248;
 }
 .bg-light-blue {
   background-color: #ebf6f 6f;
@@ -84,8 +84,8 @@ body {
 }
 .btn-green {
   color: #000;
-  background-color: #4ea645;
-  border-color: #4ea645;
+  background-color: #45B248;
+  border-color: #45B248;
   border-radius: 0px;
 }
 .btn-default {
@@ -114,28 +114,9 @@ body {
   margin-top: -10px;
 }
 /* Footer */
-footer {
-  background-color: #301948;
-  color: #ffffff !important;
-  line-height: 60px;
-}
-footer a {
-  color: #ffffff !important;
-}
-footer p {
-  margin: 0px;
-}
-footer .navbar-brand {
-  padding: 6px 45px 6px 15px;
-  overflow: hidden;
-  height: 60px;
-}
-footer .navbar-brand img {
-  max-height: 44px;
-}
 /* Home page*/
 .gruvi-banner {
-  height: 400px;
+  height: 350px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
   background: #e5038c;
   /* Old browsers */
@@ -239,17 +220,23 @@ footer .navbar-brand img {
   }
 }
 .gruvi-btn {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
+  border-radius: 25px;
+  width: 100px;
+  height: 30px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+50,4e1295+100 */
   background: #e5038c;
   /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  background: -moz-linear-gradient(left, #e5038c 0%, #ad1283 50%, #4e1295 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  background: -webkit-linear-gradient(left, #e5038c 0%, #ad1283 50%, #4e1295 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #e5038c 0%, #ad1283 100%, #a52792 100%);
+  background: linear-gradient(to right, #e5038c 0%, #ad1283 50%, #4e1295 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5038c', endColorstr='#a52792', GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5038c', endColorstr='#4e1295', GradientType=1);
+  /* IE6-9 */
+}
+.gruvi-btn:hover {
+  background: #e5038c;
 }
 .main_container {
   min-height: 30vh;
@@ -297,7 +284,7 @@ footer .navbar-brand img {
   border-radius: 10px;
   filter: drop-shadow(5px 5px 5px grey);
   border: 1px solid #f2f0f5;
-  height: 240px;
+  height: 175px;
   background-color: white;
   margin: 10px -10px;
 }
@@ -305,10 +292,7 @@ footer .navbar-brand img {
   color: black;
 }
 .reader-card-new .photo {
-  margin: 10px 0 0 10px;
-}
-.reader-card-new .photo img {
-  height: 100px;
+  margin-top: 10px;
 }
 .reader-card-new .left-col {
   position: relative;
@@ -316,20 +300,43 @@ footer .navbar-brand img {
 }
 .reader-card-new .left-col .price-text {
   position: absolute;
-  bottom: 2px;
+  bottom: 10px;
+  left: 25px;
+  color: #442B5D;
+  text-align: center;
+  font-size: 15px;
+}
+.reader-card-new .right-col {
+  position: relative;
+  height: 100%;
+}
+.reader-card-new .right-col .header {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #442B5D;
+}
+.reader-card-new .right-col .tagline {
+  font-size: 12px;
+  color: #737274;
+}
+.reader-card-new .right-col .status-group {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: #737274;
   text-align: center;
 }
-.home_bottom {
-  background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
-  background-size: 100% 100%;
-  overflow: hidden;
-  padding: 20px;
+.reader-card-new .right-col .status-group .available {
+  color: #45B248;
 }
-.home_bottom .img-thumbnail {
-  height: 200px;
-  width: 200px;
-  padding: 0px;
-  border: 4px solid #db0081;
+.reader-card-new .right-col .status-group .available:before {
+  content: url('../images/green-check.png');
+  /* with class ModalCarrot ??*/
+}
+.home_bottom {
+  background-color: #300760;
+  height: 70px;
+  position: relative;
 }
 /* Page container - main rules */
 .page-wrapper {

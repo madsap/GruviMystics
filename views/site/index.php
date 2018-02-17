@@ -102,23 +102,4 @@ $this->title = 'Main';
 </div>
 <div id="readers_teaser_cnt col-xs-12"><?= ReadersTeaser::widget(); ?></div>
 
-<div class="home_bottom text-default col-xs-12">
-    <h3 class="text-bold">Why Gruvi Mystics?</h3>
-    <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            Why pick Gruvi Mystics? <br/>
-            We screen all of our readers and psychics through actual sessions and our bar is high.
-            Bottomline, we only work with the best readers, psychics and mediums.
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 text-center">
-                    <img src="../images/foto.jpg" class=" img-thumbnail"/>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 text-center">
-                    <img src="../images/foto.jpg" class=" img-thumbnail"/>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="home_bottom col-xs-12"></div>

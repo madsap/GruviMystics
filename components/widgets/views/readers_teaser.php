@@ -30,7 +30,7 @@ use \yii\helpers\Url;
                         <div class="card-body">
                             <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
                                 <div class="reader-card-new">
-                                    <div class="col-xs-6 left-col">
+                                    <div class="col-xs-4 left-col">
                                         <div class="photo">
                                             <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">
                                             <!-- <img class="ratio img-responsive img-circle" src="<?= $item->getProfilePicUrl();?>" alt=""/> -->
@@ -39,35 +39,30 @@ use \yii\helpers\Url;
                                             <span>$<?= $item->rate; ?>/min</span>
                                         </div>
                                     </div>
-                                    <div class="col-xs-6 right-col">
-                                        <div class="card-text">
+                                    <div class="col-xs-8 right-col">
+                                        <div class="header">
                                             <?= Html::encode($item->firstName); ?>
                                         </div>
                                         <div class="content_reader_card">
-                                            <div class="card-text">
+                                            <div class="tagline">
                                                 <?= Html::encode($item->tagLine); ?>
                                             </div>
-
-                                            <?php if($item->activity == User::ACTIVITY_ONLINE){ ?>
-
-                                                <?php if($item->opt_voice){ ?>
-                                                    <!-- <a href="#" onclick="showCallDetails(<?= $item->id; ?>);return false;">Call NOW</a> -->
-                                                    <div class="bottom bg-green">Call NOW</div>
-                                                <?php }elseif($item->opt_chat){ ?>
-                                                    <div class="bottom bg-green">Chat NOW</div>
-                                                <?php }else{ ?>
-                                                    <div class="bottom bg-grey">Offline</div>
+                                        </div>
+                                        <div class="status-group">
+                                            <div>
+                                                <?php if($item->activity == User::ACTIVITY_ONLINE){ ?>
+                                                    <span class="available">Available</span>
                                                 <?php } ?>
-
-                                            <?php } ?>
-                                            <?php if($item->activity == User::ACTIVITY_SESSION){ ?>
-                                                <div class="bottom bg-orange">In Session</div>
-                                                <div class="bottom bg-grey" style="display:none;">In Session</div>
-                                            <?php } ?>
-                                            <?php if($item->activity == User::ACTIVITY_OFFLINE){ ?>
-                                                <div class="bottom bg-light-grey" style="display:none;">Offline</div>
-                                                <div class="bottom bg-grey">Offline</div>
-                                            <?php } ?>
+                                                <?php if($item->activity == User::ACTIVITY_SESSION){ ?>
+                                                    <span class="">On Call</span>
+                                                <?php } ?>
+                                                <?php if($item->activity == User::ACTIVITY_OFFLINE){ ?>
+                                                    <span class="">Offline</span>
+                                                <?php } ?>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-primary gruvi-btn" role="button">Talk</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

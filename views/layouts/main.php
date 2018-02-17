@@ -64,21 +64,6 @@ AppAsset::register($this);
         ]) ?>
         <?= $content ?>
     </div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">
-            <a class="navbar-brand" href="#"><img src="<?= Url::to(['/images/logo.png'], true);?>" alt="" class="img-responsive"/></a>
-            &copy; <?= date('Y') ?>-<?= Yii::$app->name ?> 
-        </p>
-
-        <p class="pull-right">
-            <?= Html::a('Privacy Policy', Url::to(['site/privacy-policy'])) ?>
-             |
-            <?= Html::a('Terms & Service', Url::to(['site/terms-and-service'])) ?>
-        </p>
-    </div>
-</footer>
     
 <?php 
 
