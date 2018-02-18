@@ -66,4 +66,4 @@ config/_localConfig.php
 *.zip
 *.tgz
 .htaccess
-
+*.log

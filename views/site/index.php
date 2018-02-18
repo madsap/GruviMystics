@@ -35,10 +35,9 @@ $this->title = 'Main';
                     <?php } ?>
                     <?php if (Yii::$app->user->isGuest) { ?>
                         <li><a href="<?= Url::to(['/user/sign-up'], true); ?>" class="btn">Signup</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="btn" id="dLabel" type="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">Login</a>
-                            <div class="dropdown-menu" aria-labelledby="dLabel">
+                        <li class="collapse">
+                            <a href="#" class="btn" id="dLabel" type="button" data-toggle="collapse" data-target="#loginForm" aria-haspopup="true" aria-expanded="false">Login</a>
+                            <div id="loginForm" class="dropdown-menu" aria-labelledby="dLabel">
                                 <a href="<?= Url::to(['/site/auth?authclient=facebook'], true); ?>"
                                    class="login_with_fb">
                                     <img src="<?= Url::to(['/images/facebook_logo.png'], true); ?>" alt=""/>

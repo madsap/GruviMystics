@@ -143,6 +143,30 @@ body {
 .gruvi-banner .navbar-toggle .icon-bar {
   background-color: white;
 }
+.gruvi-banner .navbar-nav > li.collapse .dropdown-menu {
+  margin-top: 0;
+  border-radius: 0;
+  border: 3px solid #db0081;
+  padding: 12px 16px 16px 16px;
+  min-width: 220px;
+}
+.gruvi-banner .navbar-nav > li.collapse .dropdown-menu .login_with_fb {
+  background-color: #aeaeae;
+  color: #ffffff !important;
+  display: block;
+  overflow: hidden;
+}
+.gruvi-banner .navbar-nav > li.collapse .dropdown-menu .login_with_fb img {
+  width: 36px;
+  float: left;
+  margin: 7px 12px;
+}
+.gruvi-banner .navbar-nav > li.collapse .dropdown-menu .login_with_fb span {
+  display: block;
+  text-align: center;
+  padding: 8px;
+  line-height: 16px;
+}
 .gruvi-banner .gruvi-menu ul > li > a {
   color: white;
   font-size: 18px;
