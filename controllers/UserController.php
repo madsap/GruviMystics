@@ -33,7 +33,7 @@ class UserController extends MainController
         return [
             'authenticate' => [
                 'class'  => '\app\filters\AuthenticateFilter',
-                'except' => ['sign-up', 'ping', 'login', 'check-online', 'forgot-password', 'reset-password', 'get-readers-teaser']
+                'except' => ['sign-up', 'ping', 'login', 'check-online', 'forgot-password', 'reset-password', 'get-readers-teaser','profile']
             ],
             'admin'        => [
                 'class' => '\app\filters\AdminFilter',
@@ -119,14 +119,18 @@ class UserController extends MainController
         $sql = "SELECT COUNT(*) as calls_count, SUM(`duration`) as calls_duration FROM `md_call` WHERE (`customerId` = :userId OR `readerId` = :userId) AND `status` = :status";
         $callsStatistic = Yii::$app->getDb()->createCommand($sql, [':userId' => $id, ':status' => Call::STATUS_DONE])->queryOne();
         
-        $model = $this->findModel($id);
+        $model = $this->findModel($id); // %PSG: model is profile being viewed
+//hh('actionProfile:'.($model->id));
+//hh('actionProfile:'.var_dump($model->id));
         
         if($model->getAttribute('role') != User::ROLE_READER){
-            return $this->redirect(['/user/update']);
+            return $this->redirect(['/user/update']); // only readers' profiles are viewable
         }
         
-        if($model->id != Yii::$app->user->identity->id){
-            $this->view->params['readerAjaxUpdate'] = $model->id;
+        $isThisMyProfile =  ( !Yii::$app->user->isGuest && (Yii::$app->user->identity->id == $model->id) ); // %PSG: Note, false if not logged in
+        if ( !$isThisMyProfile ) {
+            // %PSG: if not viewing own profile (?)
+            $this->view->params['readerAjaxUpdate'] = $model->id; 
         }
         
         return $this->render('profile', [
@@ -134,7 +138,8 @@ class UserController extends MainController
             'chat' => $model->renderChat(),
             'specialties' => $model->getSpecialties(true),
             'callsStatistic' => $callsStatistic,
-            'editable' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->id == $model->id)
+            //'editable' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->id == $model->id)
+            'editable' => $isThisMyProfile, // %PSG: must be logged in *and* viewing one's own profile
         ]);
     }
     
@@ -191,6 +196,7 @@ class UserController extends MainController
      *
      * @return Response|string
      */
+    // %PSG: handles both GET & POST (show, edit, update, etc)
     public function actionReader($id = null)
     {
         if(empty($id) || !User::isAdmin())$id = Yii::$app->user->identity->id;
@@ -213,6 +219,7 @@ class UserController extends MainController
                 unset($post['status']);
             }
             if($this->saveReader($model, $post)){
+                Yii::$app->session->setFlash('success', "Reader updated successfully.");
                 return $this->redirect(['user/reader', 'id' => $model->id]);
             }
         }
@@ -257,7 +264,7 @@ class UserController extends MainController
         
         $model->delete();     
         
-        Yii::app()->user->setFlash('success', "Reader deleted successfully.");
+        Yii::$app->session->setFlash('success', "Reader deleted successfully.");
         return $this->redirect(['user/readers']);
     }
     
@@ -289,6 +296,7 @@ class UserController extends MainController
         return $this->render('reader', [
             'model' => $model,
             'fileErrors' => $this->fileErrors,
+            'is_action_add_reader' => true,
             'attributes' => []
         ]);
     }

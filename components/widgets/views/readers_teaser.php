@@ -5,7 +5,7 @@ use \app\models\User;
 use \yii\helpers\Url;
 ?>
 
-<div class="main_container">
+<div class="main_container tag-components_widgets_views_readers_teaser" data-current_page="<?=$readers['pages']->getPage(); ?>">
     <div class="main_container_header">
         <div class="num_readers">
             <a href="#" onclick="refreshReadersTeaser('', 0);return false;" class="text-orange <?php if(empty($filter['activity']) || $filter['activity'] != User::ACTIVITY_ONLINE)echo 'text-bold active'; ?>">All (<?= $readers['total_count']; ?>)</a>
@@ -77,6 +77,13 @@ use \yii\helpers\Url;
 
 
         </div>
+    </div>
+    <div class="main_container_pagination" style="text-align:right">
+        <?= LinkPager::widget([
+            'pagination' => $readers['pages'],
+            'linkOptions' => ['class' => 'page_lnk']
+        ]);
+        ?>
     </div>
 </div> 
 

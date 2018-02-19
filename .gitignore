@@ -67,3 +67,5 @@ config/_localConfig.php
 *.tgz
 .htaccess
 *.log
+
+CMD.txt

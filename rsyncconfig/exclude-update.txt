@@ -1,11 +1,17 @@
-./vendor
-./vendor/*
+web/main.php
+web/index.php
+vendor
+vendor/*
+assets
+assets/vendor
 ./assets/*
-./rsyncconfig
-./config
-./config/*
-./data
-./data/*
+rsyncconfig
+config
+config/*
+data
+data/*
+runtime
+runtime/*
 
 .htaccess
 robots.txt
@@ -42,3 +48,6 @@ node_modules/
 node_modules/*
 
 HERE.txt
+
+web/phpMyAdmin*
+CMD.txt

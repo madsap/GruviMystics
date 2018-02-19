@@ -8,7 +8,7 @@ use yii\base\Widget;
 class ReadersTeaser extends Widget
 {
     public $page = 0;
-	public $limit = 12;
+	public $limit = 30; // 12;
     public $filter = [];
     public $recent_md5 = "";
     /**

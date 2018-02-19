@@ -24,6 +24,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+<!-- MARK RELEASE 20180209-a -->
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,9 +101,14 @@ AppAsset::register($this);
                     <?php if(!empty($this->params['readerAjaxUpdate'])){ ?> 
                         window.readerAjaxUpdate = '<?= $this->params['readerAjaxUpdate']; ?>';
                     <?php } ?>
-                    <?php if(Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED){ ?>
+<?php 
+if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) && !YII_ENV_DEV  )
+{ 
+?>
                         window.pingInterval = setInterval(function(){Gruvi.ping()}, 4096);
-                    <?php }?>
+<?php 
+}
+?>
             }); 
         </script>
 <?php } ?>    

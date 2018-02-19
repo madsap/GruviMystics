@@ -8,13 +8,21 @@ use \yii\helpers\Url;
 
 $this->title = 'About';
 ?>
-<div class="page-wrapper">
+<div class="page-wrapper tag-views_user_reader">
+    <?php if (Yii::$app->session->hasFlash('success')) { ?>
+        <div class="alert alert-success alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <?= Yii::$app->session->getFlash('success') ?>
+        </div>
+    <?php } ?>
+<?php 
+$sessionUser = Yii::$app->user;
+//var_dump($sessionUser->identity->role);
+//die;
+ ?>
     <div class="page-title text-default h3">READER: <?= ($model->isNewRecord)?"ADD":Html::encode($model->firstName.' '.$model->lastName); ?></div>
     <div class="page-container panel panel-default">
         <div class="panel-body">
-
-
-
 
             <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'class' => 'form-custom']]); ?>
 
@@ -34,15 +42,33 @@ $this->title = 'About';
                                     <?= $form->field($model, 'lastName')->textInput(['maxlength' => true]) ?>
                                 </div>
                             </div>
+<?php if ( empty($is_action_add_reader) ) { ?>
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <?= $form->field($model, 'telephone')->textInput(['maxlength' => true]) ?>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+                                    <?= $form->field($model, 'displayname')->textInput(['maxlength' => true])->label('Display Name') ?>
                                     <div class="form-control-notes">up to 20 characters - this is the name that users will see on the listings page.</div>
                                 </div>
                             </div>
+<?php } else { ?>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <?= $form->field($model, 'telephone')->textInput(['maxlength' => true]) ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <?= $form->field($model, 'username')->textInput(['maxlength' => true])->label('User Name') ?>
+                                    <div class="form-control-notes">up to 20 characters - Please enter a unique username.</div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <?= $form->field($model, 'displayname')->textInput(['maxlength' => true])->label('Display Name') ?>
+                                    <div class="form-control-notes">up to 20 characters - this is the name that users will see on the listings page.</div>
+                                </div>
+                            </div>
+<?php } ?>
                             <?= $form->field($model, 'tagLine')->textInput(['maxlength' => true]) ?>
                             <div class="form-control-notes">up to 140 characters - this is the tagline that users will see on the listings page.</div>
                             <br/>
@@ -102,7 +128,7 @@ $this->title = 'About';
                         <div class="col-sm-5 col-md-5 text-bold text-violet h4 text-left">/min</div>
                     </div>
                     <h2 class="text-pink">SET ROLE</h2>
-                    <div style="margin:30px 0px;">
+                    <div class="tag-select_role" style="margin:30px 0px;">
                         <select name="User[role]" id="role" class="form-control">
                             <?php
                             $role = $model->role;
@@ -127,6 +153,8 @@ $this->title = 'About';
                             <option value="<?= User::ROLE_READER ?>"><?=User::ROLE_READER?></option>
                             <?php
                             }
+                            /* %PSG: only admin user can upgrade users to admin */
+                            if ( 'admin' == $sessionUser->identity->role ) {
                             if($role == User::ROLE_ADMIN){
                             ?>
                             <option value="<?= User::ROLE_ADMIN ?>" selected="selected"><?=User::ROLE_ADMIN?></option>
@@ -136,6 +164,7 @@ $this->title = 'About';
                             <option value="<?= User::ROLE_ADMIN ?>"><?=User::ROLE_ADMIN?></option>
                             <?php
                             }
+                            } // admin == $sessionUser->role
                             ?>
                         </select>
                     </div>

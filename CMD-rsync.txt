@@ -1,0 +1,8 @@
+
+%%% CODEBASE A
+rsync -az --force --delete --progress --chmod=g+w       --rsync-path='rsync'       --exclude-from=rsyncconfig/exclude-update.txt       ./       gmystics:/var/www/server-gruvi/codebase-A/gruvi
+
+%%% CODEBASE B
+rsync -az --force --delete --progress --chmod=g+w       --rsync-path='rsync'       --exclude-from=rsyncconfig/exclude-init.txt       ./       gmystics:/var/www/server-gruvi/codebase-B/gruvi
+rsync -az --force --delete --progress --chmod=g+w       --rsync-path='rsync'       --exclude-from=rsyncconfig/exclude-update.txt       ./       gmystics:/var/www/server-gruvi/codebase-B/gruvi
+

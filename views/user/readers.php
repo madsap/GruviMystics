@@ -12,7 +12,13 @@ use \yii\helpers\Url;
 $this->title = 'Reader Activity';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-wrapper bg-default">
+<div class="page-wrapper bg-default tag-views_user_readers">
+    <?php if (Yii::$app->session->hasFlash('success')) { ?>
+        <div class="alert alert-success alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <?= Yii::$app->session->getFlash('success') ?>
+        </div>
+    <?php } ?>
     <h3 class="text-pink" style="margin:20px 30px 0px 30px;">
         <?= Html::encode($this->title) ?>
         <a class="btn btn_gruvi pull-right" href="<?= Url::to(['/user/add-reader'], true);?>">ADD new Reader</a>
