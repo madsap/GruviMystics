@@ -166,6 +166,14 @@ body{
     background: -webkit-linear-gradient(-45deg, #e5038c 0%,#ad1283 100%,#a52792 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, #e5038c 0%,#ad1283 100%,#a52792 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5038c', endColorstr='#a52792',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    .logo {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        img {
+            height: 40px;
+        }
+    }
     .navbar-header {
         .navbar-brand {
             img {
@@ -224,36 +232,52 @@ body{
         .register-content {
             margin: auto;
             position: relative;
-            img {
-                margin: 0;
-                padding: 0;
-                &.register {
+            .register-block {
+                margin: auto;
+                width: 80%;
+                img {
+                    margin: 0;
+                    padding: 0;
                     position: relative;
-                    top: 17px;
+                    width: 70%;
+                    top: -20px;
+                    @media @md-and-up {
+                        width: 80%;
+                        top: -45px;
+                    }
+                }
+                @media @lg-and-up {
+                    width: 65%;
                 }
             }
             .btn-lg {
                 position: relative;
-                top: 20px;
-                margin-left: 5px;
+                top: -5px;
+                margin-left: 10px;
                 text-decoration: none;
-            }
-            @media @xs-and-up {
-                width: 95%;
-                top: -45%;
-                img.tagline {
-                    width: 70%;
+                @media @md-and-up {
+                    top: -25px;
                 }
             }
-            @media @md-and-up {
-                width: 80%;
-                top: -60%;
-                img.tagline {
-                    width: 570px;
+            .add-gruvibucks {
+                margin: 20px 10px 0 0;
+                a {
+                    color: white;
+                    text-decoration: none;
+                }
+                img {
+                    height: 35px;
                 }
             }
-            @media @lg-and-up {
-                width: 65%;
+            .gruvi-bucks-block {
+                color: white;
+                margin: 10px 0 0 20px;
+                .gruvibucks {
+                    font-size: 20px;
+                    .gruvi_bucks_text_blue {
+                        font-size: 20px;
+                    }
+                }
             }
         }
     }

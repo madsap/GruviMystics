@@ -8,11 +8,15 @@ use app\components\widgets\ReadersTeaser;
 use \app\models\User;
 use \yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
 $this->title = 'Main';
 ?>
 <div class="gruvi-banner col-xs-12">
     <div class="row">
+        <div class="logo">
+            <img src="images/gm-Logo.png" alt="">
+        </div>
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -21,7 +25,6 @@ $this->title = 'Main';
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="images/gm-Logo.png" alt=""></a>
             </div>
             <div class="collapse navbar-collapse gruvi-menu" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -91,10 +94,22 @@ $this->title = 'Main';
     <div class="row">
     <div class="register-header">
         <div class="register-content">
-            <img class="tagline" src="images/register_tagline@2x.png" alt="">
-            <a href="<?= Url::to(['/user/sign-up'], true); ?>" class="btn-lg btn-primary gruvi-btn" role="button">Register</a>
+            <?php if(Yii::$app->user->isGuest){ ?>
+                <div class="register-block">
+                    <img src="images/register_tagline@2x.png" alt="">
+                    <a href="<?= Url::to(['/user/sign-up'], true); ?>" class="btn-lg btn-primary gruvi-btn" role="button">Register</a>
+                </div>
+            <?php } ?>
+            <?php if(User::isUser()){ ?>
+                <div class="gruvi-bucks-block pull-left">
+                    <div>balance:</div>
+                    <div class="gruvibucks"><span class="text-pink">GruviBucks:</span> <span class="text-blue gruvi_bucks_text_blue" id="gruvi_bucks_text_blue">$<?= Yii::$app->user->identity->getGruviBucksAmount(); ?></span></div>
+                </div>
+                <div class="pull-right add-gruvibucks">
+                    <a href="<?= Url::to(['/gruvi-bucks/add'], true);?>">add <img src="images/add@2x.png" alt=""></a>
+                </div>
+            <?php } ?>
         </div>
-        <!--            <div class="register-content">Receive <div class="count"><span>10</span></div><img class="free-image" srcset="images/free.png 1x, images/free@2x.png 2x"/>GruviBucks when you</div>-->
     </div>
     <div class="tagline">Authentic Accurate Available Light workers</div>
     </div>

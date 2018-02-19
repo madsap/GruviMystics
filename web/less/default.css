@@ -129,6 +129,14 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5038c', endColorstr='#a52792', GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
 }
+.gruvi-banner .logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+.gruvi-banner .logo img {
+  height: 40px;
+}
 .gruvi-banner .navbar-header .navbar-brand img {
   width: 50%;
 }
@@ -183,42 +191,58 @@ body {
   margin: auto;
   position: relative;
 }
-.gruvi-banner .register-header .register-content img {
+.gruvi-banner .register-header .register-content .register-block {
+  margin: auto;
+  width: 80%;
+}
+.gruvi-banner .register-header .register-content .register-block img {
   margin: 0;
   padding: 0;
-}
-.gruvi-banner .register-header .register-content img.register {
   position: relative;
-  top: 17px;
-}
-.gruvi-banner .register-header .register-content .btn-lg {
-  position: relative;
-  top: 20px;
-  margin-left: 5px;
-  text-decoration: none;
-}
-@media only screen and (min-width : 480px) {
-  .gruvi-banner .register-header .register-content {
-    width: 95%;
-    top: -45%;
-  }
-  .gruvi-banner .register-header .register-content img.tagline {
-    width: 70%;
-  }
+  width: 70%;
+  top: -20px;
 }
 @media only screen and (min-width : 992px) {
-  .gruvi-banner .register-header .register-content {
+  .gruvi-banner .register-header .register-content .register-block img {
     width: 80%;
-    top: -60%;
-  }
-  .gruvi-banner .register-header .register-content img.tagline {
-    width: 570px;
+    top: -45px;
   }
 }
 @media only screen and (min-width : 1200px) {
-  .gruvi-banner .register-header .register-content {
+  .gruvi-banner .register-header .register-content .register-block {
     width: 65%;
   }
+}
+.gruvi-banner .register-header .register-content .btn-lg {
+  position: relative;
+  top: -5px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+@media only screen and (min-width : 992px) {
+  .gruvi-banner .register-header .register-content .btn-lg {
+    top: -25px;
+  }
+}
+.gruvi-banner .register-header .register-content .add-gruvibucks {
+  margin: 20px 10px 0 0;
+}
+.gruvi-banner .register-header .register-content .add-gruvibucks a {
+  color: white;
+  text-decoration: none;
+}
+.gruvi-banner .register-header .register-content .add-gruvibucks img {
+  height: 35px;
+}
+.gruvi-banner .register-header .register-content .gruvi-bucks-block {
+  color: white;
+  margin: 10px 0 0 20px;
+}
+.gruvi-banner .register-header .register-content .gruvi-bucks-block .gruvibucks {
+  font-size: 20px;
+}
+.gruvi-banner .register-header .register-content .gruvi-bucks-block .gruvibucks .gruvi_bucks_text_blue {
+  font-size: 20px;
 }
 .gruvi-banner .tagline {
   color: white;
