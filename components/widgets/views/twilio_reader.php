@@ -1,11 +1,7 @@
     <script type="text/javascript" src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js"></script>
     <script type="text/javascript">
 
-    try {
       Twilio.Device.setup("<?= $token; ?>");
-    }catch(err) {
-        alert(err.message);
-    }
 
       Twilio.Device.ready(function (device) {
         $("#reader-log").html("<h3 style='color:green;font-weight:bold;'>ONLINE</h3>");
@@ -14,8 +10,7 @@
       Twilio.Device.error(function (error) {
         $("#reader-log").text("Error: " + error.message);
         $("#reader-call-log").text("Error: " + error.message);
-        if(error.message == "JWT Token Expired")location.reload();
-        //Twilio.Device.setup("<?= $token; ?>");//doesn't work
+        Twilio.Device.setup("<?= $token; ?>");
       });
 
       Twilio.Device.connect(function (conn) {
