@@ -1492,7 +1492,37 @@ class ApiController extends MainController {
         }
         echo json_encode($response);
     }
-
+    public function actionDeletemessage() {
+        $response = array();
+        $post = Yii::$app->request->post();
+        $header = $this->getHeaders();
+        if (!empty($header)) {
+            $header_fields = array('apiKey');
+            $request_fields = array('messageId');
+            $request_form_success = $this->verifyPost($header, $header_fields, $post, $request_fields);
+            if (!$request_form_success) {
+                $response['error'] = true;
+                $response['msg'] = 'Required parameter missing.';
+            } else {
+                $apiKey = $header['APIKEY'];
+                $validateLogin = $this->checkLogin($apiKey);
+                if ($validateLogin) {
+                    $messageId = $post['messageId'];
+                    $message = Message::findOne($messageId);
+                    $message->setStatus(Message::STATUS_DELETED);
+                    $response['error'] = false;
+                    $response['msg'] = 'Message deleted.';
+                } else {
+                    $response['error'] = true;
+                    $response['msg'] = 'Login failed.';
+                }
+            }
+        } else {
+            $response['error'] = true;
+            $response['msg'] = 'Required parameter missing.';
+        }
+        echo json_encode($response);
+    }
     public function actionLogout() {
         $response = array();
         $post = Yii::$app->request->post();
