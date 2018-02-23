@@ -1,11 +1,7 @@
     <script type="text/javascript" src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js"></script>
     <script type="text/javascript">
 
-    try {
       Twilio.Device.setup("<?= $token; ?>");
-    }catch(err) {
-        alert(err.message);
-    }
 
       Twilio.Device.ready(function (device) {
           $("#user-call-log").text("");
