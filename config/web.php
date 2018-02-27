@@ -139,7 +139,8 @@ $config = [
             // Disable r= routes
             'enablePrettyUrl' => true,
             'rules'           => [
-                'admin/blocked' => 'admin/user/index-blocked',
+                'admin/users/blocked/<id:\d+>' => 'admin/user/show-blocked',
+                'admin/users/blocked' => 'admin/user/index-blocked',
 
 				'message/<id:\d+>' => 'message/view',
 				'message/view/<id:\d+>' => 'message/view',

@@ -25,38 +25,36 @@ use \app\models\UserRelation;
 class UserController extends MainController
 {
     public $fileErrors = [];
-    /**
-     * @return array
-     */
+
     public function behaviors()
     {
         return [
             // Only allow admin access
+            /* PSG: can't get this to work, use beforeAction() instead
+            'authenticate' => [
+                'class'  => '\app\filters\AuthenticateFilter',
+                'only' => [],
+            ],
+            'guest'        => [
+                'class' => '\app\filters\GuestFilter',
+                'only' => [],
+            ],
             'admin'        => [
                 'class' => '\app\filters\AdminFilter',
                 'except'  => [],
             ],
-            /*
-            'authenticate' => [
-                'class'  => '\app\filters\AuthenticateFilter',
-                'except' => ['sign-up', 'ping', 'login', 'check-online', 'forgot-password', 'reset-password', 'get-readers-teaser','profile']
-            ],
-             */
-            /*
-            'guest'        => [
-                'class' => '\app\filters\GuestFilter',
-                'only'  => ['login', 'sign-up'],
-            ],
              */
         ];
+
     }
     
-    /*
     public function beforeAction($action)
     {            
+        if ( !User::isAdmin() ) {
+            return $this->goHome();
+        }
         return parent::beforeAction($action);
     }
-     */
 
     
     public function actionIndexBlocked()
