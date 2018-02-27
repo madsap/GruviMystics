@@ -31,12 +31,14 @@ $sessionUser = Yii::$app->user;
 
                     <table class="table">
                         <tr>
+                            <th>ID</th>
                             <th>Blocker (Sender)</th>
                             <th>Blockee (Receiver)</th>
                             <th>Date</th>
                         </tr>
                         <?php foreach ($blocked as $b) { ?>
                         <tr>
+                            <td><?= $b->id ?></td>
                             <td><?= $b->sender->email ?></td>
                             <td><?= $b->recipient->email ?></td>
                             <td><?= $b->createAt ?></td>
