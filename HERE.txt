@@ -1,0 +1,28 @@
+http://www.dev-gmystics.com/admin/blocked
+
+
+Request URL:http://www.dev-gmystics.com/user/block-ajax
+userId:175
+messageId:382
+
+=> {"data":[],"status":"ok","message":""}
+
+----
+
+- components/widgets/views/block_user_alert.php
+- components/widgets/BlockUserAlert.php
+
+- controllers/UserController.php
+
+- views/user-relation/_form.php
+- views/user-relation/index.php
+- views/layout/main.php
+
+- models/Message.php
+- models/UserRelation.php
+
+Reader view, block list:
+
+    http://www.dev-gmystics.com/user-relation
+
+
