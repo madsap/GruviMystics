@@ -40,6 +40,7 @@ class UserRelation extends \yii\db\ActiveRecord
         return 'md_user_relation';
     }
 
+
     /**
      * @inheritdoc
      */
@@ -77,6 +78,8 @@ class UserRelation extends \yii\db\ActiveRecord
             'createAt' => 'Create At',
         ];
     }
+
+    // ======== Relations =======
 
     /**
      * @return \yii\db\ActiveQuery
