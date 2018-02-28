@@ -961,11 +961,10 @@ class User extends ActiveRecord implements IdentityInterface {
         }
 
         $pass = ['messages' => $messagesShow, 'myId' => $myId, 'readerId' => $this->id, 'nextPageId' => $nextPageId];
+        //hh($pass);
         $html = Yii::$app->controller->renderPartial('@app/views/message/list', $pass);
 
         $minMessageId = count($messagesShow) ? $messagesShow[count($messagesShow) - 1]->id : "0";
-
-
 
         return ['html' => $html, 'minMessageId' => $minMessageId, 'messagesClear' => $messagesClear['ids']]; // %PSG: '$chat' in view
     }
