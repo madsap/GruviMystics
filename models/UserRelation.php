@@ -140,4 +140,16 @@ class UserRelation extends \yii\db\ActiveRecord
         $data = $data->asArray()->all();
 		return yii\helpers\ArrayHelper::map($data, 'id', 'flname');
 	}
+
+    // is target user blocked by asking user
+    public static function isBlocking ($askingUserId, $targetUserId)
+    {
+        $cnt = self::find()
+                        ->where(['senderId' => $askingUserId])
+                        ->andWhere(['recipientId' => $targetUserId])
+                        ->andWhere(['action' => 'block'])
+                        ->count();
+        $is = ($cnt > 0);
+        return $is;
+    }
 }

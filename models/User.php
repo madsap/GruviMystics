@@ -1013,4 +1013,13 @@ class User extends ActiveRecord implements IdentityInterface {
                         ->one();
     }
 
+    // $userId is the user to test whether 'this' user is blocking or not...
+    public function amIBlockingThisUser($targetUserId) 
+    {
+        $targetUser = self::find()->where(['id'=>$targetUserId])->one();
+        $is = UserRelation::isBlocking($this->id,$targetUser->id);
+        //hh($targetUser->id.', '.$this->id);
+        return $is;
+    }
+
 }
