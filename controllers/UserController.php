@@ -114,7 +114,19 @@ class UserController extends MainController
      */
     public function actionProfile($id = null)
     {
-        if(empty($id))$id = Yii::$app->user->identity->id;
+        $sessionUser = Yii::$app->user->identity;
+
+        // $id is the userId for the profile being viewed...if null set to sessionUser
+        if (empty($id)) {
+            $id = Yii::$app->user->identity->id;
+        }
+
+        if (     ($sessionUser->id != $id)  // not viewing own page
+              && $sessionUser->amIBlockingThisUser($id) 
+           )
+        {
+            return $this->goHome();
+        }
         
         $sql = "SELECT COUNT(*) as calls_count, SUM(`duration`) as calls_duration FROM `md_call` WHERE (`customerId` = :userId OR `readerId` = :userId) AND `status` = :status";
         $callsStatistic = Yii::$app->getDb()->createCommand($sql, [':userId' => $id, ':status' => Call::STATUS_DONE])->queryOne();
@@ -540,9 +552,11 @@ class UserController extends MainController
 
     public function actionReportAjax(){
 
+        /*
         if(!User::isAdmin() && !User::isReader()){
             return Site::done_json([], 'error', "503");
         }
+         */
             
         $model = new UserRelation();
         
@@ -565,9 +579,11 @@ class UserController extends MainController
     
     public function actionBlockAjax(){
 
+        /*
         if(!User::isAdmin() && !User::isReader()){
             return Site::done_json([], 'error', "503");
         }
+         */
             
         $model = new UserRelation();
         
@@ -578,6 +594,8 @@ class UserController extends MainController
         $model->action = UserRelation::ACTION_BLOCK;
         $model->setScenario("create");
         if ($model->create()) {
+            // %NOTE %PSG: if a user/customer is blocking a reader, they can't mark message as "banned", as the message is 
+            // part of a public chat (and there's no tie via FK to the user in the table if the message is sent *from* the reader)
             Message::banByUser($model->senderId, $model->recipientId);
             return Site::done_json([]);
         } else {

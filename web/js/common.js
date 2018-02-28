@@ -222,13 +222,13 @@ function blockUser(userId, messageId)
                window.minMessageId = 0;
                Gruvi.ping();
                $("#block_user_alert_modal").modal("hide");
+               location.reload();
             }else if(data.message != ""){
                 alert(data.message);
             }else{
                 alert("unhandled exception");
             }
             
-            //location.reload();
          },
          error: function(data) {
             alert("request failed");

@@ -211,7 +211,7 @@ AppAsset::register($this);
         echo Twilio::widget(['user' => Yii::$app->user->identity]);
     }
     
-    if(User::isReader()){
+    if (1 || User::isReader()) {
         echo BlockUserAlert::widget([]);
     }
     //echo ReportUserAlert::widget([]);
