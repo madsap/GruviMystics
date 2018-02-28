@@ -5,7 +5,7 @@ use \app\models\User;
 use \yii\helpers\Url;
 
 
-$this->title = 'Blocked Users/Readers';
+$this->title = 'Blocked User/Reader';
 ?>
 <div class="page-wrapper tag-views_user_reader">
     <?php if (Yii::$app->session->hasFlash('success')) { ?>
@@ -19,7 +19,7 @@ $sessionUser = Yii::$app->user;
 //var_dump($sessionUser->identity->role);
 //die;
  ?>
-    <div class="page-title text-default h3">ADMIN : Blocked Users/Readers</div>
+    <div class="page-title text-default h3">ADMIN : Blocked User/Reader</div>
 
     <div class="page-container panel panel-default">
 
@@ -30,19 +30,29 @@ $sessionUser = Yii::$app->user;
 
                     <table class="table">
                         <tr>
-                            <th>ID</th>
-                            <th>Blocker (Sender)</th>
-                            <th>Blockee (Receiver)</th>
-                            <th>Date</th>
+                            <td>ID</td>
+                            <td><?= $b->id ?></td>
                         </tr>
-                        <?php foreach ($blocked as $b) { ?>
                         <tr>
-                            <th><?= Html::a($b->id, Url::toRoute(['admin/users/blocked','pkid'=>$b->id])) ?></th>
+                            <td>Blocker (Sender) Email:</td>
                             <td><?= $b->sender->email ?></td>
+                        </tr>
+                        <tr>
+                            <td>Blocker (Sender) Username:</td>
+                            <td><?= $b->sender->username ?></td>
+                        </tr>
+                        <tr>
+                            <td>Blocked (Recipient) Email:</td>
                             <td><?= $b->recipient->email ?></td>
+                        </tr>
+                        <tr>
+                            <td>Blocked (Recipient) Username:</td>
+                            <td><?= $b->recipient->username ?></td>
+                        </tr>
+                        <tr>
+                            <td>Date:</td>
                             <td><?= $b->createAt ?></td>
                         </tr>
-                        <?php } ?>
                     </table>
 
                 </div>  <!-- col -->

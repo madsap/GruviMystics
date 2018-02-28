@@ -67,8 +67,22 @@ class UserController extends MainController
         //$readers = $searchModel->getReaders();
         
         //hh($blocked);
-        return $this->render('blocked', [
+        return $this->render('blocked/index', [
             'blocked' => $blocked
+        ]);
+    }
+
+    public function actionShowBlocked($id)
+    {
+        $blocked = UserRelation::find()
+                    ->where(['id' => $id])
+                    ->one();
+        //$searchModel = new UserSearch();
+        //$readers = $searchModel->getReaders();
+        
+        //hh($blocked);
+        return $this->render('blocked/show', [
+            'b' => $blocked
         ]);
     }
 
