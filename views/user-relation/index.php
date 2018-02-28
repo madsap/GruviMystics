@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-wrapper bg-default">
     <h3 class="text-pink" style="margin:20px 30px 0px 30px;">
-        a List of Blocked Users
+        a List of Blocked/Reported Users
         <!-- <a class="btn btn_gruvi pull-right" href="<?= Url::to(['/user-relation/create'], true);?>">ADD</a> -->
     </h3>
     <div class="page-container">
@@ -44,8 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         'filter'=>UserRelation::getRecepientForSelect($senderToFliter),
                     ];
                 $columns[] = [
+                    'attribute' => 'action',
+                    'label' => 'Action',
+                    //'value' => 'message.message'
+                    ];
+                $columns[] = [
                     'attribute' => 'messageText',
-                    'label' => 'Text',
+                    'label' => 'Message Text',
                     'value' => 'message.message'
                     ];
                 

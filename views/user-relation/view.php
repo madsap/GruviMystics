@@ -43,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'messageId',
                 'message.message',
                 'action',
+                'notes',
                 'createAt',
             ],
         ]) ?>
