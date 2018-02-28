@@ -36,18 +36,42 @@ $(document).ready(function() {
         //$('.selectpicker').selectpicker('refresh');
     });
 
-    $(document).on('submi', 'form.form-report_user', function (e) {
+    $(document).on('submit', 'form.form-report_user', function (e) {
 
         e.preventDefault();
         // Called from modal to perform action and clean-up
 
         var context = $(this);
         var crate = context.closest(".crate-modal");
-        var userId = crate.find
 
-        reportUser(userId, meesageId, report_reason);
+        //reportUser(userId, meesageId, report_reason);
+        $.ajax({
+            url: getAbsoluteUrl('user/report-ajax'),
+            type: 'POST',
+            data: context.serialize(),
+            success: function(data) {
+                
+                var globalModal = context.closest('#global_modal');
+                globalModal.modal('hide');
+                $("#supercontainer-modal_placeholder").html(''); // empty contents!
 
-        $("#report_user_alert_modal").modal("hide");
+                if (data.status == "ok") {
+                    window.minMessageId = 0;
+                    Gruvi.ping();
+                } else if(data.message != ""){
+                    alert(data.message);
+                } else{
+                    alert("unhandled exception");
+                }
+                
+                //location.reload();
+            },
+            error: function(data) {
+                alert("request failed");
+                return false;
+            },
+        });
+
 
         return false;
     });
