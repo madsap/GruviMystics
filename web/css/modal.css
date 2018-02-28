@@ -6,3 +6,7 @@
     border:3px solid #db0081;
     border-radius: 0px;
 }
+
+.crate-modal textarea {
+    width: 100%;
+}
