@@ -122,6 +122,20 @@ class User extends ActiveRecord implements IdentityInterface {
         return 'u' . $this->id . '_' . $hash;
     }
 
+    public function renderFullname() {
+        $name = '';
+        if ( !empty($this->firstName) ) {
+            $name .= $this->firstName;
+        } 
+        if ( !empty($this->lastName) ) {
+            $name .= $this->lastName;
+        } 
+        if ( empty($name) ) {
+            $name = $this->renderDisplayName();
+        }
+        return $name;
+    }
+
     public function renderDisplayName() {
         if ( !empty($this->displayname) ) {
             $name = $this->displayname;
@@ -953,7 +967,7 @@ class User extends ActiveRecord implements IdentityInterface {
 
 
 
-        return ['html' => $html, 'minMessageId' => $minMessageId, 'messagesClear' => $messagesClear['ids']];
+        return ['html' => $html, 'minMessageId' => $minMessageId, 'messagesClear' => $messagesClear['ids']]; // %PSG: '$chat' in view
     }
 
     public function getChat($minMessageId = 0, $myId = 0, $maxMessageId = 0) {

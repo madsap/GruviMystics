@@ -11,6 +11,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use app\components\widgets\ReportUserAlert;
+use app\models\Site;
+
 /**
  * UserRelationController implements the CRUD actions for UserRelation model.
  */
@@ -86,6 +89,28 @@ class UserRelationController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+    }
+
+    public function actionPartial()
+    {
+        $request = Yii::$app->request;
+        $params = $request->get();
+        //return Site::done_json(['debug' => $params]);
+        
+        switch ( $params['partial'] ) {
+            case 'report_user':
+                $html = ReportUserAlert::widget(['params'=>$params]);
+                break;
+            default:
+                $html = '';
+        }
+
+        return Site::done_json(['html' => $html]);
+        /*
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+         */
     }
 
     /**
