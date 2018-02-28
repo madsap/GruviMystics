@@ -16,6 +16,7 @@ use app\components\widgets\Twilio;
 use app\components\widgets\AddGruviBucks;
 use app\components\widgets\ExpiredSessionAlert;
 use app\components\widgets\BlockUserAlert;
+use app\components\widgets\ReportUserAlert;
 
 AppAsset::register($this);
 
@@ -213,6 +214,7 @@ AppAsset::register($this);
     if(User::isReader()){
         echo BlockUserAlert::widget([]);
     }
+    //echo ReportUserAlert::widget([]);
 
     if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAvailableForCalls()){
         //if(User::isReader())$this->registerJs("var activityStatusInterval = setInterval(getReaderCalls, 4096);");
@@ -224,6 +226,19 @@ AppAsset::register($this);
     //$this->registerJs('$("#expired_session_modal_alert").modal("toggle");');
     
 
+?>
+
+<?php
+yii\bootstrap\Modal::begin([
+    'id' => 'global_modal',
+    'headerOptions' => ['id' => 'global_modal_header'],
+    'size' => 'modal-md',
+    'closeButton' => false
+]);
+?>
+    <div id="supercontainer-modal_placeholder"></div>
+<?php
+yii\bootstrap\Modal::end();
 ?>
     
 <?php if(!Yii::$app->user->isGuest){ ?>
