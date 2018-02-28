@@ -554,7 +554,7 @@ class UserController extends MainController
         $model->action = UserRelation::ACTION_REPORT;
         $model->setScenario("create");
         if ($model->create()) {
-            Message::banByUser($model->senderId, $model->recipientId);
+            //Message::banByUser($model->senderId, $model->recipientId);  // %PSG: do *not* ban on reporting
             return Site::done_json([]);
         } else {
             $message = Site::get_error_summary($model->getErrors());
