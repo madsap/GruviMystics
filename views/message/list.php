@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 // Called from models/User.php::renderChat()
+//hh('here list');
 
 if(!empty($nextPageId)){
 ?>
@@ -42,7 +43,7 @@ if(!empty($messages)){
 
             <div class="col-md-4 col-sm-4">
 
-                <?php if($myId == $message->readerId && $myId != $message->customerId){ ?>
+                <?php if( !$message->amISender() ) { ?>
                         <a href="#" onclick="confirmBlockUser(<?= $message->customerId.', '.$message->id; ?>);return false;" id="chat_profile_user_lnk_<?= $message->id; ?>" class="text-<?= ($message->customerId == $message->readerId)?"pink":"blue" ?>">
                             <?= Html::encode($message->customer->firstName.' '.$message->customer->lastName);?>
                         </a>
