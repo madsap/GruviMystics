@@ -9,7 +9,7 @@ yii\bootstrap\Modal::begin([
 ]);
 ?>
 
-<div id='block_user_modal_cnt' class="text-center">
+<div id='block_user_modal_cnt' class="crate-modal text-center">
 
     <h4>Block <span id="block_user_modal_name_placeholder">-</span>?</h4>
     <div>

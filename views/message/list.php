@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 
 if(!empty($nextPageId)){
@@ -48,6 +49,17 @@ if(!empty($messages)){
                         </span>
                 <?php } ?>
                 <div><?= date("H:i", $message_timestamp);?></div>
+                <div>
+<!--
+                    <a href="#" onclick="confirmReportUser(<?= $message->customerId.', '.$message->id; ?>); return false;" class="text-orange">...</a>
+-->
+<a href="#" class="text-orange tag-clickme_to_show_report_modal" 
+data-route="<?= Url::toRoute(['user-relation/partial','partial'=>'report_user']) ?>" 
+data-reporter_id="<?= $message->readerId ?>" 
+data-reported_id="<?= $message->customerId ?>"
+data-message_id="<?= $message->id ?>"
+>...</a>
+                </div>
             </div>
             <div class="field_message col-md-8 col-sm-8">
                 <?php if($message->editable($myId)){?>
