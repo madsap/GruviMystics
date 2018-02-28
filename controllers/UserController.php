@@ -537,6 +537,31 @@ class UserController extends MainController
         $amount = GruviBucks::getUserBalance(Yii::$app->user->identity->id);
         return Site::done_json(['amount' => $amount]);
     }
+
+    public function actionReportAjax(){
+
+        if(!User::isAdmin() && !User::isReader()){
+            return Site::done_json([], 'error', "503");
+        }
+            
+        $model = new UserRelation();
+        
+        $request = Yii::$app->request->post();
+        $model->senderId = Yii::$app->user->identity->id;
+        $model->recipientId = !empty($request['reported_id'])?$request['reported_id']:null;
+        $model->messageId = !empty($request['message_id'])?$request['message_id']:null;
+        $model->notes = !empty($request['report_reason'])?$request['report_reason']:null;
+        $model->action = UserRelation::ACTION_REPORT;
+        $model->setScenario("create");
+        if ($model->create()) {
+            Message::banByUser($model->senderId, $model->recipientId);
+            return Site::done_json([]);
+        } else {
+            $message = Site::get_error_summary($model->getErrors());
+            return Site::done_json([], 'error', $message);
+        }
+        
+    }
     
     public function actionBlockAjax(){
 
