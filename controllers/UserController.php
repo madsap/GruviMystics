@@ -578,20 +578,20 @@ class UserController extends MainController
 
         if ($model->create()) {
 
-            if ( !YII_ENV_DEV  ) {
-                //Message::banByUser($model->senderId, $model->recipientId);  // %PSG: do *not* ban on reporting
-                $email = 'peter@peltronic.com';
-                $reporter = Yii::$app->user->identity;
-                $reported = User::find()->where(['id' => $request['reported_id']])->one();
-                Yii::$app->mailer->compose(
-                    ['html' => 'reported_user_notification-html', 'text' => 'reported_user_notification-text'],
-                    ['model'=> $model]
-                )
-                ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
-                ->setTo($email)
-                ->setSubject('[madsap] Notification For Reported User')
-                ->send();
-            }
+            //Message::banByUser($model->senderId, $model->recipientId);  // %PSG: do *not* ban on reporting
+            $email = 'peter@peltronic.com';
+            $reporter = Yii::$app->user->identity;
+            $reported = User::find()->where(['id' => $request['reported_id']])->one();
+            Yii::$app->mailer->compose(
+                ['html' => 'reported_user_notification-html', 'text' => 'reported_user_notification-text'],
+                ['model'=> $model]
+            )
+            ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'])
+            ->setTo($email)
+            ->setSubject('[madsap] Notification For Reported User')
+            ->send();
+
+            mail($email, 'Test', 'blah blah blah', "From: " . Yii::$app->params['adminEmail']);
 
             return Site::done_json([]);
         } else {
