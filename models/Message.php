@@ -151,6 +151,9 @@ class Message extends \yii\db\ActiveRecord
         // Because it's a public chat room 'owned' by the reader, only readers can 'own' the messages...
         // ...so basically this means is the reader as sessionUser in the chat
         $sessionUser = Yii::$app->user->identity;
+        if ( empty($sessionUser) ) {
+            return false;
+        }
         $amIReader = 'reader' == $sessionUser->role;
         $is = $amIReader && ($this->readerId == $sessionUser->id);
         return $is;
@@ -159,6 +162,9 @@ class Message extends \yii\db\ActiveRecord
     // am I the sender of a message
     public function amISender() {
         $sessionUser = Yii::$app->user->identity;
+        if ( empty($sessionUser) ) {
+            return false;
+        }
         switch ($sessionUser->role) {
             case 'reader':
                 $is =    ($this->customerId == $sessionUser->id)  // customer is same as reader in this case (yes this is weird)
