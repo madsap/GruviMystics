@@ -2,7 +2,34 @@
 %%% CODEBASE A: PRODUCTION
 rsync -az --force --delete --progress --chmod=g+w       --rsync-path='rsync'       --exclude-from=rsyncconfig/exclude-update.txt       ./       gmystics:/var/www/server-gruvi/codebase-A/gruvi
 
+% ONE-OFFS
+
+rsync -az --force --delete --progress \
+    --chmod=g+w       \
+    --rsync-path='rsync'       \
+    ./config/web.php \
+    gmystics:/var/www/server-gruvi/codebase-A/gruvi/config
+
+rsync -az --force --delete --progress \
+    --chmod=g+w       \
+    --rsync-path='rsync'       \
+    ./config/params.php \
+    gmystics:/var/www/server-gruvi/codebase-A/gruvi/config
+
 %%% CODEBASE B: STAGING
 ##rsync -az --force --delete --progress --chmod=g+w       --rsync-path='rsync'       --exclude-from=rsyncconfig/exclude-init.txt       ./       gmystics:/var/www/server-gruvi/codebase-B/gruvi
 rsync -az --force --delete --progress --chmod=g+w       --rsync-path='rsync'       --exclude-from=rsyncconfig/exclude-update.txt       ./       gmystics:/var/www/server-gruvi/codebase-B/gruvi
 
+% ONE-OFFS
+
+rsync -az --force --delete --progress \
+    --chmod=g+w       \
+    --rsync-path='rsync'       \
+    ./config/web.php \
+    gmystics:/var/www/server-gruvi/codebase-B/gruvi/config
+
+rsync -az --force --delete --progress \
+    --chmod=g+w       \
+    --rsync-path='rsync'       \
+    ./config/params.php \
+    gmystics:/var/www/server-gruvi/codebase-B/gruvi/config

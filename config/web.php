@@ -42,7 +42,8 @@ $config = [
         ],
         'mailer'       => [
             'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => false,
+            //'useFileTransport' => false,
+            'useFileTransport' => YII_ENV_DEV ? true : false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',

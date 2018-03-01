@@ -961,11 +961,10 @@ class User extends ActiveRecord implements IdentityInterface {
         }
 
         $pass = ['messages' => $messagesShow, 'myId' => $myId, 'readerId' => $this->id, 'nextPageId' => $nextPageId];
+        //hh($pass);
         $html = Yii::$app->controller->renderPartial('@app/views/message/list', $pass);
 
         $minMessageId = count($messagesShow) ? $messagesShow[count($messagesShow) - 1]->id : "0";
-
-
 
         return ['html' => $html, 'minMessageId' => $minMessageId, 'messagesClear' => $messagesClear['ids']]; // %PSG: '$chat' in view
     }
@@ -1012,6 +1011,15 @@ class User extends ActiveRecord implements IdentityInterface {
                                 'email = :e AND userId != :u', [':e' => $email, ':u' => $userId]
                         )
                         ->one();
+    }
+
+    // $userId is the user to test whether 'this' user is blocking or not...
+    public function amIBlockingThisUser($targetUserId) 
+    {
+        $targetUser = self::find()->where(['id'=>$targetUserId])->one();
+        $is = UserRelation::isBlocking($this->id,$targetUser->id);
+        //hh($targetUser->id.', '.$this->id);
+        return $is;
     }
 
 }

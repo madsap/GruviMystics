@@ -202,3 +202,145 @@ function isScrolledToBottom(id) {
 function scrollToBottom(id, ms) {
     $("#"+id).animate({ scrollTop: $('#'+id).prop("scrollHeight")}, ms);
 }
+
+function confirmBlockUser(userId, messageId)
+{
+    $("#block_user_modal_name_placeholder").html( $("#chat_profile_user_lnk_"+messageId).html() );
+    $("#block_user_modal_submit_button").attr('onclick', 'blockUser('+userId+', '+messageId+')');
+    $("#block_user_alert_modal").modal("toggle");
+}
+
+function blockUser(userId, messageId)
+{
+    $.ajax({
+        url: getAbsoluteUrl('user/block-ajax'),
+        type: 'POST',
+         data: {userId: userId, messageId:messageId},
+         success: function(data) {
+             
+            if(data.status == "ok"){
+               window.minMessageId = 0;
+               Gruvi.ping();
+               $("#block_user_alert_modal").modal("hide");
+               location.reload();
+            }else if(data.message != ""){
+                alert(data.message);
+            }else{
+                alert("unhandled exception");
+            }
+            
+         },
+         error: function(data) {
+            alert("request failed");
+            return false;
+         },
+     });
+}
+
+function unblockUser(rowId)
+{
+    
+    $.ajax({
+        url: getAbsoluteUrl('user/unblock-ajax'),
+        type: 'POST',
+         data: {rowId: rowId},
+         success: function(data) {
+             
+            if(data.status == "ok"){
+               location.reload();
+            }else if(data.message != ""){
+                alert(data.message);
+            }else{
+                alert("unhandled exception");
+            }
+            
+            //location.reload();
+         },
+         error: function(data) {
+            alert("request failed");
+            return false;
+         },
+     });
+}
+
+// ===========================
+
+$(document).ready(function() {
+
+    $(document).on('click', '#global_modal .tag-clickme_to_cancel', function (e) {
+        var context = $(this);
+        var globalModal = context.closest('#global_modal');
+        globalModal.modal('hide');
+        $("#supercontainer-modal_placeholder").html(''); // empty contents!
+        return false;
+    });
+
+    $(document).on('click', '.tag-clickme_to_show_report_modal', function (e) {
+
+        // Shows the modal
+
+        var context = $(this);
+
+        //$("#report_user_modal_name_placeholder").html( $("#chat_profile_user_lnk_"+messageId).html() ); // fill in name
+        //$("#report_user_alert_modal").modal("toggle"); // show modal
+
+        var url = context.data('route');
+        var payload = {
+                        'reporter_id': context.data('reporter_id'),
+                        'reported_id': context.data('reported_id'),
+                        'message_id': context.data('message_id')
+                      };
+        $.getJSON( url, payload, function(response) {
+            $("#supercontainer-modal_placeholder").html(response.data.html);
+            $("#global_modal").modal("toggle"); // show modal
+        });
+
+        // %FIXME: need to make an ajax call to (a) populate a modal placeholder (b) show it
+        // ...tear down should remove the contents that was added
+
+        //$('div.tag-report_selection  .active').trigger("click");
+        //$('.selectpicker').selectpicker('refresh');
+    });
+
+    $(document).on('submit', 'form.form-report_user', function (e) {
+
+        e.preventDefault();
+        // Called from modal to perform action and clean-up
+
+        var context = $(this);
+        var crate = context.closest(".crate-modal");
+
+        //reportUser(userId, meesageId, report_reason);
+        $.ajax({
+            url: getAbsoluteUrl('user/report-ajax'),
+            type: 'POST',
+            data: context.serialize(),
+            success: function(data) {
+                
+                var globalModal = context.closest('#global_modal');
+                globalModal.modal('hide');
+                $("#supercontainer-modal_placeholder").html(''); // empty contents!
+
+                if (data.status == "ok") {
+                    window.minMessageId = 0;
+                    Gruvi.ping();
+                } else if(data.message != ""){
+                    alert(data.message);
+                } else{
+                    alert("unhandled exception");
+                }
+                
+                //location.reload();
+            },
+            error: function(data) {
+                alert("request failed");
+                return false;
+            },
+        });
+
+
+        return false;
+    });
+
+
+});

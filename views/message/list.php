@@ -2,6 +2,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+// Called from models/User.php::renderChat()
+//hh('here list');
 
 if(!empty($nextPageId)){
 ?>
@@ -38,8 +40,10 @@ if(!empty($messages)){
     ?>
 
         <div class="chat_message_row row" id="chat-message-row-<?= $message->id; ?>">
+
             <div class="col-md-4 col-sm-4">
-                <?php if($myId == $message->readerId && $myId != $message->customerId){ ?>
+
+                <?php if( !$message->amISender() ) { ?>
                         <a href="#" onclick="confirmBlockUser(<?= $message->customerId.', '.$message->id; ?>);return false;" id="chat_profile_user_lnk_<?= $message->id; ?>" class="text-<?= ($message->customerId == $message->readerId)?"pink":"blue" ?>">
                             <?= Html::encode($message->customer->firstName.' '.$message->customer->lastName);?>
                         </a>
@@ -48,19 +52,22 @@ if(!empty($messages)){
                             <?= Html::encode($message->customer->firstName.' '.$message->customer->lastName);?>
                         </span>
                 <?php } ?>
+
                 <div><?= date("H:i", $message_timestamp);?></div>
+
+                <?php if( !$message->amISender() ) { ?>
                 <div>
-<!--
-                    <a href="#" onclick="confirmReportUser(<?= $message->customerId.', '.$message->id; ?>); return false;" class="text-orange">...</a>
--->
-<a href="#" class="text-orange tag-clickme_to_show_report_modal" 
-data-route="<?= Url::toRoute(['user-relation/partial','partial'=>'report_user']) ?>" 
-data-reporter_id="<?= $message->readerId ?>" 
-data-reported_id="<?= $message->customerId ?>"
-data-message_id="<?= $message->id ?>"
->...</a>
+                    <a href="#" class="text-orange tag-clickme_to_show_report_modal" 
+                        data-route="<?= Url::toRoute(['user-relation/partial','partial'=>'report_user']) ?>" 
+                        data-reporter_id="<?= $message->readerId ?>" 
+                        data-reported_id="<?= $message->customerId ?>"
+                        data-message_id="<?= $message->id ?>"
+                    >...</a>
                 </div>
+                <?php } ?>
+
             </div>
+
             <div class="field_message col-md-8 col-sm-8">
                 <?php if($message->editable($myId)){?>
                         <a href="#" onclick="deleteMessage(<?= $message->id ?>, <?= ($myId == $message->readerId)?"true":"false" ?>); return false;" class="delete_message"><span class="glyphicon glyphicon-remove-circle text-grey" aria-hidden="true"></span></a>
