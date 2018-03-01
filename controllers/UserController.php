@@ -121,7 +121,8 @@ class UserController extends MainController
             $id = Yii::$app->user->identity->id;
         }
 
-        if (     ($sessionUser->id != $id)  // not viewing own page
+        if (     !empty($sessionUser)   
+              && ($sessionUser->id != $id)  // not viewing own page
               && $sessionUser->amIBlockingThisUser($id) 
            )
         {
