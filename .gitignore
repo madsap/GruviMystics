@@ -70,3 +70,4 @@ config/_localConfig.php
 
 CMD.txt
 config/params.php
+sensitive.php
