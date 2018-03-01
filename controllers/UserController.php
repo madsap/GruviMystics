@@ -559,17 +559,40 @@ class UserController extends MainController
         }
          */
             
-        $model = new UserRelation();
-        
         $request = Yii::$app->request->post();
-        $model->senderId = Yii::$app->user->identity->id;
-        $model->recipientId = !empty($request['reported_id'])?$request['reported_id']:null;
-        $model->messageId = !empty($request['message_id'])?$request['message_id']:null;
-        $model->notes = !empty($request['report_reason'])?$request['report_reason']:null;
-        $model->action = UserRelation::ACTION_REPORT;
+
+        if (   empty($request['reported_id']) ) {
+            throw new Exception('missing required field reported_id');
+        }
+        if (   empty($request['message_id']) ) {
+            throw new Exception('missing required field message_id');
+        }
+
+        $model = new UserRelation();
+        $model->senderId      = Yii::$app->user->identity->id;
+        $model->recipientId   = $request['reported_id'];
+        $model->messageId     = $request['message_id'];
+        $model->notes         = !empty($request['report_reason'])?$request['report_reason']:null;
+        $model->action        = UserRelation::ACTION_REPORT;
         $model->setScenario("create");
+
         if ($model->create()) {
-            //Message::banByUser($model->senderId, $model->recipientId);  // %PSG: do *not* ban on reporting
+
+            if ( !YII_ENV_DEV  ) {
+                //Message::banByUser($model->senderId, $model->recipientId);  // %PSG: do *not* ban on reporting
+                $email = 'peter@peltronic.com';
+                $reporter = Yii::$app->user->identity;
+                $reported = User::find()->where(['id' => $request['reported_id']])->one();
+                Yii::$app->mailer->compose(
+                    ['html' => 'reported_user_notification-html', 'text' => 'reported_user_notification-text'],
+                    ['model'=> $model]
+                )
+                ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+                ->setTo($email)
+                ->setSubject('[madsap] Notification For Reported User')
+                ->send();
+            }
+
             return Site::done_json([]);
         } else {
             $message = Site::get_error_summary($model->getErrors());
