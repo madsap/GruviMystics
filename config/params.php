@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
-    'supportEmail' => 'support@example.com',
+    'adminEmail' => 'admin@gruvimystics.com',
+    'supportEmail' => 'info@gruvimystics.com',
     'stripe' => ['publishableKey' => 'pk_live_u1sC1LBlHOIp5nBGf31ffC0l', 'secretKey' => 'sk_live_sVTviGmXNrvFdhm4xi5ReuP5'],
     //'stripe' => ['publishableKey' => 'pk_test_6pRNASCoBOKtIshFeQd4XMUh', 'secretKey' => 'sk_test_BQokikJOvBiI2HlWgH4olfQ2'],
     'twilio' => [
