@@ -67,7 +67,7 @@ data/files/*
 .htaccess
 
 
-CMD.txt
+*.txt
 config/params.php
 config/_localConfig.php
 config/sensitive.php
