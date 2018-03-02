@@ -33,3 +33,9 @@ rsync -az --force --delete --progress \
     --rsync-path='rsync'       \
     ./config/params.php \
     gmystics:/var/www/server-gruvi/codebase-B/gruvi/config
+
+rsync -az --force --delete --progress \
+    --chmod=g+w       \
+    --rsync-path='rsync'       \
+    ./config/sensitive.php \
+    gmystics:/var/www/server-gruvi/codebase-B/gruvi/config

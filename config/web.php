@@ -37,8 +37,8 @@ $config = [
 		],
         'Yii2Twilio' => [
             'class' => 'filipajdacic\yiitwilio\YiiTwilio',
-            'account_sid' => 'AC0808c0df342a7f9a1422012c59fa07f6',
-            'auth_key' => '4090470bff37d20752f8e2430db0810d', 
+            'account_sid' => TWILIO_ACCOUNT_SID,
+            'auth_key' => TWILIO_AUTH_TOKEN,
         ],
         'mailer'       => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -46,10 +46,10 @@ $config = [
             'useFileTransport' => YII_ENV_DEV ? true : false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
-                'username' => 'halcyon.user@gmail.com',
-                'password' => 'h@lcy0n9',
-                'port' => '587',
+                'host' => SMTP_PORT,
+                'username' => SMTP_USERNAME,
+                'password' => SMTP_PASSWORD,
+                'port' => SMTP_PORT,
                 'encryption' => 'tls',
             ],
         ],
