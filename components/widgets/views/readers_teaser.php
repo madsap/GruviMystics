@@ -29,7 +29,7 @@ use \yii\helpers\Url;
                     <div class="card">
                         <div class="card-body">
                             <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
-                                <div class="reader-card-new">
+                                <div class="reader-card decorated">
                                     <div class="col-xs-4 left-col">
                                         <div class="photo">
                                             <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">
@@ -78,7 +78,7 @@ use \yii\helpers\Url;
 
         </div>
     </div>
-    <div class="main_container_pagination" style="text-align:right">
+    <div class="main_container_pagination">
         <?= LinkPager::widget([
             'pagination' => $readers['pages'],
             'linkOptions' => ['class' => 'page_lnk']

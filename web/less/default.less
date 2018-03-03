@@ -54,6 +54,9 @@ body{
 .text-yellow{
     color:@gruvi-yellow;
 }
+.text-purple {
+    color: @gruvi-purple-text;
+}
 .text-orange{
     color:@gruvi-orange;
 }
@@ -94,6 +97,7 @@ body{
 
 .text-bold{
     font-family: AvenirNext Bold;
+    font-weight: 900;
 }
 
 .btn_gruvi{
@@ -158,7 +162,7 @@ body{
 //}
 /* Home page*/
 .gruvi-banner{
-    height:350px;
+    height:320px;
     //padding-top: 45px;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
     background: #e5038c; /* Old browsers */
@@ -310,6 +314,7 @@ body{
     background: -webkit-linear-gradient(left, #e5038c 0%,#ad1283 50%,#4e1295 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, #e5038c 0%,#ad1283 50%,#4e1295 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5038c', endColorstr='#4e1295',GradientType=1 ); /* IE6-9 */
+    border: none;
     &:hover {
         background: #e5038c;
     }
@@ -322,7 +327,7 @@ body{
         filter: drop-shadow(0px 5px 4px grey);
         overflow: hidden;
         padding: 15px 20px 20px 20px;
-        height: 60px;
+        height: 30px;
         position: relative;
         h1, .h1,
         h2, .h2,
@@ -346,17 +351,30 @@ body{
             }
         }
     }
+    .main_container_pagination {
+        text-align: right;
+        height: 50px;
+        ul.pagination > li.active > a {
+            color: white;
+            background-color: @gruvi-purple-text;
+        }
+        ul.pagination > li > a {
+            color: @gruvi-purple-text;
+        }
+    }
     .main_container_content{
         padding: 20px;
     }
 }
-.reader-card-new {
-    border-radius: 10px;
-    filter: drop-shadow(5px 5px 5px grey);
-    border:1px solid @gruvi-light-grey;
+.reader-card {
     height:175px;
     background-color: white;
-    margin: 10px -10px;
+    &.decorated {
+        border-radius: 10px;
+        filter: drop-shadow(5px 5px 5px grey);
+        border:1px solid @gruvi-light-grey;
+        margin: 10px -10px;
+    }
     .card-text {
         color: black;
     }
@@ -402,52 +420,23 @@ body{
         }
     }
 }
-//.reader_card{
-//    border-top-right-radius: 8px;
-//    border:1px solid @gruvi-violet;
-//    height:240px;
-//
-//    .photo{
-//        width:60%;
-//        height:100%;
-//        overflow: hidden;
-//        float:left;
-//        position:relative;
-//        img{
-//            width:100%;
-//            height:auto;
-//        }
-//        .photo_bottom{
-//            background: url("../images/Transparent-PINK-Fade.png") no-repeat;
-//            background-size: 100% 100%;
-//            overflow: hidden;
-//            position: absolute;
-//            width: 100%;
-//            z-index: 100000;
-//            bottom: 0px;
-//            padding: 5px;
-//        }
-//    }
-//    .content_reader_card{
-//        width:40%;
-//        float:right;
-//        padding:5px;
-//        overflow: hidden;
-//        position: relative;
-//        height: 100%;
-//
-//        .bottom{
-//            overflow: hidden;
-//            position: absolute;
-//            width: 100%;
-//            z-index: 100000;
-//            bottom: 0px;
-//            padding: 5px;
-//            color:@gruvi-default;
-//            margin-left: -5px;
-//        }
-//    }
-//}
+.profile {
+    background-color: white;
+    .title-container {
+        text-align: center;
+        margin: 10px 0 10px 0;
+        padding: 10px 0 10px 0;
+        .title {
+            color: @gruvi-orange;
+            border-bottom: 3px solid;
+            padding-bottom: 5px;
+        }
+    }
+    .specialty-group {
+        text-align: center;
+        color: @gruvi-purple-text;
+    }
+}
 .home_bottom{
     background-color: #300760;
     height: 70px;
@@ -484,18 +473,6 @@ body{
     }
     .page-box-container{ 
         margin: 0px 0px 20px 0px;
-    }
-    .panel{
-        background-color:@gruvi-default;
-        border-radius:0px;
-    }
-    .panel-default{
-        border:2px solid @gruvi-pink;
-        overflow: hidden;
-    }
-    .panel-info{
-        border:2px solid @gruvi-grey;
-        overflow: hidden;
     }
 }
 /* Sign Up */
@@ -750,65 +727,142 @@ background-size: 100% 100%;*/
 }
 
 /* profile tab chat */
-.profile_chat_container{
-/*    padding:0px 15px;*/
-    padding-bottom: 99999px;
-    margin-bottom: -99999px;
-    float: right;
-    margin-right: -500px;
-    width: 500px;
-    background-color: @gruvi-light-blue;
-    border: 2px solid @gruvi-pink;
-    position:relative;
-    h3{
-        margin-top: -38px;
-        position: absolute;
-    }
-    .chat_message_row{
-        margin:5px;
-        .field_message{
-            background-color:#ffffff;
-            border:1px solid @gruvi-grey;
-            padding:10px; 
+.profile-chat {
+    background-color: @gruvi-light-grey;
+
+    .profile-card {
+        background-color: white;
+        filter: drop-shadow(0px 5px 4px grey);
+        margin: 10px;
+        height: 550px;
+        &.chat {
+            border-radius: 10px 10px 0 0;
         }
-        .delete_message{
-            position: absolute;
-            right: 7px;
+        &.profile {
+            border-radius: 10px;
+        }
+        .chat-panel {
+            height: 500px;
+            overflow: auto;
+        }
+        .profile-text {
+            color: @gruvi-purple-text;
+            padding: 10px;
         }
     }
-    .enter_message{
-        margin:0px;
-        input[type="text"]{
-            border:0px;
-            height: 34px;
-            padding: 6px 12px;
+    .chat-time {
+        position: relative;
+        top: 15px;
+    }
+    .chat-message {
+        .card-body {
+            filter: drop-shadow(0px 5px 5px grey);
+            margin: 10px;
+            word-wrap: break-word;
+            .reader {
+                background-color: white;
+                border-radius: 5px;
+                padding: 10px;
+            }
+            .client {
+                background-color: @gruvi-light-grey;
+                border-radius: 5px;
+                padding: 15px;
+            }
+        }
+    }
+    .enter_message {
+        margin: 0px;
+        &.panel-info {
+            border-color: white;
+        }
+        .panel-body {
+            padding: 0;
+            .no-gutter [class*="-10"] {
+                padding-right:0;
+                margin-left: -1px;
+            }
+            .no-gutter [class*="-2"] {
+                padding-left:0;
+            }
+        }
+        textarea {
+            resize: none;
+            height: 25px;
+            width: 100%;
+            padding: 2px 12px;
             font-size: 14px;
             line-height: 1.42857143;
+            border: none;
+            border-top: 1px solid @gruvi-grey;
         }
-        ::-webkit-input-placeholder { 
-            text-transform: uppercase;
-            color:@gruvi-pink;
-            opacity: 1;
-            font-weight: bold;
-          }
-          ::-moz-placeholder { 
-            text-transform: uppercase;
-            color:@gruvi-pink;
-            opacity: 1;
-            font-weight: bold;
-          }
-          :-ms-input-placeholder { 
-            text-transform: uppercase;
-            color:@gruvi-pink;
-            opacity: 1;
-            font-weight: bold;
-          }
-          :-moz-placeholder { 
-            text-transform: uppercase;
-            color:@gruvi-pink;
-            opacity: 1;
-            font-weight: bold;
-          }
+        input {
+            color: white;
+            height: 25px;
+            background-color: #952F94;
+            width: 102%;
+        }
     }
 }
+//.profile_chat_container{
+///*    padding:0px 15px;*/
+//    padding-bottom: 99999px;
+//    margin-bottom: -99999px;
+//    float: right;
+//    margin-right: -500px;
+//    width: 500px;
+//    background-color: @gruvi-light-blue;
+//    border: 2px solid @gruvi-pink;
+//    position:relative;
+//    h3{
+//        margin-top: -38px;
+//        position: absolute;
+//    }
+//    .chat_message_row{
+//        margin:5px;
+//        .field_message{
+//            background-color:#ffffff;
+//            border:1px solid @gruvi-grey;
+//            padding:10px;
+//        }
+//        .delete_message{
+//            position: absolute;
+//            right: 7px;
+//        }
+//    }
+//    .enter_message{
+//        margin:0px;
+//        input[type="text"]{
+//            border:0px;
+//            height: 34px;
+//            padding: 6px 12px;
+//            font-size: 14px;
+//            line-height: 1.42857143;
+//        }
+//        ::-webkit-input-placeholder {
+//            text-transform: uppercase;
+//            color:@gruvi-pink;
+//            opacity: 1;
+//            font-weight: bold;
+//          }
+//          ::-moz-placeholder {
+//            text-transform: uppercase;
+//            color:@gruvi-pink;
+//            opacity: 1;
+//            font-weight: bold;
+//          }
+//          :-ms-input-placeholder {
+//            text-transform: uppercase;
+//            color:@gruvi-pink;
+//            opacity: 1;
+//            font-weight: bold;
+//          }
+//          :-moz-placeholder {
+//            text-transform: uppercase;
+//            color:@gruvi-pink;
+//            opacity: 1;
+//            font-weight: bold;
+//          }
+//    }
+//}
 

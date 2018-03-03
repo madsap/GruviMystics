@@ -36,6 +36,9 @@ body {
 .text-yellow {
   color: #fcef2d;
 }
+.text-purple {
+  color: #442B5D;
+}
 .text-orange {
   color: #FA7947;
 }
@@ -74,6 +77,7 @@ body {
 }
 .text-bold {
   font-family: AvenirNext Bold;
+  font-weight: 900;
 }
 .btn_gruvi {
   background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
@@ -116,7 +120,7 @@ body {
 /* Footer */
 /* Home page*/
 .gruvi-banner {
-  height: 350px;
+  height: 320px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
   background: #e5038c;
   /* Old browsers */
@@ -282,6 +286,7 @@ body {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5038c', endColorstr='#4e1295', GradientType=1);
   /* IE6-9 */
+  border: none;
 }
 .gruvi-btn:hover {
   background: #e5038c;
@@ -295,7 +300,7 @@ body {
   filter: drop-shadow(0px 5px 4px grey);
   overflow: hidden;
   padding: 15px 20px 20px 20px;
-  height: 60px;
+  height: 30px;
   position: relative;
 }
 .main_container .main_container_header h1,
@@ -325,28 +330,41 @@ body {
 .main_container .main_container_header .num_readers a.active {
   border-bottom: 3px solid;
 }
+.main_container .main_container_pagination {
+  text-align: right;
+  height: 50px;
+}
+.main_container .main_container_pagination ul.pagination > li.active > a {
+  color: white;
+  background-color: #442B5D;
+}
+.main_container .main_container_pagination ul.pagination > li > a {
+  color: #442B5D;
+}
 .main_container .main_container_content {
   padding: 20px;
 }
-.reader-card-new {
+.reader-card {
+  height: 175px;
+  background-color: white;
+}
+.reader-card.decorated {
   border-radius: 10px;
   filter: drop-shadow(5px 5px 5px grey);
   border: 1px solid #f2f0f5;
-  height: 175px;
-  background-color: white;
   margin: 10px -10px;
 }
-.reader-card-new .card-text {
+.reader-card .card-text {
   color: black;
 }
-.reader-card-new .photo {
+.reader-card .photo {
   margin-top: 10px;
 }
-.reader-card-new .left-col {
+.reader-card .left-col {
   position: relative;
   height: 100%;
 }
-.reader-card-new .left-col .price-text {
+.reader-card .left-col .price-text {
   position: absolute;
   bottom: 10px;
   left: 25px;
@@ -354,32 +372,49 @@ body {
   text-align: center;
   font-size: 15px;
 }
-.reader-card-new .right-col {
+.reader-card .right-col {
   position: relative;
   height: 100%;
 }
-.reader-card-new .right-col .header {
+.reader-card .right-col .header {
   margin-top: 10px;
   font-size: 20px;
   color: #442B5D;
 }
-.reader-card-new .right-col .tagline {
+.reader-card .right-col .tagline {
   font-size: 12px;
   color: #737274;
 }
-.reader-card-new .right-col .status-group {
+.reader-card .right-col .status-group {
   position: absolute;
   bottom: 5px;
   right: 10px;
   color: #737274;
   text-align: center;
 }
-.reader-card-new .right-col .status-group .available {
+.reader-card .right-col .status-group .available {
   color: #45B248;
 }
-.reader-card-new .right-col .status-group .available:before {
+.reader-card .right-col .status-group .available:before {
   content: url('../images/green-check.png');
   /* with class ModalCarrot ??*/
+}
+.profile {
+  background-color: white;
+}
+.profile .title-container {
+  text-align: center;
+  margin: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
+}
+.profile .title-container .title {
+  color: #FA7947;
+  border-bottom: 3px solid;
+  padding-bottom: 5px;
+}
+.profile .specialty-group {
+  text-align: center;
+  color: #442B5D;
 }
 .home_bottom {
   background-color: #300760;
@@ -421,18 +456,6 @@ body {
 }
 .page-wrapper .page-box-container {
   margin: 0px 0px 20px 0px;
-}
-.page-wrapper .panel {
-  background-color: #ffffff !important;
-  border-radius: 0px;
-}
-.page-wrapper .panel-default {
-  border: 2px solid #db0081;
-  overflow: hidden;
-}
-.page-wrapper .panel-info {
-  border: 2px solid #aeaeae;
-  overflow: hidden;
 }
 /* Sign Up */
 .signup_page {
@@ -673,64 +696,77 @@ background-size: 100% 100%;*/
   border: 2px solid #aeaeae !important;
 }
 /* profile tab chat */
-.profile_chat_container {
-  /*    padding:0px 15px;*/
-  padding-bottom: 99999px;
-  margin-bottom: -99999px;
-  float: right;
-  margin-right: -500px;
-  width: 500px;
-  background-color: #ebf6f 6f;
-  border: 2px solid #db0081;
-  position: relative;
+.profile-chat {
+  background-color: #f2f0f5;
 }
-.profile_chat_container h3 {
-  margin-top: -38px;
-  position: absolute;
+.profile-chat .profile-card {
+  background-color: white;
+  filter: drop-shadow(0px 5px 4px grey);
+  margin: 10px;
+  height: 550px;
 }
-.profile_chat_container .chat_message_row {
-  margin: 5px;
+.profile-chat .profile-card.chat {
+  border-radius: 10px 10px 0 0;
 }
-.profile_chat_container .chat_message_row .field_message {
-  background-color: #ffffff;
-  border: 1px solid #aeaeae;
+.profile-chat .profile-card.profile {
+  border-radius: 10px;
+}
+.profile-chat .profile-card .chat-panel {
+  height: 500px;
+  overflow: auto;
+}
+.profile-chat .profile-card .profile-text {
+  color: #442B5D;
   padding: 10px;
 }
-.profile_chat_container .chat_message_row .delete_message {
-  position: absolute;
-  right: 7px;
+.profile-chat .chat-time {
+  position: relative;
+  top: 15px;
 }
-.profile_chat_container .enter_message {
+.profile-chat .chat-message .card-body {
+  filter: drop-shadow(0px 5px 5px grey);
+  margin: 10px;
+  word-wrap: break-word;
+}
+.profile-chat .chat-message .card-body .reader {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+.profile-chat .chat-message .card-body .client {
+  background-color: #f2f0f5;
+  border-radius: 5px;
+  padding: 15px;
+}
+.profile-chat .enter_message {
   margin: 0px;
 }
-.profile_chat_container .enter_message input[type="text"] {
-  border: 0px;
-  height: 34px;
-  padding: 6px 12px;
+.profile-chat .enter_message.panel-info {
+  border-color: white;
+}
+.profile-chat .enter_message .panel-body {
+  padding: 0;
+}
+.profile-chat .enter_message .panel-body .no-gutter [class*="-10"] {
+  padding-right: 0;
+  margin-left: -1px;
+}
+.profile-chat .enter_message .panel-body .no-gutter [class*="-2"] {
+  padding-left: 0;
+}
+.profile-chat .enter_message textarea {
+  resize: none;
+  height: 25px;
+  width: 100%;
+  padding: 2px 12px;
   font-size: 14px;
   line-height: 1.42857143;
+  border: none;
+  border-top: 1px solid #aeaeae;
 }
-.profile_chat_container .enter_message ::-webkit-input-placeholder {
-  text-transform: uppercase;
-  color: #db0081;
-  opacity: 1;
-  font-weight: bold;
-}
-.profile_chat_container .enter_message ::-moz-placeholder {
-  text-transform: uppercase;
-  color: #db0081;
-  opacity: 1;
-  font-weight: bold;
-}
-.profile_chat_container .enter_message :-ms-input-placeholder {
-  text-transform: uppercase;
-  color: #db0081;
-  opacity: 1;
-  font-weight: bold;
-}
-.profile_chat_container .enter_message :-moz-placeholder {
-  text-transform: uppercase;
-  color: #db0081;
-  opacity: 1;
-  font-weight: bold;
+.profile-chat .enter_message input {
+  color: white;
+  height: 25px;
+  background-color: #952F94;
+  width: 102%;
 }
