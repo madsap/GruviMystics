@@ -14,6 +14,7 @@ use app\components\widgets\Twilio;
 use app\components\widgets\AddGruviBucks;
 use app\components\widgets\ExpiredSessionAlert;
 use app\components\widgets\BlockUserAlert;
+use app\components\widgets\ReportUserAlert;
 
 AppAsset::register($this);
 
@@ -176,9 +177,10 @@ AppAsset::register($this);
         echo Twilio::widget(['user' => Yii::$app->user->identity]);
     }
     
-    if(User::isReader()){
+    if (1 || User::isReader()) {
         echo BlockUserAlert::widget([]);
     }
+    //echo ReportUserAlert::widget([]);
 
     if(!Yii::$app->user->isGuest && Yii::$app->user->identity->isAvailableForCalls()){
         //if(User::isReader())$this->registerJs("var activityStatusInterval = setInterval(getReaderCalls, 4096);");
@@ -191,6 +193,19 @@ AppAsset::register($this);
     
 
 ?>
+
+<?php
+yii\bootstrap\Modal::begin([
+    'id' => 'global_modal',
+    'headerOptions' => ['id' => 'global_modal_header'],
+    'size' => 'modal-md',
+    'closeButton' => false
+]);
+?>
+    <div id="supercontainer-modal_placeholder"></div>
+<?php
+yii\bootstrap\Modal::end();
+?>
     
 <?php if(!Yii::$app->user->isGuest){ ?>
         <script>
@@ -201,14 +216,10 @@ AppAsset::register($this);
                     <?php if(!empty($this->params['readerAjaxUpdate'])){ ?> 
                         window.readerAjaxUpdate = '<?= $this->params['readerAjaxUpdate']; ?>';
                     <?php } ?>
-<?php 
-if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) && !YII_ENV_DEV  )
-{ 
+<?php if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) && !YII_ENV_DEV  ) { 
 ?>
                         window.pingInterval = setInterval(function(){Gruvi.ping()}, 4096);
-<?php 
-}
-?>
+<?php } ?>
             }); 
         </script>
 <?php } ?>    

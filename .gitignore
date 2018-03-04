@@ -53,7 +53,6 @@ tests/_support/_generated
 data/files/*
 
 .vagrant
-config/_localConfig.php
 #web/index.php
 #yii
 
@@ -68,4 +67,7 @@ config/_localConfig.php
 .htaccess
 *.log
 
-CMD.txt
+*.txt
+config/params.php
+config/_localConfig.php
+config/sensitive.php

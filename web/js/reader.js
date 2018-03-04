@@ -1,65 +1,11 @@
 
+$(document).ready(function() {
 
-function confirmBlockUser(userId, messageId){
-    $("#block_user_modal_name_placeholder").html( $("#chat_profile_user_lnk_"+messageId).html() );
-    $("#block_user_modal_submit_button").attr('onclick', 'blockUser('+userId+', '+messageId+')');
-    $("#block_user_alert_modal").modal("toggle");
-}
-
-function blockUser(userId, messageId){
-    
-    $.ajax({
-        url: getAbsoluteUrl('user/block-ajax'),
-        type: 'POST',
-         data: {userId: userId, messageId:messageId},
-         success: function(data) {
-             
-            if(data.status == "ok"){
-               window.minMessageId = 0;
-               Gruvi.ping();
-               $("#block_user_alert_modal").modal("hide");
-            }else if(data.message != ""){
-                alert(data.message);
-            }else{
-                alert("unhandled exception");
-            }
-            
-            //location.reload();
-         },
-         error: function(data) {
-            alert("request failed");
-            return false;
-         },
-     });
-}
-
-function unblockUser(rowId){
-    
-    $.ajax({
-        url: getAbsoluteUrl('user/unblock-ajax'),
-        type: 'POST',
-         data: {rowId: rowId},
-         success: function(data) {
-             
-            if(data.status == "ok"){
-               location.reload();
-            }else if(data.message != ""){
-                alert(data.message);
-            }else{
-                alert("unhandled exception");
-            }
-            
-            //location.reload();
-         },
-         error: function(data) {
-            alert("request failed");
-            return false;
-         },
-     });
-}
+});
 
 
-function setReaderOpt(option, status){
+function setReaderOpt(option, status)
+{
 
     status = (status)?"1":"0";
     $.ajax({
@@ -81,7 +27,8 @@ function setReaderOpt(option, status){
     
 }
 
-function changeReaderStatus(obj){
+function changeReaderStatus(obj)
+{
     
     var url = (obj.options[obj.selectedIndex].value == 'available')?'user/set-active':'user/set-inactive';
     $.ajax({
@@ -104,6 +51,19 @@ function changeReaderStatus(obj){
      });
      
 }
+
+function answerReaderCall()
+{
+    window.twilioConnection.accept();
+    showCallDetails();
+}
+
+function rejectReaderCall()
+{
+    window.twilioConnection.reject();
+    if($('#call-details-modal').hasClass('in'))$('#call-details-modal').modal('toggle');
+}
+
 /*
 function getReaderCalls(){
    
@@ -145,13 +105,3 @@ function getReaderCalls(){
          },
      });
 }*/
-
-function answerReaderCall(){
-    window.twilioConnection.accept();
-    showCallDetails();
-}
-
-function rejectReaderCall(){
-    window.twilioConnection.reject();
-    if($('#call-details-modal').hasClass('in'))$('#call-details-modal').modal('toggle');
-}

@@ -114,7 +114,20 @@ class UserController extends MainController
      */
     public function actionProfile($id = null)
     {
-        if(empty($id))$id = Yii::$app->user->identity->id;
+        $sessionUser = Yii::$app->user->identity;
+
+        // $id is the userId for the profile being viewed...if null set to sessionUser
+        if (empty($id)) {
+            $id = Yii::$app->user->identity->id;
+        }
+
+        if (     !empty($sessionUser)   
+              && ($sessionUser->id != $id)  // not viewing own page
+              && $sessionUser->amIBlockingThisUser($id) 
+           )
+        {
+            return $this->goHome();
+        }
         
         $sql = "SELECT COUNT(*) as calls_count, SUM(`duration`) as calls_duration FROM `md_call` WHERE (`customerId` = :userId OR `readerId` = :userId) AND `status` = :status";
         $callsStatistic = Yii::$app->getDb()->createCommand($sql, [':userId' => $id, ':status' => Call::STATUS_DONE])->queryOne();
@@ -537,12 +550,66 @@ class UserController extends MainController
         $amount = GruviBucks::getUserBalance(Yii::$app->user->identity->id);
         return Site::done_json(['amount' => $amount]);
     }
-    
-    public function actionBlockAjax(){
 
+    public function actionReportAjax(){
+
+        /*
         if(!User::isAdmin() && !User::isReader()){
             return Site::done_json([], 'error', "503");
         }
+         */
+            
+        $request = Yii::$app->request->post();
+
+        if (   empty($request['reported_id']) ) {
+            throw new Exception('missing required field reported_id');
+        }
+        if (   empty($request['message_id']) ) {
+            throw new Exception('missing required field message_id');
+        }
+
+        $model = new UserRelation();
+        $model->senderId      = Yii::$app->user->identity->id;
+        $model->recipientId   = $request['reported_id'];
+        $model->messageId     = $request['message_id'];
+        $model->notes         = !empty($request['report_reason'])?$request['report_reason']:null;
+        $model->action        = UserRelation::ACTION_REPORT;
+        $model->setScenario("create");
+
+        if ($model->create()) {
+
+            //Message::banByUser($model->senderId, $model->recipientId);  // %PSG: do *not* ban on reporting
+
+            //$emailTo = 'peter@peltronic.com'; // %FIXME: hardcoded for debug
+            $emailTo = Yii::$app->params['adminEmail'];
+            $reporter = Yii::$app->user->identity;
+            $reported = User::find()->where(['id' => $request['reported_id']])->one();
+            Yii::$app->mailer->compose(
+                ['html' => 'reported_user_notification-html', 'text' => 'reported_user_notification-text'],
+                ['model'=> $model]
+            )
+            ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'])
+            ->setTo($emailTo)
+            ->setSubject('[madsap] Notification For Reported User')
+            ->send();
+
+            //mail($emailTo, 'Test', 'blah blah blah', "From: " . Yii::$app->params['adminEmail']);
+
+            return Site::done_json([]);
+        } else {
+            $message = Site::get_error_summary($model->getErrors());
+            return Site::done_json([], 'error', $message);
+        }
+        
+    }
+    
+    public function actionBlockAjax(){
+
+        /*
+        if(!User::isAdmin() && !User::isReader()){
+            return Site::done_json([], 'error', "503");
+        }
+         */
             
         $model = new UserRelation();
         
@@ -553,6 +620,8 @@ class UserController extends MainController
         $model->action = UserRelation::ACTION_BLOCK;
         $model->setScenario("create");
         if ($model->create()) {
+            // %NOTE %PSG: if a user/customer is blocking a reader, they can't mark message as "banned", as the message is 
+            // part of a public chat (and there's no tie via FK to the user in the table if the message is sent *from* the reader)
             Message::banByUser($model->senderId, $model->recipientId);
             return Site::done_json([]);
         } else {

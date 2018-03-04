@@ -25,12 +25,14 @@ class UserRelation extends \yii\db\ActiveRecord
     const ACTION_FOLLOW 	= 'follow';
     const ACTION_LIKE 	    = 'like';
     const ACTION_FAVORITE 	= 'favorite';
+    const ACTION_REPORT 	= 'report';
     
     public static $arrayStatuses    = [
         self::ACTION_BLOCK     => self::ACTION_BLOCK,
         self::ACTION_FOLLOW   => self::ACTION_FOLLOW,
         self::ACTION_LIKE   => self::ACTION_LIKE,
         self::ACTION_FAVORITE   => self::ACTION_FAVORITE,
+        self::ACTION_REPORT     => self::ACTION_REPORT,
     ];
     /**
      * @inheritdoc
@@ -39,6 +41,7 @@ class UserRelation extends \yii\db\ActiveRecord
     {
         return 'md_user_relation';
     }
+
 
     /**
      * @inheritdoc
@@ -77,6 +80,8 @@ class UserRelation extends \yii\db\ActiveRecord
             'createAt' => 'Create At',
         ];
     }
+
+    // ======== Relations =======
 
     /**
      * @return \yii\db\ActiveQuery
@@ -135,4 +140,16 @@ class UserRelation extends \yii\db\ActiveRecord
         $data = $data->asArray()->all();
 		return yii\helpers\ArrayHelper::map($data, 'id', 'flname');
 	}
+
+    // is target user blocked by asking user
+    public static function isBlocking ($askingUserId, $targetUserId)
+    {
+        $cnt = self::find()
+                        ->where(['senderId' => $askingUserId])
+                        ->andWhere(['recipientId' => $targetUserId])
+                        ->andWhere(['action' => 'block'])
+                        ->count();
+        $is = ($cnt > 0);
+        return $is;
+    }
 }

@@ -122,6 +122,20 @@ class User extends ActiveRecord implements IdentityInterface {
         return 'u' . $this->id . '_' . $hash;
     }
 
+    public function renderFullname() {
+        $name = '';
+        if ( !empty($this->firstName) ) {
+            $name .= $this->firstName;
+        } 
+        if ( !empty($this->lastName) ) {
+            $name .= $this->lastName;
+        } 
+        if ( empty($name) ) {
+            $name = $this->renderDisplayName();
+        }
+        return $name;
+    }
+
     public function renderDisplayName() {
         if ( !empty($this->displayname) ) {
             $name = $this->displayname;
@@ -947,13 +961,12 @@ class User extends ActiveRecord implements IdentityInterface {
         }
 
         $pass = ['messages' => $messagesShow, 'myId' => $myId, 'readerId' => $this->id, 'nextPageId' => $nextPageId];
+        //hh($pass);
         $html = Yii::$app->controller->renderPartial('@app/views/message/list', $pass);
 
         $minMessageId = count($messagesShow) ? $messagesShow[count($messagesShow) - 1]->id : "0";
 
-
-
-        return ['html' => $html, 'minMessageId' => $minMessageId, 'messagesClear' => $messagesClear['ids']];
+        return ['html' => $html, 'minMessageId' => $minMessageId, 'messagesClear' => $messagesClear['ids']]; // %PSG: '$chat' in view
     }
 
     public function getChat($minMessageId = 0, $myId = 0, $maxMessageId = 0) {
@@ -998,6 +1011,15 @@ class User extends ActiveRecord implements IdentityInterface {
                                 'email = :e AND userId != :u', [':e' => $email, ':u' => $userId]
                         )
                         ->one();
+    }
+
+    // $userId is the user to test whether 'this' user is blocking or not...
+    public function amIBlockingThisUser($targetUserId) 
+    {
+        $targetUser = self::find()->where(['id'=>$targetUserId])->one();
+        $is = UserRelation::isBlocking($this->id,$targetUser->id);
+        //hh($targetUser->id.', '.$this->id);
+        return $is;
     }
 
 }

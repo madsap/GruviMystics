@@ -146,4 +146,53 @@ class Message extends \yii\db\ActiveRecord
         $data = $data->asArray()->all();
 		return yii\helpers\ArrayHelper::map($data, 'id', 'flname');
 	}
+
+    public function amIOwner() {
+        // Because it's a public chat room 'owned' by the reader, only readers can 'own' the messages...
+        // ...so basically this means is the reader as sessionUser in the chat
+        $sessionUser = Yii::$app->user->identity;
+        if ( empty($sessionUser) ) {
+            return false;
+        }
+        $amIReader = 'reader' == $sessionUser->role;
+        $is = $amIReader && ($this->readerId == $sessionUser->id);
+        return $is;
+    }
+
+    // am I the sender of a message
+    public function amISender() {
+        $sessionUser = Yii::$app->user->identity;
+        if ( empty($sessionUser) ) {
+            return false;
+        }
+        switch ($sessionUser->role) {
+            case 'reader':
+                $is =    ($this->customerId == $sessionUser->id)  // customer is same as reader in this case (yes this is weird)
+                      && ($this->readerId == $sessionUser->id); 
+                break;
+            case 'user':
+                $is = ($this->customerId == $sessionUser->id); // customer is same as user
+                break;
+            default:
+                $is = false;
+        }
+        return $is;
+    }
+
+    // am I the receiver of a message
+    public function amIReceiver() {
+        $sessionUser = Yii::$app->user->identity;
+        switch ($sessionUser->role) {
+            case 'reader':
+                $is =  ($this->readerId == $sessionUser->id); 
+                break;
+            case 'user':
+                $is = false; // because it's a public chat, no single user/customer is a receiver
+                break;
+            default:
+                $is = false;
+        }
+        return $is;
+    }
+
 }
