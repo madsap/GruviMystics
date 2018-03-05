@@ -1523,6 +1523,46 @@ class ApiController extends MainController {
         }
         echo json_encode($response);
     }
+    public function actionReport() {
+        $response = array();
+        $post = Yii::$app->request->post();
+        $header = $this->getHeaders();
+        if (!empty($header)) {
+            $header_fields = array('apiKey');
+            $request_fields = array('messageId','reportedId','report_reason');
+            $request_form_success = $this->verifyPost($header, $header_fields, $post, $request_fields);
+            if (!$request_form_success) {
+                $response['error'] = true;
+                $response['msg'] = 'Required parameter missing.';
+            } else {
+                $apiKey = $header['APIKEY'];
+                $validateLogin = $this->checkLogin($apiKey);
+                if ($validateLogin) {
+                    $model = new UserRelation();
+                    $model->senderId      = $validateLogin->id;
+                    $model->recipientId   = $post['reportedId'];
+                    $model->messageId     = $post['messageId'];
+                    $model->notes         = !empty($post['report_reason'])?$post['report_reason']:null;
+                    $model->action        = UserRelation::ACTION_REPORT;
+                    $model->setScenario("create");
+                    if ($model->create()) {
+                        $response['error'] = FALSE;
+                        $response['msg'] = "Success";
+                    }else{
+                        $response['error'] = true;
+                        $response['msg'] = Site::get_error_summary($model->getErrors());
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['msg'] = 'Login failed.';
+                }
+            }
+        } else {
+            $response['error'] = true;
+            $response['msg'] = 'Required parameter missing.';
+        }
+        echo json_encode($response);
+    }
     public function actionLogout() {
         $response = array();
         $post = Yii::$app->request->post();
