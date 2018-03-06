@@ -1555,6 +1555,17 @@ class ApiController extends MainController {
                     $model->action        = UserRelation::ACTION_REPORT;
                     $model->setScenario("create");
                     if ($model->create()) {
+                        $emailTo = Yii::$app->params['adminEmail'];
+                        $reporter = $validateLogin->id;
+                        $reported = User::find()->where(['id' => $post['reportedId']])->one();
+                        Yii::$app->mailer->compose(
+                            ['html' => 'reported_user_notification-html', 'text' => 'reported_user_notification-text'],
+                            ['model'=> $model]
+                        )
+                        ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'])
+                        ->setTo($emailTo)
+                        ->setSubject('[madsap] Notification For Reported User')
+                        ->send();
                         $response['error'] = FALSE;
                         $response['msg'] = "Success";
                     }else{
