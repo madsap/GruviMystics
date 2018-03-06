@@ -299,6 +299,7 @@ class ApiController extends MainController {
                     $response['error'] = false;
                     $response['msg'] = 'Success';
                     $response['result'] = $result;
+                    $response['result']['displayname'] = (isset($result['displayname']) && $result['displayname'] != NULL) ? $result['displayname'] : "";
                     $response['creditCardCount'] = $user->getCreditCardCount();
                     $response['result']['pic'] = $user->getProfilePicUrl();
                     $response['bucks'] = $user->getGruviBucksAmount();
@@ -420,6 +421,7 @@ class ApiController extends MainController {
                     $response['msg'] = 'Success.';
                     $response['creditCardCount'] = $facebookUserResult->getCreditCardCount();
                     $response['result'] = $facebookUserResult->getAttributes();
+                    $response['result']['displayname'] = (isset($facebookUserResult->displayname) && $facebookUserResult->displayname != NULL) ? $facebookUserResult->displayname : "";
                     $response['result']['pic'] = $facebookUserResult->getProfilePicUrl();
                     $response['bucks'] = $facebookUserResult->getGruviBucksAmount();
                 } else {
@@ -459,6 +461,7 @@ class ApiController extends MainController {
                         $response['msg'] = 'Success.';
                         $response['creditCardCount'] = $checkUserResult->getCreditCardCount();
                         $response['result'] = $checkUserResult->getAttributes();
+                        $response['result']['displayname'] = (isset($checkUserResult->displayname) && $checkUserResult->displayname != NULL) ? $checkUserResult->displayname : "";
                         $response['result']['pic'] = $checkUserResult->getProfilePicUrl();
                         $response['bucks'] = $checkUserResult->getGruviBucksAmount();
                     } else {
@@ -490,6 +493,7 @@ class ApiController extends MainController {
                 $response['msg'] = 'Success.';
                 $response['creditCardCount'] = $twitterUserResult->getCreditCardCount();
                 $response['result'] = $twitterUserResult->getAttributes();
+                $response['result']['displayname'] = (isset($twitterUserResult->displayname) && $twitterUserResult->displayname != NULL) ? $twitterUserResult->displayname : "";
                 $response['result']['pic'] = $twitterUserResult->getProfilePicUrl();
                 $response['bucks'] = $twitterUserResult->getGruviBucksAmount();
             } else {
@@ -529,6 +533,7 @@ class ApiController extends MainController {
                     $response['msg'] = 'Success.';
                     $response['creditCardCount'] = $checkUserResult->getCreditCardCount();
                     $response['result'] = $checkUserResult->getAttributes();
+                    $response['result']['displayname'] = (isset($checkUserResult->displayname) && $checkUserResult->displayname != NULL) ? $checkUserResult->displayname : "";
                     $response['result']['pic'] = $checkUserResult->getProfilePicUrl();
                     $response['bucks'] = $checkUserResult->getGruviBucksAmount();
                 } else {
@@ -578,6 +583,7 @@ class ApiController extends MainController {
                             $speciality = $reader->getSpecialties(true);
                             $recent = Call::find()->select(['customerId'])->where(['readerId' => $reader->id, 'customerId' => $validateLogin->id])->groupBy(['customerId'])->count();
                             $readers[$key] = $reader->getAttributes();
+                            $readers[$key]['displayname'] = (isset($reader->displayname) && $reader->displayname != NULL) ? $reader->displayname : "";
                             $readers[$key]['speciality'] = $speciality;
                             $readers[$key]['recent'] = ($recent > 0) ? TRUE : FALSE;
                             $readers[$key]['pic'] = $reader->getProfilePicUrl();
@@ -620,6 +626,7 @@ class ApiController extends MainController {
                     $response['creditCardCount'] = $validateLogin->getCreditCardCount();
                     $response['bucks'] = $validateLogin->getGruviBucksAmount();
                     $response['profile'] = $currentUserData;
+                    $response['profile']['displayname'] = (isset($currentUserData['displayname']) && $currentUserData['displayname'] != NULL) ? $currentUserData['displayname'] : "";
                     $response['profile']['pic'] = $validateLogin->getProfilePicUrl();
                     $response['msg'] = 'Success.';
                 } else {
@@ -672,6 +679,7 @@ class ApiController extends MainController {
                         $response['error'] = false;
                         $response['msg'] = 'Success.';
                         $response['profile'] = $profile;
+                        $response['profile']['displayname'] = (isset($profile['displayname']) && $profile['displayname'] != NULL) ? $profile['displayname'] : "";
                         $response['profile']['pic'] = $readerResult->getProfilePicUrl();
                         $response['profile']['identity'] = $clientName;
                         $response['speciality'] = $speciality;
@@ -1295,6 +1303,7 @@ class ApiController extends MainController {
                     $response['error'] = FALSE;
                     $response['bucks'] = $validateLogin->getGruviBucksAmount();
                     $response['profile'] = $currentUserData;
+                    $response['profile']['displayname'] = (isset($currentUserData['displayname']) && $currentUserData['displayname'] != NULL) ? $currentUserData['displayname'] : "";
                     $response['creditcard'] = $creditCards;
                     $response['msg'] = 'Success.';
                 } else {
