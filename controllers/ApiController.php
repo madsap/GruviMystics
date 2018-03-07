@@ -1335,8 +1335,8 @@ class ApiController extends MainController {
                 $validateLogin = $this->checkLogin($apiKey);
                 if ($validateLogin) {
                     $currentUserData = $validateLogin->getAttributes();
-                    $userType = $currentUserData['role'];
-                    if ($userType == User::ROLE_READER || $userType == User::ROLE_ADMIN) {
+                    //$userType = $currentUserData['role'];
+                    //if ($userType == User::ROLE_READER || $userType == User::ROLE_ADMIN) {
                         foreach ($userIds as $key => $userId) {
                             $model = new UserRelation();
                             $model->senderId = $currentUserData['id'];
@@ -1349,10 +1349,10 @@ class ApiController extends MainController {
                         }
                         $response['error'] = false;
                         $response['msg'] = "User blocked successfully.";
-                    } else {
+                    /*} else {
                         $response['error'] = true;
                         $response['msg'] = "You don't have permission to block user.";
-                    }
+                    }*/
                 } else {
                     $response['error'] = true;
                     $response['msg'] = 'Invalid user, please try again.';
@@ -1382,9 +1382,9 @@ class ApiController extends MainController {
                 $validateLogin = $this->checkLogin($apiKey);
                 if ($validateLogin) {
                     $currentUserData = $validateLogin->getAttributes();
-                    $userType = $currentUserData['role'];
+                    //$userType = $currentUserData['role'];
                     $id = $currentUserData['id'];
-                    if ($userType == User::ROLE_READER || $userType == User::ROLE_ADMIN) {
+                    //if ($userType == User::ROLE_READER || $userType == User::ROLE_ADMIN) {
 
                         foreach ($userIds as $key => $userId) {
                             $model = (new UserRelation())->findOne(['senderId' => $id, 'recipientId' => $userId]);
@@ -1397,10 +1397,10 @@ class ApiController extends MainController {
                         }
                         $response['error'] = false;
                         $response['msg'] = "User unblocked successfully.";
-                    } else {
+                    /*} else {
                         $response['error'] = true;
                         $response['msg'] = "You don't have permission to block user.";
-                    }
+                    }*/
                 } else {
                     $response['error'] = true;
                     $response['msg'] = 'Invalid user, please try again.';
