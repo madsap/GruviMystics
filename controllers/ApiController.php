@@ -299,6 +299,7 @@ class ApiController extends MainController {
                     $response['error'] = false;
                     $response['msg'] = 'Success';
                     $response['result'] = $result;
+                    $response['result']['displayname'] = (isset($result['displayname']) && $result['displayname'] != NULL) ? $result['displayname'] : "";
                     $response['creditCardCount'] = $user->getCreditCardCount();
                     $response['result']['pic'] = $user->getProfilePicUrl();
                     $response['bucks'] = $user->getGruviBucksAmount();
@@ -420,6 +421,7 @@ class ApiController extends MainController {
                     $response['msg'] = 'Success.';
                     $response['creditCardCount'] = $facebookUserResult->getCreditCardCount();
                     $response['result'] = $facebookUserResult->getAttributes();
+                    $response['result']['displayname'] = (isset($facebookUserResult->displayname) && $facebookUserResult->displayname != NULL) ? $facebookUserResult->displayname : "";
                     $response['result']['pic'] = $facebookUserResult->getProfilePicUrl();
                     $response['bucks'] = $facebookUserResult->getGruviBucksAmount();
                 } else {
@@ -459,6 +461,7 @@ class ApiController extends MainController {
                         $response['msg'] = 'Success.';
                         $response['creditCardCount'] = $checkUserResult->getCreditCardCount();
                         $response['result'] = $checkUserResult->getAttributes();
+                        $response['result']['displayname'] = (isset($checkUserResult->displayname) && $checkUserResult->displayname != NULL) ? $checkUserResult->displayname : "";
                         $response['result']['pic'] = $checkUserResult->getProfilePicUrl();
                         $response['bucks'] = $checkUserResult->getGruviBucksAmount();
                     } else {
@@ -490,6 +493,7 @@ class ApiController extends MainController {
                 $response['msg'] = 'Success.';
                 $response['creditCardCount'] = $twitterUserResult->getCreditCardCount();
                 $response['result'] = $twitterUserResult->getAttributes();
+                $response['result']['displayname'] = (isset($twitterUserResult->displayname) && $twitterUserResult->displayname != NULL) ? $twitterUserResult->displayname : "";
                 $response['result']['pic'] = $twitterUserResult->getProfilePicUrl();
                 $response['bucks'] = $twitterUserResult->getGruviBucksAmount();
             } else {
@@ -529,6 +533,7 @@ class ApiController extends MainController {
                     $response['msg'] = 'Success.';
                     $response['creditCardCount'] = $checkUserResult->getCreditCardCount();
                     $response['result'] = $checkUserResult->getAttributes();
+                    $response['result']['displayname'] = (isset($checkUserResult->displayname) && $checkUserResult->displayname != NULL) ? $checkUserResult->displayname : "";
                     $response['result']['pic'] = $checkUserResult->getProfilePicUrl();
                     $response['bucks'] = $checkUserResult->getGruviBucksAmount();
                 } else {
@@ -578,6 +583,7 @@ class ApiController extends MainController {
                             $speciality = $reader->getSpecialties(true);
                             $recent = Call::find()->select(['customerId'])->where(['readerId' => $reader->id, 'customerId' => $validateLogin->id])->groupBy(['customerId'])->count();
                             $readers[$key] = $reader->getAttributes();
+                            $readers[$key]['displayname'] = (isset($reader->displayname) && $reader->displayname != NULL) ? $reader->displayname : "";
                             $readers[$key]['speciality'] = $speciality;
                             $readers[$key]['recent'] = ($recent > 0) ? TRUE : FALSE;
                             $readers[$key]['pic'] = $reader->getProfilePicUrl();
@@ -620,6 +626,7 @@ class ApiController extends MainController {
                     $response['creditCardCount'] = $validateLogin->getCreditCardCount();
                     $response['bucks'] = $validateLogin->getGruviBucksAmount();
                     $response['profile'] = $currentUserData;
+                    $response['profile']['displayname'] = (isset($currentUserData['displayname']) && $currentUserData['displayname'] != NULL) ? $currentUserData['displayname'] : "";
                     $response['profile']['pic'] = $validateLogin->getProfilePicUrl();
                     $response['msg'] = 'Success.';
                 } else {
@@ -672,6 +679,7 @@ class ApiController extends MainController {
                         $response['error'] = false;
                         $response['msg'] = 'Success.';
                         $response['profile'] = $profile;
+                        $response['profile']['displayname'] = (isset($profile['displayname']) && $profile['displayname'] != NULL) ? $profile['displayname'] : "";
                         $response['profile']['pic'] = $readerResult->getProfilePicUrl();
                         $response['profile']['identity'] = $clientName;
                         $response['speciality'] = $speciality;
@@ -1295,6 +1303,7 @@ class ApiController extends MainController {
                     $response['error'] = FALSE;
                     $response['bucks'] = $validateLogin->getGruviBucksAmount();
                     $response['profile'] = $currentUserData;
+                    $response['profile']['displayname'] = (isset($currentUserData['displayname']) && $currentUserData['displayname'] != NULL) ? $currentUserData['displayname'] : "";
                     $response['creditcard'] = $creditCards;
                     $response['msg'] = 'Success.';
                 } else {
@@ -1512,6 +1521,57 @@ class ApiController extends MainController {
                     $message->setStatus(Message::STATUS_DELETED);
                     $response['error'] = false;
                     $response['msg'] = 'Message deleted.';
+                } else {
+                    $response['error'] = true;
+                    $response['msg'] = 'Login failed.';
+                }
+            }
+        } else {
+            $response['error'] = true;
+            $response['msg'] = 'Required parameter missing.';
+        }
+        echo json_encode($response);
+    }
+    public function actionReport() {
+        $response = array();
+        $post = Yii::$app->request->post();
+        $header = $this->getHeaders();
+        if (!empty($header)) {
+            $header_fields = array('apiKey');
+            $request_fields = array('messageId','reportedId','report_reason');
+            $request_form_success = $this->verifyPost($header, $header_fields, $post, $request_fields);
+            if (!$request_form_success) {
+                $response['error'] = true;
+                $response['msg'] = 'Required parameter missing.';
+            } else {
+                $apiKey = $header['APIKEY'];
+                $validateLogin = $this->checkLogin($apiKey);
+                if ($validateLogin) {
+                    $model = new UserRelation();
+                    $model->senderId      = $validateLogin->id;
+                    $model->recipientId   = $post['reportedId'];
+                    $model->messageId     = $post['messageId'];
+                    $model->notes         = !empty($post['report_reason'])?$post['report_reason']:null;
+                    $model->action        = UserRelation::ACTION_REPORT;
+                    $model->setScenario("create");
+                    if ($model->create()) {
+                        $emailTo = Yii::$app->params['adminEmail'];
+                        $reporter = $validateLogin->id;
+                        $reported = User::find()->where(['id' => $post['reportedId']])->one();
+                        Yii::$app->mailer->compose(
+                            ['html' => 'reported_user_notification-html', 'text' => 'reported_user_notification-text'],
+                            ['model'=> $model]
+                        )
+                        ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'])
+                        ->setTo($emailTo)
+                        ->setSubject('[madsap] Notification For Reported User')
+                        ->send();
+                        $response['error'] = FALSE;
+                        $response['msg'] = "Success";
+                    }else{
+                        $response['error'] = true;
+                        $response['msg'] = Site::get_error_summary($model->getErrors());
+                    }
                 } else {
                     $response['error'] = true;
                     $response['msg'] = 'Login failed.';
