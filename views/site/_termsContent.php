@@ -8,7 +8,11 @@
         <p class="c0"><h2 class="c6">Readers</h2><span class="c2"><br>All of the services Gruvi Mustics provides uses only top-notch, highly-vetted, skilled specialists.</span></p>
         <h3 class="c3"><span class="c1">Purchases</span></h3>
         <p class="c0"><span class="c2">If you wish to purchase any product or service made available through the Service (&quot;Purchase&quot;), you may be asked to supply certain information relevant to your Purchase including, without limitation, your credit card number, the expiration date of your credit card, your billing address, and your shipping information.</span></p>
-        <p class="c0"><span class="c2">You represent and warrant that: (i) you have the legal right to use any credit card(s) or other payment method(s) in connection with any Purchase; and that (ii) the information you supply to us is true, correct and complete.</span></p>
+        <p class="c0"><span class="c2">You represent and warrant that: 
+<ul>
+<li>(i) you have the legal right to use any credit card(s) or other payment method(s) in connection with any Purchase; and that </li>
+<li>(ii) the information you supply to us is true, correct and complete.</span></p></li>
+</ul>
         <p class="c0"><span class="c2">The service may employ the use of third party services for the purpose of facilitating payment and the completion of Purchases. By submitting your information, you grant us the right to provide the information to these third parties subject to our Privacy Policy.</span></p>
         <p class="c0"><span class="c2">We reserve the right to refuse or cancel your order at any time for reasons including but not limited to: product or service availability, errors in the description or price of the product or service, error in your order or other reasons.</span></p>
         <p class="c0"><span class="c2">We reserve the right to refuse or cancel your order if fraud or an unauthorized or illegal transaction is suspected.</span></p>
@@ -50,4 +54,5 @@
         <p class="c0"><span class="c2">By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service.</span></p>
         <h3 class="c3"><span class="c1">Contact Us</span></h3>
         <p class="c0"><span class="c2">If you have any questions about these Terms, please contact us.</span></p>
+        <p class="">Email: <a href="mailto:info@gruvimystics.com">info@gruvimystics.com</a></p>
 
