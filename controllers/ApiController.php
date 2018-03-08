@@ -1223,7 +1223,7 @@ class ApiController extends MainController {
         $header = $this->getHeaders();
         if (!empty($header)) {
             $header_fields = array('apiKey');
-            $request_fields = array('firstName', 'lastName', 'email', 'telephone', 'tagLine', 'description', 'specialties');
+            $request_fields = array('firstName', 'lastName','displayname','email', 'telephone', 'tagLine', 'description', 'specialties');
             $request_form_success = $this->verifyPost($header, $header_fields, $post, $request_fields);
             if (!$request_form_success) {
                 $response['error'] = true;
@@ -1244,8 +1244,9 @@ class ApiController extends MainController {
                         unset($post['photo']);
 
                         if ($validateFile) {
-
+                            
                             $data['User'] = $post;
+                            $validateFile->displayname = $post['displayname'];
                             if ($validateLogin->load($data) && $validateLogin->save()) {
                                 $validateLogin->saveSpecialties();
                                 $UserAuth = UserAuthType::findOne(['userId' => $validateLogin->id, 'registrationType' => 'email']);
@@ -1335,8 +1336,8 @@ class ApiController extends MainController {
                 $validateLogin = $this->checkLogin($apiKey);
                 if ($validateLogin) {
                     $currentUserData = $validateLogin->getAttributes();
-                    $userType = $currentUserData['role'];
-                    if ($userType == User::ROLE_READER || $userType == User::ROLE_ADMIN) {
+                    //$userType = $currentUserData['role'];
+                    //if ($userType == User::ROLE_READER || $userType == User::ROLE_ADMIN) {
                         foreach ($userIds as $key => $userId) {
                             $model = new UserRelation();
                             $model->senderId = $currentUserData['id'];
@@ -1349,10 +1350,10 @@ class ApiController extends MainController {
                         }
                         $response['error'] = false;
                         $response['msg'] = "User blocked successfully.";
-                    } else {
+                    /*} else {
                         $response['error'] = true;
                         $response['msg'] = "You don't have permission to block user.";
-                    }
+                    }*/
                 } else {
                     $response['error'] = true;
                     $response['msg'] = 'Invalid user, please try again.';
@@ -1382,9 +1383,9 @@ class ApiController extends MainController {
                 $validateLogin = $this->checkLogin($apiKey);
                 if ($validateLogin) {
                     $currentUserData = $validateLogin->getAttributes();
-                    $userType = $currentUserData['role'];
+                    //$userType = $currentUserData['role'];
                     $id = $currentUserData['id'];
-                    if ($userType == User::ROLE_READER || $userType == User::ROLE_ADMIN) {
+                    //if ($userType == User::ROLE_READER || $userType == User::ROLE_ADMIN) {
 
                         foreach ($userIds as $key => $userId) {
                             $model = (new UserRelation())->findOne(['senderId' => $id, 'recipientId' => $userId]);
@@ -1397,10 +1398,10 @@ class ApiController extends MainController {
                         }
                         $response['error'] = false;
                         $response['msg'] = "User unblocked successfully.";
-                    } else {
+                    /*} else {
                         $response['error'] = true;
                         $response['msg'] = "You don't have permission to block user.";
-                    }
+                    }*/
                 } else {
                     $response['error'] = true;
                     $response['msg'] = 'Invalid user, please try again.';
