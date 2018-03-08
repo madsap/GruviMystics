@@ -52,12 +52,10 @@ use \yii\helpers\Url;
                                             <div>
                                                 <?php if($item->activity == User::ACTIVITY_ONLINE){ ?>
                                                     <span class="available">Available</span>
-                                                <?php } ?>
-                                                <?php if($item->activity == User::ACTIVITY_SESSION){ ?>
+                                                <?php } else if($item->activity == User::ACTIVITY_SESSION) { ?>
                                                     <span class="">On Call</span>
-                                                <?php } ?>
-                                                <?php if($item->activity == User::ACTIVITY_OFFLINE){ ?>
-                                                    <span class="">Offline</span>
+                                                <?php } else { ?>
+                                                    <span>Offline</span>
                                                 <?php } ?>
                                             </div>
                                             <div>

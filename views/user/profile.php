@@ -7,7 +7,7 @@ use \app\models\User;
 
 <div class="profile col-xs-12">
     <div class="row">
-        <div class="card col-xs-4">
+        <div class="card col-xs-5 col-xs-offset-1">
             <div class="card-body">
                 <div class="reader-card">
                     <div class="col-xs-4 left-col">
@@ -16,7 +16,7 @@ use \app\models\User;
                             <!-- <img class="ratio img-responsive img-circle" src="<?= $model->getProfilePicUrl(); ?>" alt=""/> -->
                         </div>
                         <div class="price-text">
-                            <span>$<?= $model->rate; ?>/min</span>
+                            <span>$<?= $model->rate; ?></span><span class="suffix">/min</span>
                         </div>
                     </div>
                     <div class="col-xs-8 right-col">
@@ -48,7 +48,7 @@ use \app\models\User;
                 </div>
             </div>
         </div>
-        <div class="col-xs-5 col-xs-offset-3">
+        <div class="col-xs-5 col-xs-offset-1">
             <div class="title-container">
                 <span class="title">Specialties</span>
             </div>
