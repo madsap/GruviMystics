@@ -1223,7 +1223,7 @@ class ApiController extends MainController {
         $header = $this->getHeaders();
         if (!empty($header)) {
             $header_fields = array('apiKey');
-            $request_fields = array('firstName', 'lastName', 'email', 'telephone', 'tagLine', 'description', 'specialties');
+            $request_fields = array('firstName', 'lastName','displayname','email', 'telephone', 'tagLine', 'description', 'specialties');
             $request_form_success = $this->verifyPost($header, $header_fields, $post, $request_fields);
             if (!$request_form_success) {
                 $response['error'] = true;
