@@ -1246,7 +1246,7 @@ class ApiController extends MainController {
                         if ($validateFile) {
 
                             $data['User'] = $post;
-                            $validateFile->displayname = $post['displayname'];
+                            $validateLogin->displayname = $post['displayname'];
                             if ($validateLogin->load($data) && $validateLogin->save()) {
                                 $validateLogin->saveSpecialties();
                                 $UserAuth = UserAuthType::findOne(['userId' => $validateLogin->id, 'registrationType' => 'email']);
