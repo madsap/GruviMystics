@@ -23,11 +23,11 @@ if (!empty($messages)) {
         $date_div_id = $string_date;
 
         if ($string_date == date("Y-m-d")) {
-            $new_date_line = "today";
-            $date_div_id = "today";
+            $new_date_line = "Today";
+            $date_div_id = "Today";
         } elseif ($string_date == date("Y-m-d", time() - 24 * 3600)) {
-            $new_date_line = "yesterday";
-        } elseif ($message_timestamp > time() - (7 * 24 * 3600)) {
+            $new_date_line = "Yesterday";
+        }  elseif ($message_timestamp > time() - (7 * 24 * 3600)) {
             $new_date_line = strtoupper(date("l", $message_timestamp));
         } else {
             $new_date_line = strtoupper(date("M d, Y", $message_timestamp));
@@ -35,7 +35,7 @@ if (!empty($messages)) {
 
         if ($new_date_line != $current_date_line) {
             $current_date_line = $new_date_line;
-            echo '<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4" id="chat-message-row-header-' . $date_div_id . '"><span class="text-grey">' . $current_date_line . '</span></div>';
+            echo '<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 chat-date" id="chat-message-row-header-' . $date_div_id . '"><span class="text-grey">' . $current_date_line . '</span></div>';
         }
 
         ?>

@@ -100,7 +100,7 @@ AppAsset::register($this);
 
                                             <?php $form = ActiveForm::begin([
                                                 'id' => 'login-form',
-                                                'action' => Url::to(['/site/login']),
+                                                'action' => Url::to(['/main.php/site/login']),
                                                 'options' => ['class' => 'form-custom']
                                             ]); ?>
 
@@ -156,7 +156,7 @@ AppAsset::register($this);
                                 <div class="gruvibucks"><span class="text-pink">GruviBucks:</span> <span class="text-blue gruvi_bucks_text_blue" id="gruvi_bucks_text_blue">$<?= Yii::$app->user->identity->getGruviBucksAmount(); ?></span></div>
                             </div>
                             <div class="pull-right add-gruvibucks">
-                                <a href="<?= Url::to(['/gruvi-bucks/add'], true);?>">add <img src="/images/add@2x.png" alt=""></a>
+                                <a href="<?= Url::to(['/gruvi-bucks/add'], true);?>">add <img class="grow" src="/images/add@2x.png" alt=""></a>
                             </div>
                         <?php } ?>
                     </div>

@@ -6,7 +6,7 @@ use \app\models\User;
 ?>
 
 <div class="profile col-xs-12">
-    <div class="row">
+    <div class="row profile-header">
         <div class="card col-xs-5 col-xs-offset-1">
             <div class="card-body">
                 <div class="reader-card">

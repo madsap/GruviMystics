@@ -360,6 +360,10 @@ body {
 .reader-card .photo {
   margin-top: 10px;
 }
+.reader-card .photo img {
+  border: 1px solid #db0081;
+  filter: drop-shadow(2px 2px 5px grey);
+}
 .reader-card .left-col {
   position: relative;
   height: 100%;
@@ -370,7 +374,10 @@ body {
   left: 25px;
   color: #442B5D;
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
+}
+.reader-card .left-col .price-text .suffix {
+  font-size: 12px;
 }
 .reader-card .right-col {
   position: relative;
@@ -413,7 +420,7 @@ body {
   padding-bottom: 5px;
 }
 .profile .specialty-group {
-  text-align: center;
+  text-align: left;
   color: #442B5D;
 }
 .home_bottom {
@@ -460,8 +467,8 @@ body {
 /* Sign Up */
 .signup_page {
   width: 276px;
-  margin-left: auto!important;
-  margin-right: auto!important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding: 20px;
 }
 .signup_page .login_with_fb {
@@ -484,18 +491,18 @@ body {
 .form-container {
   border: 1px solid #000;
   margin-bottom: 10px;
-  /*        ::-webkit-input-placeholder { 
-            text-transform: uppercase;
-          }
-          ::-moz-placeholder { 
-            text-transform: uppercase;
-          }
-          :-ms-input-placeholder { 
-            text-transform: uppercase;
-          }
-          :-moz-placeholder { 
-            text-transform: uppercase;
-          }*/
+  /*        ::-webkit-input-placeholder {
+              text-transform: uppercase;
+            }
+            ::-moz-placeholder {
+              text-transform: uppercase;
+            }
+            :-ms-input-placeholder {
+              text-transform: uppercase;
+            }
+            :-moz-placeholder {
+              text-transform: uppercase;
+            }*/
 }
 .form-container .form-control {
   border-top: 0px;
@@ -516,7 +523,7 @@ body {
   padding: 0px 10px 0px 0px;
 }
 .form-container .help-block-error {
-  margin: 0px!important;
+  margin: 0px !important;
 }
 /* Gruvi Bucks */
 .gruvi-bucks-create .add_title {
@@ -665,8 +672,8 @@ body {
   color: #51b25d;
   transition: all .2s;
   /*      content: url('../images/np_check.png');
-      background: url('../images/np_check.png');
-background-size: 100% 100%;*/
+          background: url('../images/np_check.png');
+    background-size: 100% 100%;*/
 }
 .profile_call_manage [type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
@@ -695,13 +702,19 @@ background-size: 100% 100%;*/
 .profile_call_manage label:hover:before {
   border: 2px solid #aeaeae !important;
 }
+/* Transformations */
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.1);
+}
 /* profile tab chat */
 .profile-chat {
   background-color: #f2f0f5;
 }
 .profile-chat .profile-card {
   background-color: white;
-  filter: drop-shadow(0px 5px 4px grey);
   margin: 10px;
   height: 550px;
 }
@@ -715,6 +728,9 @@ background-size: 100% 100%;*/
   height: 500px;
   overflow: auto;
 }
+.profile-chat .profile-card .chat-panel .chat-date {
+  margin-top: 30px;
+}
 .profile-chat .profile-card .profile-text {
   color: #442B5D;
   padding: 10px;
@@ -724,7 +740,7 @@ background-size: 100% 100%;*/
   top: 15px;
 }
 .profile-chat .chat-message .card-body {
-  filter: drop-shadow(0px 5px 5px grey);
+  filter: drop-shadow(0px 2px 2px grey);
   margin: 10px;
   word-wrap: break-word;
 }

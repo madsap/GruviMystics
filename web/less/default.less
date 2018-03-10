@@ -1,6 +1,6 @@
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 @xs-and-up: ~"only screen and (min-width : 480px)";
@@ -8,29 +8,32 @@ body {
 @md-and-up: ~"only screen and (min-width : 992px)";
 @lg-and-up: ~"only screen and (min-width : 1200px)";
 
+@font-face {
+  font-family: "AvenirNext Bold";
+  src: url("fonts/AvenirNextLTPro-Bold.otf");
+}
 
 @font-face {
-      font-family: "AvenirNext Bold";
-      src: url("fonts/AvenirNextLTPro-Bold.otf");
-      }
-@font-face {
-    font-family: "AvenirNext Regular";
-    src: url("fonts/AvenirNextLTPro-Regular.otf");
+  font-family: "AvenirNext Regular";
+  src: url("fonts/AvenirNextLTPro-Regular.otf");
 }
+
 @font-face {
-    font-family: "AvenirNext It";
-    src: url("fonts/AvenirNextLTPro-It.otf");
+  font-family: "AvenirNext It";
+  src: url("fonts/AvenirNextLTPro-It.otf");
 }
-body{
-    //font-family: AvenirNext Regular;
-    font-size:14px;
-     background: url("../images/background3.png");
+
+body {
+  //font-family: AvenirNext Regular;
+  font-size: 14px;
+  background: url("../images/background3.png");
   -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-@gruvi-default: #ffffff!important;
+
+@gruvi-default: #ffffff !important;
 @gruvi-pink: #db0081; /* this color use @brand-primary fron bootstrap.min.css*/
 @gruvi-blue: #40a7eb;
 @gruvi-light-blue: #ebf6f;
@@ -42,102 +45,121 @@ body{
 @gruvi-grey: #aeaeae; /*#cfcfcf;*/
 @gruvi-purple-text: #442B5D;
 
-.text-default{
-    color:@gruvi-default;
+.text-default {
+  color: @gruvi-default;
 }
-.text-pink{
-    color:@gruvi-pink;
+
+.text-pink {
+  color: @gruvi-pink;
 }
-.text-blue{
-    color:@gruvi-blue;
+
+.text-blue {
+  color: @gruvi-blue;
 }
-.text-yellow{
-    color:@gruvi-yellow;
+
+.text-yellow {
+  color: @gruvi-yellow;
 }
+
 .text-purple {
-    color: @gruvi-purple-text;
-}
-.text-orange{
-    color:@gruvi-orange;
-}
-.text-violet{
-    color:@gruvi-violet;
-}
-.text-green{
-    color:@gruvi-green;
-}
-.text-light-grey{
-    color:@gruvi-light-grey;
-}
-.text-grey{
-    color:@gruvi-grey;
+  color: @gruvi-purple-text;
 }
 
-.bg-default{
-    background-color:@gruvi-default;
-}
-.bg-orange{
-    background-color:@gruvi-orange;
-}
-.bg-green{
-    background-color:@gruvi-green;
-}
-.bg-light-blue{
-    background-color:@gruvi-light-blue;
-}
-.bg-light-grey{
-    background-color:@gruvi-light-grey;
-}
-.bg-grey{
-    background-color:@gruvi-grey;
-}
-.bg-violet{
-    background-color:@gruvi-violet;
+.text-orange {
+  color: @gruvi-orange;
 }
 
-.text-bold{
-    font-family: AvenirNext Bold;
-    font-weight: 900;
+.text-violet {
+  color: @gruvi-violet;
 }
 
-.btn_gruvi{
-    background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
-     background-size: 100% 100%;
-     overflow: hidden;
-     color:@gruvi-default!important;
-     font-size:16px;
- }
+.text-green {
+  color: @gruvi-green;
+}
+
+.text-light-grey {
+  color: @gruvi-light-grey;
+}
+
+.text-grey {
+  color: @gruvi-grey;
+}
+
+.bg-default {
+  background-color: @gruvi-default;
+}
+
+.bg-orange {
+  background-color: @gruvi-orange;
+}
+
+.bg-green {
+  background-color: @gruvi-green;
+}
+
+.bg-light-blue {
+  background-color: @gruvi-light-blue;
+}
+
+.bg-light-grey {
+  background-color: @gruvi-light-grey;
+}
+
+.bg-grey {
+  background-color: @gruvi-grey;
+}
+
+.bg-violet {
+  background-color: @gruvi-violet;
+}
+
+.text-bold {
+  font-family: AvenirNext Bold;
+  font-weight: 900;
+}
+
+.btn_gruvi {
+  background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  color: @gruvi-default !important;
+  font-size: 16px;
+}
+
 .btn-green {
-    color: #000;
-    background-color: @gruvi-green;
-    border-color: @gruvi-green;
-    border-radius:0px;
+  color: #000;
+  background-color: @gruvi-green;
+  border-color: @gruvi-green;
+  border-radius: 0px;
 }
+
 .btn-default {
-    color: @gruvi-default;
-    background-color: @gruvi-grey;
-    border-color: @gruvi-grey;
-    border-radius:0px;
+  color: @gruvi-default;
+  background-color: @gruvi-grey;
+  border-color: @gruvi-grey;
+  border-radius: 0px;
 }
+
 .btn-red {
-    color: #fff;
-    background-color: #ac2925;
-    border-color: #ac2925;
-    border-radius: 0px;
+  color: #fff;
+  background-color: #ac2925;
+  border-color: #ac2925;
+  border-radius: 0px;
 }
+
 /* form*/
-.form-custom{
-    .form-control{
-        border-radius:0px;
-        border-color:@gruvi-pink;
-    }
-    .control-label, label{
-        color:@gruvi-pink;
-    }
-    .form-control-notes{
-        font-size: 10px;
-        margin-top:-10px;
-    }
+.form-custom {
+  .form-control {
+    border-radius: 0px;
+    border-color: @gruvi-pink;
+  }
+  .control-label, label {
+    color: @gruvi-pink;
+  }
+  .form-control-notes {
+    font-size: 10px;
+    margin-top: -10px;
+  }
 }
 
 /* Footer */
@@ -161,649 +183,676 @@ body{
 //    }
 //}
 /* Home page*/
-.gruvi-banner{
-    height:320px;
-    //padding-top: 45px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
-    background: #e5038c; /* Old browsers */
-    background: -moz-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #e5038c 0%,#ad1283 100%,#a52792 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, #e5038c 0%,#ad1283 100%,#a52792 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5038c', endColorstr='#a52792',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    .logo {
-        position: absolute;
-        top: 10px;
-        left: 20px;
-        img {
-            height: 40px;
-        }
+.gruvi-banner {
+  height: 320px;
+  //padding-top: 45px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+100,a52792+100 */
+  background: #e5038c; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #e5038c 0%, #ad1283 100%, #a52792 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #e5038c 0%, #ad1283 100%, #a52792 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5038c', endColorstr='#a52792', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    img {
+      height: 40px;
     }
-    .navbar-header {
-        .navbar-brand {
-            img {
-                width: 50%;
-                @media @md-and-up {
-                    width: 70%;
-                }
-            }
-        }
-    }
-    .navbar-toggle {
-        border-color: #a52792;
-        .icon-bar {
-            background-color: white;
-        }
-    }
-    .navbar-nav > li.collapse {
-        .dropdown-menu {
-            margin-top: 0;
-            border-radius: 0;
-            border: 3px solid @gruvi-pink;
-            padding:12px 16px 16px 16px;
-            min-width: 220px;
-            .login_with_fb{
-                background-color: @gruvi-grey;
-                color:@gruvi-default;
-                display:block;
-                overflow:hidden;
-                img{
-                    width:36px;
-                    float:left;
-                    margin: 7px 12px;
-                }
-                span{
-                    display: block;
-                    text-align: center;
-                    padding: 8px;
-                    line-height: 16px;
-                }
-            }
-        }
-    }
-    .gruvi-menu {
-        ul > li > a {
-            color: white;
-            font-size: 18px;
-            &:hover {
-                background-color: #300760 !important;
-            }
-        }
-    }
-    .register-header {
-        background-color: #300760;
-        height: 70px;
-        position: relative;
-        .register-content {
-            margin: auto;
-            position: relative;
-            .register-block {
-                margin: auto;
-                width: 80%;
-                img {
-                    margin: 0;
-                    padding: 0;
-                    position: relative;
-                    width: 70%;
-                    top: -20px;
-                    @media @md-and-up {
-                        width: 80%;
-                        top: -45px;
-                    }
-                }
-                @media @lg-and-up {
-                    width: 65%;
-                }
-            }
-            .btn-lg {
-                position: relative;
-                top: -5px;
-                margin-left: 10px;
-                text-decoration: none;
-                @media @md-and-up {
-                    top: -25px;
-                }
-            }
-            .add-gruvibucks {
-                margin: 20px 10px 0 0;
-                a {
-                    color: white;
-                    text-decoration: none;
-                }
-                img {
-                    height: 35px;
-                }
-            }
-            .gruvi-bucks-block {
-                color: white;
-                margin: 10px 0 0 20px;
-                .gruvibucks {
-                    font-size: 20px;
-                    .gruvi_bucks_text_blue {
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
-    }
-    .tagline {
-        color: white;
-        @media @xs-and-up {
-            width: 100%;
-        }
-        @media @md-and-up {
-            width: 75%;
-        }
-        @media @lg-and-up {
-            width: 50%;
-        }
-        font-size: 46px;
-        margin: auto;
-        margin-top: 20px;
+  }
+  .navbar-header {
+    .navbar-brand {
+      img {
         width: 50%;
-        text-align: center;
+        @media @md-and-up {
+          width: 70%;
+        }
+      }
     }
-}
-
-.gruvi-btn {
-    border-radius: 25px;
-    width: 100px;
-    height: 30px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+50,4e1295+100 */
-    background: #e5038c; /* Old browsers */
-    background: -moz-linear-gradient(left, #e5038c 0%, #ad1283 50%, #4e1295 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #e5038c 0%,#ad1283 50%,#4e1295 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #e5038c 0%,#ad1283 50%,#4e1295 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5038c', endColorstr='#4e1295',GradientType=1 ); /* IE6-9 */
-    border: none;
-    &:hover {
-        background: #e5038c;
+  }
+  .navbar-toggle {
+    border-color: #a52792;
+    .icon-bar {
+      background-color: white;
     }
-}
-.main_container{
-    min-height: 30vh;
-    background-color:@gruvi-light-grey;
-    .main_container_header{
-        background-color: white;
-        filter: drop-shadow(0px 5px 4px grey);
+  }
+  .navbar-nav > li.collapse {
+    .dropdown-menu {
+      margin-top: 0;
+      border-radius: 0;
+      border: 3px solid @gruvi-pink;
+      padding: 12px 16px 16px 16px;
+      min-width: 220px;
+      .login_with_fb {
+        background-color: @gruvi-grey;
+        color: @gruvi-default;
+        display: block;
         overflow: hidden;
-        padding: 15px 20px 20px 20px;
-        height: 30px;
-        position: relative;
-        h1, .h1,
-        h2, .h2,
-        h3, .h3,
-        h4, .h4,
-        h5, .h5,
-        h6, .h6{
-            margin:0px auto;
+        img {
+          width: 36px;
+          float: left;
+          margin: 7px 12px;
         }
-        .num_readers {
-            position: absolute;
-            bottom: 2px;
-            width: 100%;
-            text-align: center;
-            a {
-                margin: 0 5px 0 5px;
-                text-decoration: none;
-                &.active {
-                    border-bottom: 3px solid;
-                }
-            }
+        span {
+          display: block;
+          text-align: center;
+          padding: 8px;
+          line-height: 16px;
         }
+      }
     }
-    .main_container_pagination {
-        text-align: right;
-        height: 50px;
-        ul.pagination > li.active > a {
-            color: white;
-            background-color: @gruvi-purple-text;
-        }
-        ul.pagination > li > a {
-            color: @gruvi-purple-text;
-        }
+  }
+  .gruvi-menu {
+    ul > li > a {
+      color: white;
+      font-size: 18px;
+      &:hover {
+        background-color: #300760 !important;
+      }
     }
-    .main_container_content{
-        padding: 20px;
-    }
-}
-.reader-card {
-    height:175px;
-    background-color: white;
-    &.decorated {
-        border-radius: 10px;
-        filter: drop-shadow(5px 5px 5px grey);
-        border:1px solid @gruvi-light-grey;
-        margin: 10px -10px;
-    }
-    .card-text {
-        color: black;
-    }
-    .photo {
-        margin-top: 10px;
-    }
-    .left-col {
-        position: relative;
-        height: 100%;
-        .price-text {
-            position: absolute;
-            bottom: 10px;
-            left: 25px;
-            color: @gruvi-purple-text;
-            text-align: center;
-            font-size: 15px;
-        }
-    }
-    .right-col {
-        position: relative;
-        height: 100%;
-        .header {
-            margin-top: 10px;
-            font-size: 20px;
-            color: @gruvi-purple-text;
-        }
-        .tagline {
-            font-size: 12px;
-            color: #737274;
-        }
-        .status-group {
-            position: absolute;
-            bottom: 5px;
-            right: 10px;
-            color: #737274;
-            text-align: center;
-            .available {
-                color: @gruvi-green;
-                &:before{
-                    content:url('../images/green-check.png'); /* with class ModalCarrot ??*/
-                }
-            }
-        }
-    }
-}
-.profile {
-    background-color: white;
-    .title-container {
-        text-align: center;
-        margin: 10px 0 10px 0;
-        padding: 10px 0 10px 0;
-        .title {
-            color: @gruvi-orange;
-            border-bottom: 3px solid;
-            padding-bottom: 5px;
-        }
-    }
-    .specialty-group {
-        text-align: center;
-        color: @gruvi-purple-text;
-    }
-}
-.home_bottom{
+  }
+  .register-header {
     background-color: #300760;
     height: 70px;
     position: relative;
+    .register-content {
+      margin: auto;
+      position: relative;
+      .register-block {
+        margin: auto;
+        width: 80%;
+        img {
+          margin: 0;
+          padding: 0;
+          position: relative;
+          width: 70%;
+          top: -20px;
+          @media @md-and-up {
+            width: 80%;
+            top: -45px;
+          }
+        }
+        @media @lg-and-up {
+          width: 65%;
+        }
+      }
+      .btn-lg {
+        position: relative;
+        top: -5px;
+        margin-left: 10px;
+        text-decoration: none;
+        @media @md-and-up {
+          top: -25px;
+        }
+      }
+      .add-gruvibucks {
+        margin: 20px 10px 0 0;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+        img {
+          height: 35px;
+        }
+      }
+      .gruvi-bucks-block {
+        color: white;
+        margin: 10px 0 0 20px;
+        .gruvibucks {
+          font-size: 20px;
+          .gruvi_bucks_text_blue {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  .tagline {
+    color: white;
+    @media @xs-and-up {
+      width: 100%;
+    }
+    @media @md-and-up {
+      width: 75%;
+    }
+    @media @lg-and-up {
+      width: 50%;
+    }
+    font-size: 46px;
+    margin: auto;
+    margin-top: 20px;
+    width: 50%;
+    text-align: center;
+  }
 }
-/* Page container - main rules */
-.page-wrapper{
-    background-color: rgba(255,255,255,0.5);
+
+.gruvi-btn {
+  border-radius: 25px;
+  width: 100px;
+  height: 30px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5038c+0,ad1283+50,4e1295+100 */
+  background: #e5038c; /* Old browsers */
+  background: -moz-linear-gradient(left, #e5038c 0%, #ad1283 50%, #4e1295 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #e5038c 0%, #ad1283 50%, #4e1295 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #e5038c 0%, #ad1283 50%, #4e1295 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5038c', endColorstr='#4e1295', GradientType=1); /* IE6-9 */
+  border: none;
+  &:hover {
+    background: #e5038c;
+  }
+}
+
+.main_container {
+  min-height: 30vh;
+  background-color: @gruvi-light-grey;
+  .main_container_header {
+    background-color: white;
+    filter: drop-shadow(0px 5px 4px grey);
+    overflow: hidden;
+    padding: 15px 20px 20px 20px;
+    height: 30px;
+    position: relative;
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+      margin: 0px auto;
+    }
+    .num_readers {
+      position: absolute;
+      bottom: 2px;
+      width: 100%;
+      text-align: center;
+      a {
+        margin: 0 5px 0 5px;
+        text-decoration: none;
+        &.active {
+          border-bottom: 3px solid;
+        }
+      }
+    }
+  }
+  .main_container_pagination {
+    text-align: right;
+    height: 50px;
+    ul.pagination > li.active > a {
+      color: white;
+      background-color: @gruvi-purple-text;
+    }
+    ul.pagination > li > a {
+      color: @gruvi-purple-text;
+    }
+  }
+  .main_container_content {
+    padding: 20px;
+  }
+}
+
+.reader-card {
+  height: 175px;
+  background-color: white;
+  &.decorated {
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 5px grey);
+    border: 1px solid @gruvi-light-grey;
+    margin: 10px -10px;
+  }
+  .card-text {
+    color: black;
+  }
+  .photo {
+    margin-top: 10px;
+    img {
+      border: 1px solid @gruvi-pink;
+      filter: drop-shadow(2px 2px 5px grey);
+    }
+  }
+  .left-col {
+    position: relative;
     height: 100%;
-    position:relative;
-    overflow:hidden;
+    .price-text {
+      position: absolute;
+      bottom: 10px;
+      left: 25px;
+      color: @gruvi-purple-text;
+      text-align: center;
+      font-size: 20px;
+      .suffix {
+        font-size: 12px
+      }
+    }
+  }
+  .right-col {
+    position: relative;
+    height: 100%;
+    .header {
+      margin-top: 10px;
+      font-size: 20px;
+      color: @gruvi-purple-text;
+    }
+    .tagline {
+      font-size: 12px;
+      color: #737274;
+    }
+    .status-group {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      color: #737274;
+      text-align: center;
+      .available {
+        color: @gruvi-green;
+        &:before {
+          content: url('../images/green-check.png'); /* with class ModalCarrot ??*/
+        }
+      }
+    }
+  }
+}
+
+.profile {
+  background-color: white;
+  .title-container {
+    text-align: center;
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    .title {
+      color: @gruvi-orange;
+      border-bottom: 3px solid;
+      padding-bottom: 5px;
+    }
+  }
+  .specialty-group {
+    text-align: left;
+    color: @gruvi-purple-text;
+  }
+}
+
+.home_bottom {
+  background-color: #300760;
+  height: 70px;
+  position: relative;
+}
+
+/* Page container - main rules */
+.page-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  .page-title-default {
+    padding: 15px 30px;
+    width: 100%;
+    h2, h3 {
+      margin-top: 10px;
+    }
+  }
+  .page-title {
+    min-width: 400px;
+    height: 50px;
+    padding: 0px 30px;
+    background: url("../images/Grad_Purple-2-Pink.png") no-repeat;
+    background-size: 100% auto;
+    overflow: hidden;
+    line-height: 50px;
+    display: inline-block;
+  }
+  .page-title.h3 {
     margin: 0px;
-    .page-title-default{
-        padding: 15px 30px;   
-        width: 100%;
-        h2, h3 {margin-top:10px;}
-    }
-    .page-title{
-        min-width: 400px;
-        height:50px;
-        padding: 0px 30px;
-         background: url("../images/Grad_Purple-2-Pink.png") no-repeat; 
-        background-size: 100% auto;
-        overflow: hidden;
-        line-height: 50px;
-        display: inline-block;
-    }
-    .page-title.h3{
-            margin:0px;
-        }
-    .page-container{ 
-        margin: 30px;
-        min-height: 50vh;
-    }
-    .page-box-container{ 
-        margin: 0px 0px 20px 0px;
-    }
+  }
+  .page-container {
+    margin: 30px;
+    min-height: 50vh;
+  }
+  .page-box-container {
+    margin: 0px 0px 20px 0px;
+  }
 }
+
 /* Sign Up */
-.signup_page{
-    width:276px;
-    margin-left:auto!important;
-    margin-right:auto!important;
-    padding:20px;
-    .login_with_fb{
-        background-color: @gruvi-pink;
-        color:@gruvi-default;
-        display:block;
-        overflow:hidden;
-        img{
-            width:36px;
-            float:left;
-            margin: 5px 12px;
-        }
-        span{
-            display: block;
-            text-align: center;
-            padding: 5px;
-            line-height: 36px;
-        }
+.signup_page {
+  width: 276px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 20px;
+  .login_with_fb {
+    background-color: @gruvi-pink;
+    color: @gruvi-default;
+    display: block;
+    overflow: hidden;
+    img {
+      width: 36px;
+      float: left;
+      margin: 5px 12px;
     }
-    
+    span {
+      display: block;
+      text-align: center;
+      padding: 5px;
+      line-height: 36px;
+    }
+  }
+
 }
-    .form-container{
-        border:1px solid #000; 
-        margin-bottom:10px;
-        .form-control{
-            border-top:0px;
-            border-left:0px;
-            border-right:0px;
-            border-bottom:1px solid @gruvi-grey;
-            border-radius: 0px;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-/*            text-transform: uppercase;*/
-            font-size:13px;
-        }
-        .form-group:last-child .form-control{
-            border-bottom:0px;
-        }
-        .form-group{
-            margin-bottom:0px;
-            padding: 0px 10px 0px 0px;
-        }
-        .help-block-error{
-            margin:0px!important;
-        }
-/*        ::-webkit-input-placeholder { 
-            text-transform: uppercase;
-          }
-          ::-moz-placeholder { 
-            text-transform: uppercase;
-          }
-          :-ms-input-placeholder { 
-            text-transform: uppercase;
-          }
-          :-moz-placeholder { 
-            text-transform: uppercase;
-          }*/
+
+.form-container {
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  .form-control {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid @gruvi-grey;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    /*            text-transform: uppercase;*/
+    font-size: 13px;
+  }
+  .form-group:last-child .form-control {
+    border-bottom: 0px;
+  }
+  .form-group {
+    margin-bottom: 0px;
+    padding: 0px 10px 0px 0px;
+  }
+  .help-block-error {
+    margin: 0px !important;
+  }
+  /*        ::-webkit-input-placeholder {
+              text-transform: uppercase;
+            }
+            ::-moz-placeholder {
+              text-transform: uppercase;
+            }
+            :-ms-input-placeholder {
+              text-transform: uppercase;
+            }
+            :-moz-placeholder {
+              text-transform: uppercase;
+            }*/
+}
+
+/* Gruvi Bucks */
+.gruvi-bucks-create {
+  .add_title {
+    margin-bottom: 15px;
+    overflow: hidden;
+    .add_number_container {
+      width: 66px;
+      height: 66px;
+      font-size: 54px;
+      text-align: center;
+      line-height: 66px;
+      font-weight: bold;
+      margin-right: 10px;
     }
-    /* Gruvi Bucks */
-.gruvi-bucks-create{
-    .add_title{
-        margin-bottom:15px;
-        overflow: hidden;
-        .add_number_container{
-            width: 66px;
-            height: 66px;
-            font-size: 54px;
-            text-align: center;
-            line-height: 66px;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+  }
+  .btn-green {
+    padding: 10px 40px;
+    font-size: 18px;
+    width: 100%;
+  }
+  .enter_ammount {
+    margin: 40px 0px 0px 44px;
+    padding: 0px 5px;
+    .input_alt {
+      border: 2px solid #db0081;
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      padding: 5px 0px;
+      color: @gruvi-grey;
     }
-    .btn-green{
-        padding:10px 40px;
-        font-size: 18px; 
-        width:100%;
-    }
-    .enter_ammount{
-        margin: 40px 0px 0px 44px;
-        padding: 0px 5px;
-        .input_alt{
-            border: 2px solid #db0081;
-            width: 100%;
-            text-align: center;
-            font-size: 30px;
-            padding: 5px 0px;
-            color:@gruvi-grey;
-        }
-    }
+  }
 }
 
 /* Profile */
-.profile_container{
-    padding: 44px 500px 0 0px;
-    overflow: hidden;
+.profile_container {
+  padding: 44px 500px 0 0px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  .profile_content {
+    padding-bottom: 99999px;
+    margin-bottom: -99999px;
+    float: left;
     width: 100%;
-    max-width: 1140px;
-    margin: 0 auto;
-    .profile_content{
-        padding-bottom: 99999px;
-        margin-bottom: -99999px;
-        float: left;
-        width: 100%;
-        background-color: @gruvi-light-grey;
-    }
+    background-color: @gruvi-light-grey;
+  }
 }
 
-.profile_top_container{
-    
-/*    height:222px;*/
-/*    margin:60px 0px 0px 0px;*/
-    .reader_card{
-        background-color:@gruvi-default;
-        border-top-right-radius: 10px;
-        -webkit-box-shadow: 4px 9px 13px 3px rgba(0,0,0,0.75);
-        -moz-box-shadow: 4px 9px 13px 3px rgba(0,0,0,0.75);
-        box-shadow: 4px 9px 13px 3px rgba(0,0,0,0.75);
-        max-height:290px;
-        overflow:hidden;
-        .photo{
-            width:40%;        
-        }
-        .content_reader_card{
-            width:60%;
-        }
+.profile_top_container {
+
+  /*    height:222px;*/
+  /*    margin:60px 0px 0px 0px;*/
+  .reader_card {
+    background-color: @gruvi-default;
+    border-top-right-radius: 10px;
+    -webkit-box-shadow: 4px 9px 13px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 9px 13px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 9px 13px 3px rgba(0, 0, 0, 0.75);
+    max-height: 290px;
+    overflow: hidden;
+    .photo {
+      width: 40%;
     }
-    .profile_container_tags{
-        border-top:1px solid @gruvi-grey;
-        border-bottom:1px solid @gruvi-grey;
-        padding: 5px 0px;
-        .profile_tags_cell{
-            width: 48%;
-            font-size: 18px;
-            display: inline-block;
-        }
-        
-    }    
-}
-.sidebar{
-    padding:20px 10px;
-    background-color:@gruvi-light-grey;
-}
-.profile_top_container_right{
-/*    min-height:222px;*/
-    
-    .select_state{
-        border:3px solid @gruvi-grey;
-        color:@gruvi-pink;
+    .content_reader_card {
+      width: 60%;
     }
-}
-.profile_call_manage{
-    padding:0px 30px;
-    border-top: 2px solid @gruvi-blue;
-    .title_row{
-        display:table;
-        margin-bottom:10px;
-        width:100%;
-/*        height: 70px;*/
-        .icn {
-            height: 70px;
-            margin: 0px auto;
-            display: table-cell;
-        }
-        .text_for_icn {
-            height: 70px;
-            display: table-cell;
-            vertical-align: middle;
-        }
-    }
-    [type="checkbox"]:not(:checked),
-    [type="checkbox"]:checked {
-      position: absolute;
-      left: -9999px;
-    }
-    [type="checkbox"]:not(:checked) + label,
-    [type="checkbox"]:checked + label {
-      position: relative;
-      padding-left: 4em;
-      cursor: pointer;
-      line-height: 2.4em;
-      margin-bottom:0px;
+  }
+  .profile_container_tags {
+    border-top: 1px solid @gruvi-grey;
+    border-bottom: 1px solid @gruvi-grey;
+    padding: 5px 0px;
+    .profile_tags_cell {
+      width: 48%;
+      font-size: 18px;
+      display: inline-block;
     }
 
-    /* checkbox aspect */
-    [type="checkbox"]:not(:checked) + label:before,
-    [type="checkbox"]:checked + label:before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0;
-      width: 2.8em; 
-      height: 2.4em;
-      border: 2px solid @gruvi-pink;
-      background: @gruvi-light-grey;
-      border-radius: 4px;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
-    }
-    /* checked mark aspect */
-
-    [type="checkbox"]:checked + label:after {
-      content: '✔';
-        position: absolute;
-        top: -0.1em;
-        left: 0.2em;
-        font-size: 3.2em;
-        color: #51b25d;
-      transition: all .2s;
-/*      content: url('../images/np_check.png');
-      background: url('../images/np_check.png');
-background-size: 100% 100%;*/
-    }
-    /* checked mark aspect changes */
-    [type="checkbox"]:not(:checked) + label:after {
-      opacity: 0;
-      transform: scale(0);
-    }
-    [type="checkbox"]:checked + label:after {
-      opacity: 1;
-      transform: scale(1);
-    }
-    /* disabled checkbox */
-    [type="checkbox"]:disabled:not(:checked) + label:before,
-    [type="checkbox"]:disabled:checked + label:before {
-      box-shadow: none;
-      border-color: #bbb;
-      background-color: #ddd;
-    }
-    [type="checkbox"]:disabled:checked + label:after {
-      color: #999;
-    }
-    [type="checkbox"]:disabled + label {
-      color: #aaa;
-    }
-    /* accessibility */
-    [type="checkbox"]:checked:focus + label:before,
-    [type="checkbox"]:not(:checked):focus + label:before {
-      border: 2px dotted @gruvi-grey;
-    }
-
-    /* hover style just for information */
-    label:hover:before {
-      border: 2px solid @gruvi-grey!important;
-    }
-
-    
+  }
 }
+
+.sidebar {
+  padding: 20px 10px;
+  background-color: @gruvi-light-grey;
+}
+
+.profile_top_container_right {
+  /*    min-height:222px;*/
+
+  .select_state {
+    border: 3px solid @gruvi-grey;
+    color: @gruvi-pink;
+  }
+}
+
+.profile_call_manage {
+  padding: 0px 30px;
+  border-top: 2px solid @gruvi-blue;
+  .title_row {
+    display: table;
+    margin-bottom: 10px;
+    width: 100%;
+    /*        height: 70px;*/
+    .icn {
+      height: 70px;
+      margin: 0px auto;
+      display: table-cell;
+    }
+    .text_for_icn {
+      height: 70px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="checkbox"]:not(:checked) + label,
+  [type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 4em;
+    cursor: pointer;
+    line-height: 2.4em;
+    margin-bottom: 0px;
+  }
+
+  /* checkbox aspect */
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.8em;
+    height: 2.4em;
+    border: 2px solid @gruvi-pink;
+    background: @gruvi-light-grey;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
+  }
+  /* checked mark aspect */
+
+  [type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: -0.1em;
+    left: 0.2em;
+    font-size: 3.2em;
+    color: #51b25d;
+    transition: all .2s;
+    /*      content: url('../images/np_check.png');
+          background: url('../images/np_check.png');
+    background-size: 100% 100%;*/
+  }
+  /* checked mark aspect changes */
+  [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+  [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* disabled checkbox */
+  [type="checkbox"]:disabled:not(:checked) + label:before,
+  [type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+  }
+  [type="checkbox"]:disabled:checked + label:after {
+    color: #999;
+  }
+  [type="checkbox"]:disabled + label {
+    color: #aaa;
+  }
+  /* accessibility */
+  [type="checkbox"]:checked:focus + label:before,
+  [type="checkbox"]:not(:checked):focus + label:before {
+    border: 2px dotted @gruvi-grey;
+  }
+
+  /* hover style just for information */
+  label:hover:before {
+    border: 2px solid @gruvi-grey !important;
+  }
+
+}
+
+/* Transformations */
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
 
 /* profile tab chat */
 .profile-chat {
-    background-color: @gruvi-light-grey;
+  background-color: @gruvi-light-grey;
 
-    .profile-card {
+  .profile-card {
+    background-color: white;
+    margin: 10px;
+    height: 550px;
+    &.chat {
+      border-radius: 10px 10px 0 0;
+    }
+    &.profile {
+      border-radius: 10px;
+    }
+    .chat-panel {
+      height: 500px;
+      overflow: auto;
+      .chat-date {
+        margin-top: 30px;
+      }
+    }
+    .profile-text {
+      color: @gruvi-purple-text;
+      padding: 10px;
+    }
+  }
+  .chat-time {
+    position: relative;
+    top: 15px;
+  }
+  .chat-message {
+    .card-body {
+      filter: drop-shadow(0px 2px 2px grey);
+      margin: 10px;
+      word-wrap: break-word;
+      .reader {
         background-color: white;
-        filter: drop-shadow(0px 5px 4px grey);
-        margin: 10px;
-        height: 550px;
-        &.chat {
-            border-radius: 10px 10px 0 0;
-        }
-        &.profile {
-            border-radius: 10px;
-        }
-        .chat-panel {
-            height: 500px;
-            overflow: auto;
-        }
-        .profile-text {
-            color: @gruvi-purple-text;
-            padding: 10px;
-        }
+        border-radius: 5px;
+        padding: 10px;
+      }
+      .client {
+        background-color: @gruvi-light-grey;
+        border-radius: 5px;
+        padding: 15px;
+      }
     }
-    .chat-time {
-        position: relative;
-        top: 15px;
+  }
+  .enter_message {
+    margin: 0px;
+    &.panel-info {
+      border-color: white;
     }
-    .chat-message {
-        .card-body {
-            filter: drop-shadow(0px 2px 2px grey);
-            margin: 10px;
-            word-wrap: break-word;
-            .reader {
-                background-color: white;
-                border-radius: 5px;
-                padding: 10px;
-            }
-            .client {
-                background-color: @gruvi-light-grey;
-                border-radius: 5px;
-                padding: 15px;
-            }
-        }
+    .panel-body {
+      padding: 0;
+      .no-gutter [class*="-10"] {
+        padding-right: 0;
+        margin-left: -1px;
+      }
+      .no-gutter [class*="-2"] {
+        padding-left: 0;
+      }
     }
-    .enter_message {
-        margin: 0px;
-        &.panel-info {
-            border-color: white;
-        }
-        .panel-body {
-            padding: 0;
-            .no-gutter [class*="-10"] {
-                padding-right:0;
-                margin-left: -1px;
-            }
-            .no-gutter [class*="-2"] {
-                padding-left:0;
-            }
-        }
-        textarea {
-            resize: none;
-            height: 25px;
-            width: 100%;
-            padding: 2px 12px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            border: none;
-            border-top: 1px solid @gruvi-grey;
-        }
-        input {
-            color: white;
-            height: 25px;
-            background-color: #952F94;
-            width: 102%;
-        }
+    textarea {
+      resize: none;
+      height: 25px;
+      width: 100%;
+      padding: 2px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      border: none;
+      border-top: 1px solid @gruvi-grey;
     }
+    input {
+      color: white;
+      height: 25px;
+      background-color: #952F94;
+      width: 102%;
+    }
+  }
 }
+
 //.profile_chat_container{
 ///*    padding:0px 15px;*/
 //    padding-bottom: 99999px;
