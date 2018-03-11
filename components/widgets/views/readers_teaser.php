@@ -32,8 +32,8 @@ use \yii\helpers\Url;
                                 <div class="reader-card decorated">
                                     <div class="col-xs-4 left-col">
                                         <div class="photo">
-                                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">
-                                            <!-- <img class="ratio img-responsive img-circle" src="<?= $item->getProfilePicUrl();?>" alt=""/> -->
+<!--                                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">-->
+                                             <img class="ratio img-responsive img-circle" src="<?= $item->getProfilePicUrl();?>" alt=""/>
                                         </div>
                                         <div class="price-text">
                                             <span>$<?= $item->rate; ?>/min</span>

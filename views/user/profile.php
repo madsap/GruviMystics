@@ -12,8 +12,8 @@ use \app\models\User;
                 <div class="reader-card">
                     <div class="col-xs-4 left-col">
                         <div class="photo">
-                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">
-                            <!-- <img class="ratio img-responsive img-circle" src="<?= $model->getProfilePicUrl(); ?>" alt=""/> -->
+<!--                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">-->
+                             <img class="ratio img-responsive img-circle" src="<?= $model->getProfilePicUrl(); ?>" alt=""/>
                         </div>
                         <div class="price-text">
                             <span>$<?= $model->rate; ?></span><span class="suffix">/min</span>
