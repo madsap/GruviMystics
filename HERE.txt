@@ -1,3 +1,13 @@
+
+[ ] Look into this:
+https://github.com/madsap/GruviMystics/commit/f428d5347704d5c65b83cf6d24f581b845abd278#diff-63ebd11b9de7f47c07c5474f5ab9c9d0
+
+Friday 3/2/18
+[ ] push latest code, test with admin email
+(don't actually need to un-sandbox because mail is going from admin to admin, so this should work as is)
+[ ] Deal with senstive data and breach
+~ rsync may break things due to the "sensitive" file...will need to push the config/* changes up manaully
+
 http://www.dev-gmystics.com/admin/blocked
 
 
