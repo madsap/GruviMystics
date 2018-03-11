@@ -12,8 +12,9 @@ use \app\models\User;
                 <div class="reader-card">
                     <div class="col-xs-4 left-col">
                         <div class="photo">
-<!--                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">-->
-                             <img class="ratio img-responsive img-circle" src="<?= $model->getProfilePicUrl(); ?>" alt=""/>
+                            <!--                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">-->
+                            <img class="ratio img-responsive img-circle" src="<?= $model->getProfilePicUrl(); ?>"
+                                 alt=""/>
                         </div>
                         <div class="price-text">
                             <span>$<?= $model->rate; ?></span><span class="suffix">/min</span>
@@ -28,21 +29,36 @@ use \app\models\User;
                                 <?= Html::encode($model->tagLine); ?>
                             </div>
                         </div>
-                        <div class="status-group">
-                            <div>
-                                <?php if ($model->activity == User::ACTIVITY_ONLINE) { ?>
-                                    <span class="available">Available</span>
-                                <?php } ?>
-                                <?php if ($model->activity == User::ACTIVITY_SESSION) { ?>
-                                    <span class="">On Call</span>
-                                <?php } ?>
-                                <?php if ($model->activity == User::ACTIVITY_OFFLINE) { ?>
-                                    <span class="">Offline</span>
-                                <?php } ?>
-                            </div>
-                            <div>
-                                <button class="btn btn-primary gruvi-btn" role="button">Talk</button>
-                            </div>
+                        <div class="status-group col-xs-10 col-xs-offset-2 col-md-8 col-md-offset-4">
+                            <?php if ($editable) { ?>
+                                <div class="btn-group status-btns" role="group" aria-label="Select status">
+                                    <button type="button" onclick="changeReaderStatus('active');" class="btn btn-sm <?php echo ($model->activity == User::ACTIVITY_DISABLED) ? 'btn-default' : 'btn-primary active';?>">Available</button>
+                                    <button type="button" onclick="changeReaderStatus('inactive');" class="btn btn-sm <?php echo ($model->activity == User::ACTIVITY_DISABLED) ? 'btn-primary active' : 'btn-default';?>">Inactive</button>
+                                </div>
+                                <div class="metrics">
+                                    Calls this mo: <span
+                                            class="pull-right"><?= (!empty($callsStatistic['calls_count']) ? $callsStatistic['calls_count'] : '-'); ?></span>
+                                </div>
+                                <div class="metrics">
+                                    Min. this mo: <span
+                                            class="pull-right"><?= (!empty($callsStatistic['calls_duration']) ? (round($callsStatistic['calls_duration'] / 60, 1)) : '-'); ?></span>
+                                </div>
+                            <?php } else { ?>
+                                <div>
+                                    <?php if ($model->activity == User::ACTIVITY_ONLINE) { ?>
+                                        <span class="available">Available</span>
+                                    <?php } ?>
+                                    <?php if ($model->activity == User::ACTIVITY_SESSION) { ?>
+                                        <span class="">On Call</span>
+                                    <?php } ?>
+                                    <?php if ($model->activity == User::ACTIVITY_OFFLINE) { ?>
+                                        <span class="">Offline</span>
+                                    <?php } ?>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary gruvi-btn" role="button">Talk</button>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -83,7 +99,7 @@ use \app\models\User;
                         <span class="title">Profile</span>
                     </div>
                     <div class="profile-text">
-                        Filler
+                        <?= Html::encode($model->description); ?>
                     </div>
                 </div>
             </div>

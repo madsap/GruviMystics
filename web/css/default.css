@@ -399,6 +399,12 @@ body {
   color: #737274;
   text-align: center;
 }
+.reader-card .right-col .status-group .status-btns {
+  margin-bottom: 10px;
+}
+.reader-card .right-col .status-group .metrics {
+  text-align: left;
+}
 .reader-card .right-col .status-group .available {
   color: #45B248;
 }
