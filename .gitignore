@@ -71,3 +71,4 @@ data/files/*
 config/params.php
 config/_localConfig.php
 config/sensitive.php
+HERE.txt
