@@ -579,15 +579,20 @@ class ApiController extends MainController {
 
                         $results = $query->all();
                         $readers = array();
+                        $i = 0;
                         foreach ($results as $key => $reader) {
+                            if($validateLogin->amIBlockingThisUser($reader->id)){
+                                continue;
+                            }
                             $speciality = $reader->getSpecialties(true);
                             $recent = Call::find()->select(['customerId'])->where(['readerId' => $reader->id, 'customerId' => $validateLogin->id])->groupBy(['customerId'])->count();
-                            $readers[$key] = $reader->getAttributes();
-                            $readers[$key]['displayname'] = (isset($reader->displayname) && $reader->displayname != NULL) ? $reader->displayname : "";
-                            $readers[$key]['speciality'] = $speciality;
-                            $readers[$key]['recent'] = ($recent > 0) ? TRUE : FALSE;
-                            $readers[$key]['pic'] = $reader->getProfilePicUrl();
-                            $readers[$key]['pic'] = $reader->getProfilePicUrl();
+                            $readers[$i] = $reader->getAttributes();
+                            $readers[$i]['displayname'] = (isset($reader->displayname) && $reader->displayname != NULL) ? $reader->displayname : "";
+                            $readers[$i]['speciality'] = $speciality;
+                            $readers[$i]['recent'] = ($recent > 0) ? TRUE : FALSE;
+                            $readers[$i]['pic'] = $reader->getProfilePicUrl();
+                            $readers[$i]['pic'] = $reader->getProfilePicUrl();
+                            $i++;
                         }
                         $response['readers'] = $readers;
                     } else {
