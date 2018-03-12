@@ -30,13 +30,14 @@ function setReaderOpt(option, status)
 function changeReaderStatus(obj)
 {
     
-    var url = (obj.options[obj.selectedIndex].value == 'available')?'user/set-active':'user/set-inactive';
+    // var url = (obj.options[obj.selectedIndex].value == 'available')?'user/set-active':'user/set-inactive';
+    var url = (obj === "available")?"user/set-active":"user/set-inactive";
     $.ajax({
         url: getAbsoluteUrl(url),
         type: 'POST',
          data: {ajax: 1},
          success: function(data) {
-            if(data.status != "ok"){
+            if(data.status !== "ok"){
                 alert("Can't change status. Please try again");
                 return false;
             }

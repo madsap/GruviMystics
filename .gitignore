@@ -1,6 +1,9 @@
 # phpstorm project files
 .idea
 
+# sql files
+*.sql
+
 # netbeans project files
 nbproject
 
@@ -65,7 +68,7 @@ data/files/*
 *.zip
 *.tgz
 .htaccess
-
+*.log
 
 *.txt
 config/params.php

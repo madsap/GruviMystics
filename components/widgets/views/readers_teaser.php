@@ -7,12 +7,11 @@ use \yii\helpers\Url;
 
 <div class="main_container tag-components_widgets_views_readers_teaser" data-current_page="<?=$readers['pages']->getPage(); ?>">
     <div class="main_container_header">
-        <div class="pull-right num_readers text-yellow h4">
-            <input type="text" onchange="$('#reader_keyword_input').prop('disabled', true);refreshReadersTeaser('<?= $filter['activity']; ?>', 0);" placeholder="Search.." style="color:black" id="reader_keyword_input" value="<?= Html::encode($filter['keyword']); ?>">
-            <a href="#" onclick="refreshReadersTeaser('', 0);return false;" class="text-yellow <?php if(empty($filter['activity']) || $filter['activity'] != User::ACTIVITY_ONLINE)echo 'h3 text-bold'; ?>"><u>All</u></a> (<?= $readers['total_count']; ?>)&nbsp; 
-            <a href="#" onclick="refreshReadersTeaser('<?= User::ACTIVITY_ONLINE ?>', 0);return false;" class="text-yellow <?php if($filter['activity'] == User::ACTIVITY_ONLINE)echo 'h3 text-bold'; ?>">Available Now (<?= $readers['available']; ?>)</a>
+        <div class="num_readers">
+            <a href="#" onclick="refreshReadersTeaser('', 0);return false;" class="text-orange <?php if(empty($filter['activity']) || $filter['activity'] != User::ACTIVITY_ONLINE)echo 'text-bold active'; ?>">All (<?= $readers['total_count']; ?>)</a>
+            <a href="#" onclick="refreshReadersTeaser('<?= User::ACTIVITY_ONLINE ?>', 0);return false;" class="text-orange <?php if($filter['activity'] == User::ACTIVITY_ONLINE)echo 'text-bold active'; ?>">Available Now (<?= $readers['available']; ?>)</a>
+            <a href="#" class="text-orange">Recent (0)</a>
         </div>
-        <div class="pull-left h3 text-default text-bold">Meet our Readers</div>
     </div>
     <div class="main_container_pagination" style="text-align:right">
         <?= LinkPager::widget([
@@ -26,59 +25,58 @@ use \yii\helpers\Url;
         <?php 
         if($readers['readers']){
             foreach($readers['readers'] as  $item){ ?>
-<?php
-//hh($item);
-?>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
-                        <div class="reader_card" data-pkid="<?= $item->id; ?>">
-                            <div class="photo">
-                                <img src="<?= $item->getProfilePicUrl();?>" alt=""/>
-                                <div class="photo_bottom text-default"><?= Html::encode($item->renderDisplayName()); ?></div>
-                            </div>
-                            <div class="content_reader_card">
-                                <div class="text-pink">
-                                    <span class="text-violet">$</span>
-                                    <span class="h4 text-bold"><?= $item->rate; ?></span>
-                                    <span>/min</span>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
+                                <div class="reader-card decorated">
+                                    <div class="col-xs-4 left-col">
+                                        <div class="photo">
+<!--                                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">-->
+                                             <img class="ratio img-responsive img-circle" src="<?= $item->getProfilePicUrl();?>" alt=""/>
+                                        </div>
+                                        <div class="price-text">
+                                            <span>$<?= $item->rate; ?>/min</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 right-col">
+                                        <div class="header">
+                                            <?= Html::encode($item->firstName); ?>
+                                        </div>
+                                        <div class="content_reader_card">
+                                            <div class="tagline">
+                                                <?= Html::encode($item->tagLine); ?>
+                                            </div>
+                                        </div>
+                                        <div class="status-group">
+                                            <div>
+                                                <?php if($item->activity == User::ACTIVITY_ONLINE){ ?>
+                                                    <span class="available">Available</span>
+                                                <?php } else if($item->activity == User::ACTIVITY_SESSION) { ?>
+                                                    <span class="">On Call</span>
+                                                <?php } else { ?>
+                                                    <span>Offline</span>
+                                                <?php } ?>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-primary gruvi-btn" role="button">Talk</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="text-orange h4">
-                                    <?= Html::encode($item->tagLine); ?>
-                                </div>
-
-                                <?php if($item->activity == User::ACTIVITY_ONLINE){ ?>
-                                        
-                                            <?php if($item->opt_voice){ ?>
-                                                <!-- <a href="#" onclick="showCallDetails(<?= $item->id; ?>);return false;">Call NOW</a> -->
-                                                <div class="bottom bg-green">Call NOW</div>
-                                            <?php }elseif($item->opt_chat){ ?>
-                                                <div class="bottom bg-green">Chat NOW</div>
-                                            <?php }else{ ?>
-                                                <div class="bottom bg-grey">Offline</div>
-                                            <?php } ?>
-                                                
-                                <?php } ?>
-                                <?php if($item->activity == User::ACTIVITY_SESSION){ ?>
-                                        <div class="bottom bg-orange">In Session</div>
-                                        <div class="bottom bg-grey" style="display:none;">In Session</div>
-                                <?php } ?>
-                                <?php if($item->activity == User::ACTIVITY_OFFLINE){ ?>
-                                        <div class="bottom bg-light-grey" style="display:none;">Offline</div>
-                                        <div class="bottom bg-grey">Offline</div>
-                                <?php } ?>
-                            </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
         <?php
             }
         }
         ?>
-            
-            
+
+
         </div>
     </div>
-    <div class="main_container_pagination" style="text-align:right">
+    <div class="main_container_pagination">
         <?= LinkPager::widget([
             'pagination' => $readers['pages'],
             'linkOptions' => ['class' => 'page_lnk']
