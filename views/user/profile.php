@@ -106,4 +106,3 @@ use \app\models\User;
         </div>
     </div>
 </div>
-<div class="home_bottom col-xs-12"></div>

@@ -43,7 +43,24 @@ if (!empty($messages)) {
         <div class="card row" id="chat-message-row-<?= $message->id; ?>">
             <div class="col-sm-2">
                 <?php if ($message->readerId == $message->customerId) { ?>
-                    <div class="text-grey chat-time text-right"><?= date("g:i a", $message_timestamp); ?></div>
+                    <?php if( !$message->amISender() ) { ?>
+                        <div class="text-grey chat-time text-right">
+                            <a onclick="confirmBlockUser(<?= $message->customerId.', '.$message->id; ?>);return false;" id="chat_profile_user_lnk_<?= $message->id; ?>">
+                                <?= Html::encode($message->customer->firstName); ?></a>
+                            <span>
+                                    <a class="text-orange tag-clickme_to_show_report_modal"
+                                       data-route="<?= Url::toRoute(['/user-relation/partial','partial'=>'report_user']) ?>"
+                                       data-reporter_id="<?= $message->readerId ?>"
+                                       data-reported_id="<?= $message->customerId ?>"
+                                       data-message_id="<?= $message->id ?>"
+                                    >...</a>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="text-grey chat-time text-right"><?= date("g:i a", $message_timestamp); ?></div>
+                    <?php }else{ ?>
+                            <div class="text-grey chat-time text-right"><?= date("g:i a", $message_timestamp); ?></div>
+                        <?php } ?>
                 <?php } ?>
             </div>
             <div class="col-md-8 col-sm-8 chat-message">
@@ -66,7 +83,21 @@ if (!empty($messages)) {
             <div class="col-sm-2">
                 <?php if ($message->readerId != $message->customerId) { ?>
                     <div class="chat-time">
-                        <div class="text-grey text-bold"><?= Html::encode($message->customer->firstName); ?></div>
+                        <?php if( !$message->amISender() ) { ?>
+                            <div class="text-grey text-bold"><a onclick="confirmBlockUser(<?= $message->customerId.', '.$message->id; ?>);return false;" id="chat_profile_user_lnk_<?= $message->id; ?>">
+                                    <?= Html::encode($message->customer->firstName); ?></a>
+                                <span>
+                                    <a class="text-orange tag-clickme_to_show_report_modal"
+                                       data-route="<?= Url::toRoute(['/user-relation/partial','partial'=>'report_user']) ?>"
+                                       data-reporter_id="<?= $message->readerId ?>"
+                                       data-reported_id="<?= $message->customerId ?>"
+                                       data-message_id="<?= $message->id ?>"
+                                    >...</a>
+                                </span>
+                            </div>
+                        <?php }else{ ?>
+                            <div class="text-grey text-bold" id="chat_profile_user_lnk_<?= $message->id; ?>"><?= Html::encode($message->customer->firstName); ?></div>
+                        <?php } ?>
                         <div class="text-grey"><?= date("g:i a", $message_timestamp); ?></div>
                     </div>
                 <?php } ?>

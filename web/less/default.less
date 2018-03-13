@@ -162,26 +162,6 @@ body {
   }
 }
 
-/* Footer */
-//footer{
-//    background-color:@gruvi-violet;
-//    color:@gruvi-default;
-//    line-height:60px;
-//    a{
-//        color:@gruvi-default;
-//    }
-//    p{
-//        margin:0px;
-//    }
-//    .navbar-brand {
-//        padding:6px 45px 6px 15px;
-//        overflow:hidden;
-//        height:60px;
-//        img {
-//            max-height: 44px;
-//        }
-//    }
-//}
 /* Home page*/
 .gruvi-banner {
   height: 320px;
@@ -196,6 +176,10 @@ body {
     position: absolute;
     top: 10px;
     left: 20px;
+    a {
+      position: relative;
+      z-index: 10;
+    }
     img {
       height: 40px;
     }
@@ -480,6 +464,30 @@ body {
   background-color: #300760;
   height: 70px;
   position: relative;
+  padding-top: 25px;
+  color: white;
+  .logo {
+    text-align: center;
+    img {
+      height: 25px;
+    }
+  }
+  .copyright {
+    text-align: center;
+  }
+  .privacy {
+    div {
+      height: 70px;
+      display: inline-block;
+      text-align: center;
+      margin: 0 10px;
+      a {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 /* Page container - main rules */

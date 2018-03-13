@@ -65,8 +65,11 @@ AppAsset::register($this);
         <div class="gruvi-banner col-xs-12">
             <div class="row">
                 <div class="logo">
-                    <img src="/images/Gruvi-logo.svg" alt="">
+                    <a href="/main.php">
+                        <img src="/images/Gruvi-logo.svg" alt="">
+                    </a>
                 </div>
+
                 <nav class="navbar">
                     <div class="container-fluid">
                         <div class="navbar-header">
@@ -165,6 +168,24 @@ AppAsset::register($this);
             </div>
         </div>
         <?= $content ?>
+        <div class="home_bottom col-xs-12">
+            <div class="row">
+                <div class="col-xs-3 logo">
+                    <div>
+                        <a href="/main.php">
+                            <img src="/images/Gruvi-logo.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-4 copyright">
+                    <div>&copy;&nbsp;GruviMystics LLC - <?= date("Y"); ?></div>
+                </div>
+                <div class="col-xs-5 privacy">
+                    <div><a href="<?= Url::to(['/site/privacy-policy'], true);?>">Privacy Policy</a></div>
+                    <div><a href="<?= Url::to(['/site/terms-and-service'], true);?>">Terms &amp; Conditions</a></div>
+                </div>
+            </div>
+        </div>
     </div>
     
 <?php 
