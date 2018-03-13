@@ -13,7 +13,7 @@ use \app\models\User;
                     <div class="col-xs-4 left-col">
                         <div class="photo">
                             <!--                            <img class="ratio img-responsive img-circle" src="https://placeimg.com/100/100/any" alt="">-->
-                            <img class="ratio img-circle" src="<?= $model->getProfilePicUrl(); ?>"
+                            <img class="ratio img-responsive img-circle" src="<?= $model->getProfilePicUrl(); ?>"
                                  alt=""/>
                         </div>
                         <div class="price-text">
