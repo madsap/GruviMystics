@@ -138,6 +138,10 @@ body {
   top: 10px;
   left: 20px;
 }
+.gruvi-banner .logo a {
+  position: relative;
+  z-index: 10;
+}
 .gruvi-banner .logo img {
   height: 40px;
 }

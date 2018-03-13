@@ -65,8 +65,11 @@ AppAsset::register($this);
         <div class="gruvi-banner col-xs-12">
             <div class="row">
                 <div class="logo">
-                    <img src="/images/Gruvi-logo.svg" alt="">
+                    <a href="/main.php">
+                        <img src="/images/Gruvi-logo.svg" alt="">
+                    </a>
                 </div>
+
                 <nav class="navbar">
                     <div class="container-fluid">
                         <div class="navbar-header">
