@@ -117,7 +117,6 @@ body {
   font-size: 10px;
   margin-top: -10px;
 }
-/* Footer */
 /* Home page*/
 .gruvi-banner {
   height: 320px;
@@ -437,6 +436,28 @@ body {
   background-color: #300760;
   height: 70px;
   position: relative;
+  padding-top: 25px;
+  color: white;
+}
+.home_bottom .logo {
+  text-align: center;
+}
+.home_bottom .logo img {
+  height: 25px;
+}
+.home_bottom .copyright {
+  text-align: center;
+}
+.home_bottom .privacy div {
+  height: 70px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 10px;
+}
+.home_bottom .privacy div a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 /* Page container - main rules */
 .page-wrapper {
