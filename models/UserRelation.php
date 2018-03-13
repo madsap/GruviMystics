@@ -60,7 +60,7 @@ class UserRelation extends \yii\db\ActiveRecord
 				['senderId'],
 				'unique',
 				'targetAttribute' => ['senderId', 'recipientId', 'action'],
-				'message' => 'The combination of From User and To User has already been taken.',
+				'message' => 'You have already reported this USER.',
 				'on' => 'create'
 			],
         ];
