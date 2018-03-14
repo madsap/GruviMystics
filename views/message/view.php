@@ -10,7 +10,7 @@ $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Messages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-wrapper bg-default">
+<div class="page-wrapper bg-default col-xs-12">
 
     <h3 class="text-pink" style="margin:20px 30px 0px 30px;"><?= Html::encode($this->title) ?></h3>
 

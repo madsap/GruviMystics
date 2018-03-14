@@ -13,7 +13,7 @@ use \yii\helpers\Url;
 $this->title = 'User Relations';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-wrapper bg-default">
+<div class="page-wrapper bg-default col-xs-12">
     <h3 class="text-pink" style="margin:20px 30px 0px 30px;">
         a List of Blocked/Reported Users
         <!-- <a class="btn btn_gruvi pull-right" href="<?= Url::to(['/user-relation/create'], true);?>">ADD</a> -->

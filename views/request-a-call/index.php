@@ -10,7 +10,7 @@ use yii\grid\GridView;
 $this->title = 'Call Requests';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-wrapper request-acall-index">
+<div class="page-wrapper request-acall-index col-xs-12">
     <div class="page-title text-default h3"><?= Html::encode($this->title) ?></div>
     <div class="page-container">
 

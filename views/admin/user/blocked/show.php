@@ -7,7 +7,7 @@ use \yii\helpers\Url;
 
 $this->title = 'Blocked User/Reader';
 ?>
-<div class="page-wrapper tag-views_user_reader">
+<div class="page-wrapper tag-views_user_reader col-xs-12">
     <?php if (Yii::$app->session->hasFlash('success')) { ?>
     <div class="alert alert-success alert-dismissable">
         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>

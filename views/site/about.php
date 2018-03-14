@@ -8,8 +8,7 @@ use \yii\helpers\Html;
 
 $this->title = 'About';
 ?>
-<div class="page-wrapper">
-    <div class="page-title text-default h3"><?= Html::encode($this->title) ?></div>
+<div class="page-wrapper col-xs-12">
     <div class="page-container panel panel-default">
         <div class="panel-body text-violet">
             <h4>Here at Gruvi Mystics, you will find the most amazing readers. Each person, 
