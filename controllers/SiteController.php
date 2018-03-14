@@ -259,9 +259,13 @@ class SiteController extends MainController
      *
      * @return string
      */
-    public function actionAbout()
-    {
+    public function actionAbout() {
         return $this->render('about');
+    }
+
+    // url: /site/notice-webrtc
+    public function actionNoticeWebrtc() {
+        return $this->render('notice_webrtc');
     }
     
    /**
