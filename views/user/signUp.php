@@ -15,7 +15,7 @@ use \yii\helpers\Url;
 
 $this->title = 'Start new ACCOUNT';
 ?>
-<div class="page-wrapper">
+<div class="page-wrapper col-xs-12">
     <div class="page-title text-default h3"><?= Html::encode($this->title) ?></div>
     <div class="page-container panel panel-default signup_page">
         <h4 class="text-uppercase text-pink" style="margin-top:0px;">Create an account</h4>

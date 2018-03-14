@@ -11,7 +11,7 @@ use yii\helpers\Url;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-wrapper site-login">
+<div class="page-wrapper site-login col-xs-12">
     <div class="page-title text-default h3"><?= Html::encode($this->title) ?></div>
     <div class="page-container panel panel-default">
         <div class="panel-body text-violet">
