@@ -7,7 +7,7 @@ $this->title = 'Gruvi Bucks';
 $this->params['breadcrumbs'][] = ['label' => 'Gruvi Bucks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-wrapper gruvi-bucks-create">
+<div class="page-wrapper gruvi-bucks-create col-xs-12">
     <div class="page-title text-default h3">Add <span class="text-bold text-orange"><?= Html::encode($this->title) ?></span> to your account</div>
     <div class="page-container">
 

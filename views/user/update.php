@@ -11,8 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' 
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 
-<div class="page-wrapper tag-views_user_update">
-    <div class="page-title text-default h3"><?= Html::encode($this->title) ?></div>
+<div class="page-wrapper tag-views_user_update col-xs-12">
     <div class="page-container panel panel-default">
         <div class="user-update panel-body col-md-6 col-sm-10">
 
