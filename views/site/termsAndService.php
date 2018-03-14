@@ -88,7 +88,7 @@ AppAsset::register($this);
 
                                                 <?php $form = ActiveForm::begin([
                                                     'id' => 'login-form',
-                                                    'action' => Url::to(['/main.php/site/login']),
+                                                    'action' => Url::to(['/site/login']),
                                                     'options' => ['class' => 'form-custom']
                                                 ]); ?>
 
