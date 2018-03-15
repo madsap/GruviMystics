@@ -51,7 +51,7 @@ AppAsset::register($this);
     <div class="gruvi-banner col-xs-12">
         <div class="row">
             <div class="logo">
-                <a href="/main.php">
+                <a href="/">
                     <img src="/images/Gruvi-logo.svg" alt="">
                 </a>
             </div>
@@ -885,7 +885,7 @@ AppAsset::register($this);
         <div class="row">
             <div class="col-xs-3 logo">
                 <div>
-                    <a href="/main.php">
+                    <a href="/">
                         <img src="/images/Gruvi-logo.svg" alt="">
                     </a>
                 </div>

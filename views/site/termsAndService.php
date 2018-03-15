@@ -49,7 +49,7 @@ AppAsset::register($this);
             <div class="gruvi-banner col-xs-12">
                 <div class="row">
                     <div class="logo">
-                        <a href="/main.php">
+                        <a href="/">
                             <img src="/images/Gruvi-logo.svg" alt="">
                         </a>
                     </div>
