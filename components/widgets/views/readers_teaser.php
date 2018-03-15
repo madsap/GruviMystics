@@ -21,6 +21,9 @@ use \yii\helpers\Url;
         ?>
     </div>
     <div class="main_container_content">
+        <div class="text-center">
+            <input type="text" onchange="$('#reader_keyword_input').prop('disabled', true);refreshReadersTeaser('<?= $filter['activity']; ?>', 0);" placeholder="Search.." style="color:black" id="reader_keyword_input" value="<?= Html::encode($filter['keyword']); ?>">
+        </div>
         <div class="row">
         <?php 
         if($readers['readers']){
