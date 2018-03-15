@@ -228,22 +228,39 @@ yii\bootstrap\Modal::begin([
 yii\bootstrap\Modal::end();
 ?>
     
+<script>
+$(document).ready(function() {
 <?php if(!Yii::$app->user->isGuest){ ?>
-        <script>
-            $( document ).ready(function() {
-                    window.userRole = '<?= Yii::$app->user->identity->getAttribute('role'); ?>';
-                    window.controller = '<?= Yii::$app->controller->id; ?>';
-                    window.action = '<?= Yii::$app->controller->action->id; ?>';
-                    <?php if(!empty($this->params['readerAjaxUpdate'])){ ?> 
-                        window.readerAjaxUpdate = '<?= $this->params['readerAjaxUpdate']; ?>';
-                    <?php } ?>
-<?php if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) ) { // && (!YII_ENV_DEV)  ) { 
-?>
-                        window.pingInterval = setInterval(function(){Gruvi.ping()}, 4096);
-<?php } ?>
-            }); 
-        </script>
-<?php } ?>    
+
+    window.userRole = '<?= Yii::$app->user->identity->getAttribute('role'); ?>';
+    <?php if(!empty($this->params['readerAjaxUpdate'])){ ?> 
+        window.readerAjaxUpdate = '<?= $this->params['readerAjaxUpdate']; ?>';
+    <?php } ?>
+    <?php if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) ) { // && !YII_ENV_DEV  ) 
+  ?>
+        window.pingInterval = setInterval(function(){Gruvi.ping()}, 4096);
+    <?php } ?>
+<?php } /* isGuest */ ?>    
+
+window.controller = '<?= Yii::$app->controller->id; ?>';
+window.action = '<?= Yii::$app->controller->action->id; ?>';
+console.log('MARK: controller: '+window.controller+', action: '+window.action);
+
+if ( (window.mozRTCPeerConnection===undefined) && (window.webkitRTCPeerConnection===undefined) ) { 
+    //redirect to page
+    var routeName = window.controller+'.'+window.action;
+    switch (routeName) {
+        case 'site.index':
+            window.location.replace("/site/notice-webrtc");
+            break;
+        default:
+            // do nothing
+    }
+}
+
+});  // $(document).ready()
+</script>
+
     
 <?php $this->endBody() ?>
 </body>
