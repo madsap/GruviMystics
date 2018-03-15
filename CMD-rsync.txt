@@ -12,17 +12,10 @@ rsync -az --force --delete --progress                     \
 
 % ONE-OFFS
 
-rsync -az --force --delete --progress  \
-    --chmod=g+w                        \
-    --rsync-path='rsync'               \
-    ./config/web.php                   \
-    gmystics:/var/www/server-gruvi/codebase-A/gruvi/config
+rsync -az --force --delete --progress  --chmod=g+w   --rsync-path='rsync'    ./config/web.php      gmystics:/var/www/server-gruvi/codebase-A/gruvi/config
+rsync -az --force --delete --progress --chmod=g+w    --rsync-path='rsync'    ./config/params.php   gmystics:/var/www/server-gruvi/codebase-A/gruvi/config
 
-rsync -az --force --delete --progress \
-    --chmod=g+w                       \
-    --rsync-path='rsync'              \
-    ./config/params.php               
-    gmystics:/var/www/server-gruvi/codebase-A/gruvi/config
+rsync -az --force --delete --progress --chmod=g+w   --rsync-path='rsync'     ./web/index.php       gmystics:/var/www/server-gruvi/codebase-A/gruvi/web
 
 
 %%% ==========================================
@@ -40,23 +33,10 @@ rsync -az --force --delete --progress                     \
 
 % ONE-OFFS
 
-rsync -az --force --delete --progress \
-    --chmod=g+w                       \
-    --rsync-path='rsync'              \
-    ./config/web.php                  \
-    gmystics:/var/www/server-gruvi/codebase-B/gruvi/config
+rsync -az --force --delete --progress --chmod=g+w   --rsync-path='rsync'     ./config/web.php          gmystics:/var/www/server-gruvi/codebase-B/gruvi/config
+rsync -az --force --delete --progress --chmod=g+w   --rsync-path='rsync'     ./config/params.php       gmystics:/var/www/server-gruvi/codebase-B/gruvi/config
 
-rsync -az --force --delete --progress \
-    --chmod=g+w                       \
-    --rsync-path='rsync'              \
-    ./config/params.php               \
-    gmystics:/var/www/server-gruvi/codebase-B/gruvi/config
-
-rsync -az --force --delete --progress \
-    --chmod=g+w                       \
-    --rsync-path='rsync'              \
-    ./config/sensitive.php            \
-    gmystics:/var/www/server-gruvi/codebase-B/gruvi/config
+rsync -az --force --delete --progress --chmod=g+w   --rsync-path='rsync'     ./web/index.php       gmystics:/var/www/server-gruvi/codebase-B/gruvi/web
 
 %%% ==========================================
 %%% CODEBASE C: STAGING
