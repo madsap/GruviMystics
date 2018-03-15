@@ -35,6 +35,10 @@ use \app\models\User;
                                     <button type="button" onclick="changeReaderStatus('available');" class="btn btn-sm <?php echo ($model->activity == User::ACTIVITY_DISABLED) ? 'btn-default' : 'btn-primary active';?>">Available</button>
                                     <button type="button" onclick="changeReaderStatus('inactive');" class="btn btn-sm <?php echo ($model->activity == User::ACTIVITY_DISABLED) ? 'btn-primary active' : 'btn-default';?>">Inactive</button>
                                 </div>
+                                <div class="text-left" style="margin-left:20px;">
+                                    <input id="voice" type="checkbox" onclick="setReaderOpt('voice', this.checked)" <?php if($model->opt_voice)echo 'checked'?> >
+                                    <label class="text-violet h4" for="voice"> CALLS <?= ($model->opt_voice)?'on':'off'; ?></label>
+                                </div>
                                 <div class="metrics">
                                     Calls this mo: <span
                                             class="pull-right"><?= (!empty($callsStatistic['calls_count']) ? $callsStatistic['calls_count'] : '-'); ?></span>
@@ -56,7 +60,7 @@ use \app\models\User;
                                     <?php } ?>
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary gruvi-btn" role="button">Talk</button>
+                                    <button class="btn btn-primary gruvi-btn" role="button" onclick="showCallDetails(<?= $model->id; ?>);" <?= (!$model->opt_voice)?'disabled':'';?>>Talk</button>
                                 </div>
                             <?php } ?>
                         </div>
