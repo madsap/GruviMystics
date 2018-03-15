@@ -237,7 +237,7 @@ yii\bootstrap\Modal::end();
                     <?php if(!empty($this->params['readerAjaxUpdate'])){ ?> 
                         window.readerAjaxUpdate = '<?= $this->params['readerAjaxUpdate']; ?>';
                     <?php } ?>
-<?php if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) && !YII_ENV_DEV  ) { 
+<?php if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) ) { // && (!YII_ENV_DEV)  ) { 
 ?>
                         window.pingInterval = setInterval(function(){Gruvi.ping()}, 4096);
 <?php } ?>
