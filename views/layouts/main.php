@@ -231,11 +231,13 @@ yii\bootstrap\Modal::end();
 <script>
 $(document).ready(function() {
 <?php if(!Yii::$app->user->isGuest){ ?>
+
     window.userRole = '<?= Yii::$app->user->identity->getAttribute('role'); ?>';
     <?php if(!empty($this->params['readerAjaxUpdate'])){ ?> 
         window.readerAjaxUpdate = '<?= $this->params['readerAjaxUpdate']; ?>';
     <?php } ?>
-    <?php if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) && !YII_ENV_DEV  ) { ?>
+    <?php if ( (Yii::$app->user->identity->activity != User::ACTIVITY_DISABLED) ) { // && !YII_ENV_DEV  ) 
+  ?>
         window.pingInterval = setInterval(function(){Gruvi.ping()}, 4096);
     <?php } ?>
 <?php } /* isGuest */ ?>    
@@ -258,6 +260,7 @@ if ( (window.mozRTCPeerConnection===undefined) && (window.webkitRTCPeerConnectio
 
 });  // $(document).ready()
 </script>
+
     
 <?php $this->endBody() ?>
 </body>

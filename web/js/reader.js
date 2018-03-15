@@ -33,7 +33,7 @@ function changeReaderStatus(obj)
     // var url = (obj.options[obj.selectedIndex].value == 'available')?'user/set-active':'user/set-inactive';
     var url = (obj === "available")?"user/set-active":"user/set-inactive";
     $.ajax({
-        url: getAbsoluteUrl(url),
+         url: getAbsoluteUrl(url), // POST: /user/set-inactive
         type: 'POST',
          data: {ajax: 1},
          success: function(data) {
