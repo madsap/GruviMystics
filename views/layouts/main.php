@@ -84,7 +84,7 @@ AppAsset::register($this);
                                 <?php if (User::isAdmin()) { ?>
                                     <li><a href="<?= Url::to(['/user/readers'], true); ?>" class="btn">Activity</a></li>
                                 <?php } else { ?>
-                                    <li><a href="<?= Url::to(['/site/about'], true); ?>" class="btn">About</a></li>
+                                    <li><a href="<?= Url::to(['/about'], true); ?>" class="btn">About</a></li>
                                 <?php } ?>
                                 <?php if (User::isUser()) { ?>
                                     <li><a href="<?= Url::to(['/gruvi-bucks/add'], true); ?>">Add GruviBucks</a></li>
@@ -181,8 +181,8 @@ AppAsset::register($this);
                     <div>&copy;&nbsp;GruviMystics LLC - <?= date("Y"); ?></div>
                 </div>
                 <div class="col-xs-5 privacy">
-                    <div><a href="<?= Url::to(['/site/privacy-policy'], true);?>">Privacy Policy</a></div>
-                    <div><a href="<?= Url::to(['/site/terms-and-service'], true);?>">Terms &amp; Conditions</a></div>
+                    <div><a href="<?= Url::to(['/privacy-policy'], true);?>">Privacy Policy</a></div>
+                    <div><a href="<?= Url::to(['/terms-and-service'], true);?>">Terms &amp; Conditions</a></div>
                 </div>
             </div>
         </div>

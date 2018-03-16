@@ -4,6 +4,7 @@ require_once __DIR__ . '/_localConfig.php';
 $params = require(__DIR__ . '/params.php');
 $mysql  = require(__DIR__ . '/db/mysql.php');
 
+//var_dump(YII_ENV_DEV);
 $config = [
     'id'         => 'basic',
     'name'       => 'Gruvi Mystics',
@@ -140,24 +141,38 @@ $config = [
             // Disable r= routes
             'enablePrettyUrl' => true,
             'rules'           => [
-                'admin/users/blocked/<id:\d+>' => 'admin/user/show-blocked',
-                'admin/users/blocked' => 'admin/user/index-blocked',
+                'admin/users/blocked/<id:\d+>'                               => 'admin/user/show-blocked',
+                'admin/users/blocked'                                        => 'admin/user/index-blocked',
 
-				'message/<id:\d+>' => 'message/view',
-				'message/view/<id:\d+>' => 'message/view',
-				'message/update/<id:\d+>' => 'message/update',
-				'message/delete/<id:\d+>' => 'message/delete',
-                'user/profile/<id:\d+>' => 'user/profile',
-                'user/reader/<id:\d+>' => 'user/reader',
+				'message/<id:\d+>'                                           => 'message/view',
+				'message/view/<id:\d+>'                                      => 'message/view',
+				'message/update/<id:\d+>'                                    => 'message/update',
+				'message/delete/<id:\d+>'                                    => 'message/delete',
+                'user/profile/<id:\d+>'                                      => 'user/profile',
+                'user/reader/<id:\d+>'                                       => 'user/reader',
                 'api/<_version:\d+>/<controller:(\w|\-)+>'                   => 'apiVersion<_version>/<controller>',
                 'api/<_version:\d+>/<controller:(\w|\-)+>/<action:(\w|\-)+>' => 'apiVersion<_version>/<controller>/<action>',
                 'file/<action>/<id:\w+\.?\w*>'                               => 'file/<action>',
+
+                // %PSG : Site Controller actions
+                //'/<action:auth>'                                             => 'site/<action>', // for facebook login/registration
+                '/<action:terms-and-service>'                                => 'site/<action>', 
+                '/<action:privacy-policy>'                                   => 'site/<action>',
+                '/<action:login>'                                            => 'site/<action>',
+                '/<action:about>'                                            => 'site/<action>',
+                '/<action:request-password-reset>'                           => 'site/<action>',
+                '/<action:reset-password>'                                   => 'site/<action>',
+
                 '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\w+>'        => '<module>/<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:\w+>'                 => '<module>/<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<id:\d+>'                     => '<module>/<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\w+>'                     => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'                              => '<controller>/<action>',
                 '<controller:\w+>/<id:\d+>'                                  => '<controller>/view',
+
+
+                //'<action:\w+>'                                  => 'site/<action>', // %PSG
+                //'<alias:[\w-]+>' => 'site/<alias>', // %PSG
             ],
         ],
         'authClientCollection' => [

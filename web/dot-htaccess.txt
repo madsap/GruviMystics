@@ -1,0 +1,16 @@
+RewriteEngine on
+
+# redirect urls starting with /site (except auth/facebook)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/site/auth [NC]
+RewriteRule ^site/([\w-]+)/?$ /$1 [L,R]
+
+# If a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise forward it to index.php
+
+#RewriteRule . main.php
+RewriteRule . index.php
