@@ -154,7 +154,7 @@ $config = [
                 'file/<action>/<id:\w+\.?\w*>'                               => 'file/<action>',
 
                 // %PSG : Site Controller actions
-                '/<action:auth>'                                             => 'site/<action>', // for facebook login/registration
+                //'/<action:auth>'                                             => 'site/<action>', // for facebook login/registration
                 '/<action:terms-and-service>'                                => 'site/<action>', 
                 '/<action:privacy-policy>'                                   => 'site/<action>',
                 '/<action:login>'                                            => 'site/<action>',
