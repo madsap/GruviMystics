@@ -158,6 +158,10 @@ $config = [
                 '<controller:\w+>/<action:\w+>/<id:\w+>'                     => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'                              => '<controller>/<action>',
                 '<controller:\w+>/<id:\d+>'                                  => '<controller>/view',
+
+                // %PSG
+                //'<action:\w+>'                                  => 'site/<action>',
+                '<alias:[\w-]+>' => 'site/<alias>',
             ],
         ],
         'authClientCollection' => [
