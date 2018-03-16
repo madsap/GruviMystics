@@ -5,6 +5,7 @@
  */
 
 use \yii\helpers\Html;
+use \yii\helpers\Url;
 
 $this->title = 'About';
 ?>
@@ -20,7 +21,7 @@ $this->title = 'About';
             </h4>
             <h1 class="text-bold text-pink">Meet Our Founder</h1>
             <div class="row">
-                <div class="col-md-6 col-sm-6"></div>
+                <div class="col-md-6 col-sm-6"> <img class="img-responsive" src="<?= Url::to(['/images/AnnRoman-Founder.jpg'], true);?>" alt="Ann Roman, Founder"/> </div>
                 <div class="col-md-6 col-sm-6">
                     Meet Ann Roman, Master Psychic, Medium, Intutive Counselor, Healer and founder of Gruvi Mystics.<br/><br/> 
                     Ann Roman, Native to the San Francisco Bay Area, California, has touched the globe with her amazing work!
