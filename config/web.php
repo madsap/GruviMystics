@@ -4,6 +4,7 @@ require_once __DIR__ . '/_localConfig.php';
 $params = require(__DIR__ . '/params.php');
 $mysql  = require(__DIR__ . '/db/mysql.php');
 
+//var_dump(YII_ENV_DEV);
 $config = [
     'id'         => 'basic',
     'name'       => 'Gruvi Mystics',
