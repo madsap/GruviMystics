@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php ActiveForm::end(); ?>
         
-        <a href="<?= Url::to(['/site/request-password-reset'], true); ?>">Forgot Your Password?</a>
+        <a href="<?= Url::to(['/request-password-reset'], true); ?>">Forgot Your Password?</a>
         
         </div>
     </div>

@@ -1,21 +1,8 @@
 RewriteEngine on
 
-#http to https
-#RewriteCond %{HTTPS} !^on$
-#RewriteCond %{REQUEST_URI} !^/robots.txt$
-#RewriteRule (.*) https://www.gruvimystics.com%3%{REQUEST_URI} [L,R=301]
-
-#RewriteCond %{HTTPS} off
-##RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,NE,R=301]
-##RewriteRule ^ https://www.dev-gmystics.com%{REQUEST_URI} [L,NE,R=301]
-#RewriteRule ^ https://www.dev-gmystics.com%{REQUEST_URI} [L,NE,R=301]
-
-#end http to https
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^site/([\w-]+)/?$ /$1 [L,R]
-#RewriteRule ^site/about /about [L,R]
 
 # If a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f

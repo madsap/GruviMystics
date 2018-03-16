@@ -143,17 +143,10 @@ class SiteController extends MainController
     /**
      * @return string
      */
-    public function actionPrivacyPolicyes()
-    {
-        return $this->render('privacyPolicyes');
-    }
-
-    /**
-     * @return string
-     */
     public function actionTermsAndCondition()
     {
         return $this->render('termsAndCondition');
+
     }
     /**
      * @return string

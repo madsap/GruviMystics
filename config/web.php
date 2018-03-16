@@ -140,18 +140,28 @@ $config = [
             // Disable r= routes
             'enablePrettyUrl' => true,
             'rules'           => [
-                'admin/users/blocked/<id:\d+>' => 'admin/user/show-blocked',
-                'admin/users/blocked' => 'admin/user/index-blocked',
+                'admin/users/blocked/<id:\d+>'                               => 'admin/user/show-blocked',
+                'admin/users/blocked'                                        => 'admin/user/index-blocked',
 
-				'message/<id:\d+>' => 'message/view',
-				'message/view/<id:\d+>' => 'message/view',
-				'message/update/<id:\d+>' => 'message/update',
-				'message/delete/<id:\d+>' => 'message/delete',
-                'user/profile/<id:\d+>' => 'user/profile',
-                'user/reader/<id:\d+>' => 'user/reader',
+				'message/<id:\d+>'                                           => 'message/view',
+				'message/view/<id:\d+>'                                      => 'message/view',
+				'message/update/<id:\d+>'                                    => 'message/update',
+				'message/delete/<id:\d+>'                                    => 'message/delete',
+                'user/profile/<id:\d+>'                                      => 'user/profile',
+                'user/reader/<id:\d+>'                                       => 'user/reader',
                 'api/<_version:\d+>/<controller:(\w|\-)+>'                   => 'apiVersion<_version>/<controller>',
                 'api/<_version:\d+>/<controller:(\w|\-)+>/<action:(\w|\-)+>' => 'apiVersion<_version>/<controller>/<action>',
                 'file/<action>/<id:\w+\.?\w*>'                               => 'file/<action>',
+
+                // %PSG : Site Controller actions
+                '/<action:auth>'                                             => 'site/<action>', // for facebook login/registration
+                '/<action:terms-and-service>'                                => 'site/<action>', 
+                '/<action:privacy-policy>'                                   => 'site/<action>',
+                '/<action:login>'                                            => 'site/<action>',
+                '/<action:about>'                                            => 'site/<action>',
+                '/<action:request-password-reset>'                           => 'site/<action>',
+                '/<action:reset-password>'                                   => 'site/<action>',
+
                 '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\w+>'        => '<module>/<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:\w+>'                 => '<module>/<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<id:\d+>'                     => '<module>/<controller>/view',
@@ -159,9 +169,9 @@ $config = [
                 '<controller:\w+>/<action:\w+>'                              => '<controller>/<action>',
                 '<controller:\w+>/<id:\d+>'                                  => '<controller>/view',
 
-                // %PSG
-                //'<action:\w+>'                                  => 'site/<action>',
-                '<alias:[\w-]+>' => 'site/<alias>',
+
+                //'<action:\w+>'                                  => 'site/<action>', // %PSG
+                //'<alias:[\w-]+>' => 'site/<alias>', // %PSG
             ],
         ],
         'authClientCollection' => [

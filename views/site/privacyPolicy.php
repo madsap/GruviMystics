@@ -894,8 +894,8 @@ AppAsset::register($this);
                 <div>&copy;&nbsp;GruviMystics LLC - <?= date("Y"); ?></div>
             </div>
             <div class="col-xs-5 privacy">
-                <div><a href="<?= Url::to(['/site/privacy-policy'], true); ?>">Privacy Policy</a></div>
-                <div><a href="<?= Url::to(['/site/terms-and-service'], true); ?>">Terms &amp; Conditions</a></div>
+                <div><a href="<?= Url::to(['/privacy-policy'], true); ?>">Privacy Policy</a></div>
+                <div><a href="<?= Url::to(['/terms-and-service'], true); ?>">Terms &amp; Conditions</a></div>
             </div>
         </div>
     </div>
