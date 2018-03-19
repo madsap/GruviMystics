@@ -15,6 +15,7 @@ use app\models\search\User as UserSearch;
 use app\components\widgets\ReadersTeaser;
 use \app\models\GruviBucks;
 use \app\models\UserRelation;       
+use \yii\web\NotFoundHttpException;
 
 /**
  * Class UserController

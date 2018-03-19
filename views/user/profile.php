@@ -22,7 +22,7 @@ use \app\models\User;
                     </div>
                     <div class="col-xs-8 right-col">
                         <div class="header">
-                            <?= Html::encode($model->firstName); ?>
+                            <?= Html::encode($model->renderDisplayName()); ?>
                         </div>
                         <div class="content_reader_card">
                             <div class="tagline">
