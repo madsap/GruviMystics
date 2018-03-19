@@ -326,6 +326,37 @@ body {
   }
 }
 
+.non-rtc {
+  min-height: 30vh;
+  background-color: white;
+  .gPanel-header {
+    margin: 30px 0;
+  }
+  .gPanel {
+    background-color: #FCE4F2;
+    border: 1px solid @gruvi-pink;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    min-height: 22vh;
+    position: relative;
+    em {
+      font-weight: bolder;
+      font-style: normal;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      img {
+        height: 30px;
+      }
+    }
+  }
+}
+
 .main_container {
   min-height: 30vh;
   background-color: @gruvi-light-grey;
@@ -783,8 +814,13 @@ body {
 }
 
 /* Transformations */
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.1); }
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
 
 /* profile tab chat */
 .profile-chat {
@@ -866,66 +902,4 @@ body {
     }
   }
 }
-
-//.profile_chat_container{
-///*    padding:0px 15px;*/
-//    padding-bottom: 99999px;
-//    margin-bottom: -99999px;
-//    float: right;
-//    margin-right: -500px;
-//    width: 500px;
-//    background-color: @gruvi-light-blue;
-//    border: 2px solid @gruvi-pink;
-//    position:relative;
-//    h3{
-//        margin-top: -38px;
-//        position: absolute;
-//    }
-//    .chat_message_row{
-//        margin:5px;
-//        .field_message{
-//            background-color:#ffffff;
-//            border:1px solid @gruvi-grey;
-//            padding:10px;
-//        }
-//        .delete_message{
-//            position: absolute;
-//            right: 7px;
-//        }
-//    }
-//    .enter_message{
-//        margin:0px;
-//        input[type="text"]{
-//            border:0px;
-//            height: 34px;
-//            padding: 6px 12px;
-//            font-size: 14px;
-//            line-height: 1.42857143;
-//        }
-//        ::-webkit-input-placeholder {
-//            text-transform: uppercase;
-//            color:@gruvi-pink;
-//            opacity: 1;
-//            font-weight: bold;
-//          }
-//          ::-moz-placeholder {
-//            text-transform: uppercase;
-//            color:@gruvi-pink;
-//            opacity: 1;
-//            font-weight: bold;
-//          }
-//          :-ms-input-placeholder {
-//            text-transform: uppercase;
-//            color:@gruvi-pink;
-//            opacity: 1;
-//            font-weight: bold;
-//          }
-//          :-moz-placeholder {
-//            text-transform: uppercase;
-//            color:@gruvi-pink;
-//            opacity: 1;
-//            font-weight: bold;
-//          }
-//    }
-//}
 
