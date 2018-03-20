@@ -32,7 +32,7 @@ use \app\models\User;
                         <div class="status-group col-xs-10 col-xs-offset-2 col-md-8 col-md-offset-4">
                             <?php if ($editable) { ?>
                                 <div class="btn-group status-btns" role="group" aria-label="Select status">
-                                    <button type="button" onclick="changeReaderStatus('available');" class="btn btn-sm <?php echo ($model->activity == User::ACTIVITY_DISABLED) ? 'btn-default' : 'btn-primary active';?>">Available</button>
+                                    <button type="button" onclick="changeReaderStatus('available');" class="btn btn-sm <?php echo ($model->activity == User::ACTIVITY_DISABLED) ? 'btn-default' : 'btn-primary active';?>">Available 1</button>
                                     <button type="button" onclick="changeReaderStatus('inactive');" class="btn btn-sm <?php echo ($model->activity == User::ACTIVITY_DISABLED) ? 'btn-primary active' : 'btn-default';?>">Inactive</button>
                                 </div>
                                 <div class="text-left" style="margin-left:20px;">
@@ -57,6 +57,9 @@ use \app\models\User;
                                     <?php } ?>
                                     <?php if ($model->activity == User::ACTIVITY_OFFLINE) { ?>
                                         <span class="">Offline</span>
+                                    <?php } ?>
+                                    <?php if ($model->activity == User::ACTIVITY_DISABLED) { ?>
+                                        <span class="">Disabled</span>
                                     <?php } ?>
                                 </div>
                                 <div>
