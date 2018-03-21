@@ -7,3 +7,94 @@ http://www.yiiframework.com/doc-2.0/guide-start-installation.html
 https://github.com/yiisoft/yii2
 
 
+save reader w/ image
+
+Request URL: https://www.gruvimystics.com/user/reader/179
+Request Method: POST
+Status Code: 302 
+Remote Address: 54.183.67.247:443
+Referrer Policy: no-referrer-when-downgrade
+cache-control: no-store, no-cache, must-revalidate
+content-length: 0
+content-type: text/html; charset=UTF-8
+date: Wed, 21 Mar 2018 02:00:31 GMT
+expires: Thu, 19 Nov 1981 08:52:00 GMT
+location: https://www.gruvimystics.com/user/reader/179
+pragma: no-cache
+server: Apache/2.4.18 (Ubuntu)
+set-cookie: _identity=dddf8f114cc209f2efcaca7dec981a340e9a5cd448adc5bacafeeb3da5d77f08a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A18%3A%22%5B179%2Cnull%2C2592000%5D%22%3B%7D; expires=Fri, 20-Apr-2018 02:00:31 GMT; Max-Age=2592000; path=/; HttpOnly
+status: 302
+:authority: www.gruvimystics.com
+:method: POST
+:path: /user/reader/179
+:scheme: https
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cache-control: no-cache
+content-length: 269598
+content-type: multipart/form-data; boundary=----WebKitFormBoundaryk0KB1LB6deDYeszf
+cookie: _csrf=5ae6011edb08d8f051b1ab44a57e33b8a8ecdbfeb7cd9570022dbbcbf5c9ea88a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%D5%88%8F%3F%24f%3C%2Fd%93%9DB%BD%DB%B2%166%16G%3A%08%07%9A%BC%93%F34%A5%BB%95%7Fn%22%3B%7D; __stripe_mid=8f35fd1f-e25e-491e-ab51-8c757fd27f77; PHPSESSID=3oldsc4r3oonjmiqt3regtnml1; _identity=dddf8f114cc209f2efcaca7dec981a340e9a5cd448adc5bacafeeb3da5d77f08a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A18%3A%22%5B179%2Cnull%2C2592000%5D%22%3B%7D
+origin: https://www.gruvimystics.com
+pragma: no-cache
+referer: https://www.gruvimystics.com/user/reader/179
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="_csrf"
+
+xJfTakPGNGbxQYt0pN0ySAkxsg_jtzPMiSPnFeoalUsRH1xVZ6AISZXSFjYZBoBePyf1NeuwqXAa0NOwUY_qJQ==
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[firstName]"
+
+Peter
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[lastName]"
+
+Reader 179
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[telephone]"
+
+
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[displayname]"
+
+peter-reader-179
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[tagLine]"
+
+
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[description]"
+
+
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[email]"
+
+peter+reader@peltronic.com
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[password]"
+
+
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[confirmPassword]"
+
+
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[specialties]"
+
+
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="photo"; filename="fox.jpg"
+Content-Type: image/jpeg
+
+
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[rate]"
+
+1.00
+------WebKitFormBoundaryk0KB1LB6deDYeszf
+Content-Disposition: form-data; name="User[role]"
+
+reader
+------WebKitFormBoundaryk0KB1LB6deDYeszf--
