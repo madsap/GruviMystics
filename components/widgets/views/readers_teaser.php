@@ -44,7 +44,7 @@ use \yii\helpers\Url;
                                     </div>
                                     <div class="col-xs-8 right-col">
                                         <div class="header">
-                                            <?= Html::encode($item->firstName); ?>
+                                            <?= Html::encode($item->renderDisplayName()); ?>
                                         </div>
                                         <div class="content_reader_card">
                                             <div class="tagline">
