@@ -59,7 +59,7 @@ use \app\models\User;
                                         <span class="">Offline</span>
                                     <?php } ?>
                                     <?php if ($model->activity == User::ACTIVITY_DISABLED) { ?>
-                                        <span class="">Disabled</span>
+                                        <span class="">Unavailable</span>
                                     <?php } ?>
                                 </div>
                                 <div>
