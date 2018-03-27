@@ -56,6 +56,14 @@ class UserController extends MainController
         return parent::beforeAction($action);
     }
 
+    public function actionIndex()
+    {
+        $records = User::find()->where(['role' => 'user'])
+                               ->orderBy('createAt desc')
+                               ->all();
+        return $this->render('index', [ 'records' => $records ]);
+    }
+
     
     public function actionIndexBlocked()
     {
