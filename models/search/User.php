@@ -104,9 +104,11 @@ class User extends UserModel
     public function getReaders()
     {
         $query = UserModel::find()
+            /*
                 ->joinWith(['callsReaders c' => function($query) {
                                     $query->joinWith('customer');
                                 }], true, 'LEFT JOIN')
+             */
                 ->alias('u')->select('u.*');
 
         $query->where('u.role = :role', [':role' => User::ROLE_READER]);

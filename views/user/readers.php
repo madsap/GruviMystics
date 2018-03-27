@@ -42,7 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <?php 
                             //echo $reader->id;exit;
-                            $calls = $reader->getCallsReaders()->all();
+                            $calls = [];
+                            //$calls = $reader->getCallsReaders()->all();
 //                            if(!empty($calls)){
                                 //print_r($calls->callsReaders']);exit;
                             ?>
