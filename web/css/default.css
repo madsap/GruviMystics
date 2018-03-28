@@ -769,6 +769,15 @@ body {
 .edit-link {
   margin-bottom: 10px;
 }
+.edit-link .btn-primary {
+  color: #fff;
+  background-color: #db0081;
+  border-color: #db0081;
+}
+.edit-link .btn-primary:hover {
+  background-color: #442B5D;
+  border-color: #442B5D;
+}
 /* profile tab chat */
 .profile-chat {
   background-color: #f2f0f5;
@@ -845,14 +854,4 @@ body {
   height: 25px;
   background-color: #952F94;
   width: 102%;
-}
-
-ul.admin-nav {
-    background-color: #fff;
-    padding: 10px;
-    list-style: none;
-}
-ul.admin-nav > li {
-    display: inline-block;
-    margin-right: 20px;
 }
