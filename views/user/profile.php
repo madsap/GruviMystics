@@ -9,7 +9,7 @@ use yii\helpers\Url;
 <div class="profile col-xs-12">
     <div class="row">
         <div class="col-xs-12 profile-header">
-            <div class="card col-xs-6">
+            <div class="card col-xs-7">
             <div class="card-body">
                 <div class="reader-card">
                     <div class="col-xs-4 left-col">
@@ -73,7 +73,7 @@ use yii\helpers\Url;
                 </div>
             </div>
         </div>
-            <div class="col-xs-6 col-md-5 col-md-offset-1">
+            <div class="col-xs-5 col-md-4 col-md-offset-1">
                 <div class="title-container">
                     <span class="title">Specialties</span>
                 </div>
