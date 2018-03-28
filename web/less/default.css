@@ -431,6 +431,11 @@ body {
 .reader-card .right-col .status-group .status-btns {
   margin-bottom: 10px;
 }
+.reader-card .right-col .status-group .status-btns .btn-primary {
+  color: #fff;
+  background-color: #FA7947;
+  border-color: #FA7947;
+}
 .reader-card .right-col .status-group .metrics {
   text-align: left;
 }
