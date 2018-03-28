@@ -378,7 +378,6 @@ body {
   padding: 20px;
 }
 .reader-card {
-  height: 175px;
   background-color: white;
 }
 .reader-card.decorated {
@@ -402,9 +401,8 @@ body {
   height: 100%;
 }
 .reader-card .left-col .price-text {
-  position: absolute;
-  bottom: 10px;
-  left: 25px;
+  position: relative;
+  bottom: -20px;
   color: #442B5D;
   text-align: center;
   font-size: 20px;
@@ -426,9 +424,7 @@ body {
   color: #737274;
 }
 .reader-card .right-col .status-group {
-  position: absolute;
-  bottom: 5px;
-  right: 10px;
+  margin-top: 20px;
   color: #737274;
   text-align: center;
 }
@@ -769,6 +765,9 @@ body {
 }
 .grow:hover {
   transform: scale(1.1);
+}
+.edit-link {
+  margin-bottom: 10px;
 }
 /* profile tab chat */
 .profile-chat {
