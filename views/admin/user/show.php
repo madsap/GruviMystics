@@ -29,6 +29,7 @@ $sessionUser = Yii::$app->user;
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="active"><?= Html::a('Info','#tab-basicInfo', ['role'=>'tab','data-toggle'=>'tab']) ?></li>
                     <li><?= Html::a('Calls','#tab-calls', ['role'=>'tab','data-toggle'=>'tab']) ?></li>
+                    <li><?= Html::a('Gruvi Bucks','#tab-gruvibucks', ['role'=>'tab','data-toggle'=>'tab']) ?></li>
                 </ul>
             </article>
         </section>
@@ -90,6 +91,29 @@ $sessionUser = Yii::$app->user;
                                 <td><?= $c->reader->renderFullname() ?></td>
                                 <td><?= $c->duration ?></td>
                                 <td><?= $c->createAt ?></td>
+                            </tr>
+                            <?php } ?>
+                        </table>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="tab-gruvibucks">
+                        <table class="table">
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Call ID</th>
+                                <th>Date</th>
+                            </tr>
+                            <?php foreach ($gruvibucks as $gb) { ?>
+                            <tr>
+                                <th><?= Html::a($gb->id, Url::toRoute(['admin/gruvibuck/show','pkid'=>$gb->id])) ?></th>
+                                <td><?= $gb->user->renderFullname() ?></td>
+                                <td><?= $gb->amount ?></td>
+                                <td><?= $gb->status ?></td>
+                                <td><?= $gb->callId ?></td>
+                                <td><?= $gb->createAt ?></td>
                             </tr>
                             <?php } ?>
                         </table>

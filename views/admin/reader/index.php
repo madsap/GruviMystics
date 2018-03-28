@@ -36,6 +36,7 @@ $sessionUser = Yii::$app->user;
                             <th>Email</th>
                             <th>Date</th>
                             <th># Calls</th>
+                            <th># Messages</th>
                         </tr>
                         <?php foreach ($records as $r) { ?>
                         <tr>
@@ -45,6 +46,7 @@ $sessionUser = Yii::$app->user;
                             <td><?= $r->email ?></td>
                             <td><?= $r->createAt ?></td>
                             <td><?= count($r->callsReaders) ?></td>
+                            <td><?= count($r->messagesReaders) ?></td>
                         </tr>
                         <?php } ?>
                     </table>

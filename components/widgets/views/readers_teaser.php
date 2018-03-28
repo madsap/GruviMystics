@@ -30,7 +30,7 @@ use \yii\helpers\Url;
             foreach($readers['readers'] as  $item){ ?>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" data-item_pkid="<?=$item->id ?>">
                             <a href="<?= Url::to(['/user/profile/'.$item->id], true);?>">
                                 <div class="reader-card decorated">
                                     <div class="col-xs-4 left-col">

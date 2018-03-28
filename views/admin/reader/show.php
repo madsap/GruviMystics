@@ -25,6 +25,7 @@ $this->title = 'Reader Details';
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="active"><?= Html::a('Info','#tab-basicInfo', ['role'=>'tab','data-toggle'=>'tab']) ?></li>
                     <li><?= Html::a('Calls','#tab-calls', ['role'=>'tab','data-toggle'=>'tab']) ?></li>
+                    <li><?= Html::a('Messages','#tab-messages', ['role'=>'tab','data-toggle'=>'tab']) ?></li>
                 </ul>
             </article>
         </section>
@@ -86,6 +87,27 @@ $this->title = 'Reader Details';
                                 <td><?= $c->reader->renderFullname() ?></td>
                                 <td><?= $c->duration ?></td>
                                 <td><?= $c->createAt ?></td>
+                            </tr>
+                            <?php } ?>
+                        </table>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="tab-messages">
+                        <table class="table">
+                            <tr>
+                                <th>ID</th>
+                                <th>From Customer</th>
+                                <th>To Reader</th>
+                                <th>status</th>
+                                <th>Date</th>
+                            </tr>
+                            <?php foreach ($u->messagesReaders as $m) { ?>
+                            <tr>
+                                <th><?= Html::a($m->id, Url::toRoute(['admin/message/show','pkid'=>$m->id])) ?></th>
+                                <td><?= $m->customer->renderFullname() ?></td>
+                                <td><?= $m->reader->renderFullname() ?></td>
+                                <td><?= $m->status ?></td>
+                                <td><?= $m->createAt ?></td>
                             </tr>
                             <?php } ?>
                         </table>
