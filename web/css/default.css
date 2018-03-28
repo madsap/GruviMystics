@@ -378,6 +378,7 @@ body {
   padding: 20px;
 }
 .reader-card {
+  min-height: 175px;
   background-color: white;
 }
 .reader-card.decorated {
@@ -422,6 +423,7 @@ body {
 .reader-card .right-col .tagline {
   font-size: 12px;
   color: #737274;
+  height: 50px;
 }
 .reader-card .right-col .status-group {
   margin-top: 20px;
