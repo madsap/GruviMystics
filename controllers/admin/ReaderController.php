@@ -4,7 +4,7 @@ namespace app\controllers\admin;
 use \Yii;
 use \app\components\MainController;
 use \app\models\User;
-//use \app\models\Call;
+use \app\models\Call;
 //use \app\models\Message;
 //use \app\models\UserCreditCard;
 //use \app\models\Site;
@@ -57,6 +57,15 @@ class ReaderController extends MainController
         return $this->render('index', [ 'records' => $records ]);
     }
 
+    public function actionShow($pkid)
+    {
+        $user = User::find()->where(['id' => $pkid])->one();
+        $calls = Call::find()->where(['readerId' => $user->id])->all();
+        return $this->render('show', [
+            'u' => $user,
+            'calls' => $calls,
+        ]);
+    }
     
     
 }

@@ -5,7 +5,7 @@ use \app\models\User;
 use \yii\helpers\Url;
 
 
-$this->title = 'User Details';
+$this->title = 'Reader Details';
 ?>
 <div class="page-wrapper tag-views_user_reader col-xs-12">
     <?php if (Yii::$app->session->hasFlash('success')) { ?>
@@ -14,11 +14,7 @@ $this->title = 'User Details';
         <?= Yii::$app->session->getFlash('success') ?>
     </div>
     <?php } ?>
-<?php 
-$sessionUser = Yii::$app->user;
-//var_dump($sessionUser->identity->role);
-//die;
- ?>
+<?php $sessionUser = Yii::$app->user; ?>
     <?=$this->render('../_nav.php')?>;
    <div class="page-title text-default h3">ADMIN : <?=$this->title?></div>
 
@@ -78,7 +74,7 @@ $sessionUser = Yii::$app->user;
                         <table class="table">
                             <tr>
                                 <th>ID</th>
-                                <th>From</th>
+                                <th>From Customer</th>
                                 <th>To Reader</th>
                                 <th>Duration</th>
                                 <th>Date</th>
