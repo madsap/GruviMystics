@@ -847,3 +847,13 @@ body {
   background-color: #952F94;
   width: 102%;
 }
+
+ul.admin-nav {
+    background-color: #fff;
+    padding: 10px;
+    list-style: none;
+}
+ul.admin-nav > li {
+    display: inline-block;
+    margin-right: 20px;
+}

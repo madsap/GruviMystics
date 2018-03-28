@@ -35,14 +35,16 @@ $sessionUser = Yii::$app->user;
                             <th>Displayname</th>
                             <th>Email</th>
                             <th>Date</th>
+                            <th># Calls</th>
                         </tr>
                         <?php foreach ($records as $r) { ?>
                         <tr>
-                            <th><?= Html::a($r->id, Url::toRoute(['admin/users/show','pkid'=>$r->id])) ?></th>
+                            <th><?= Html::a($r->id, Url::toRoute(['admin/user/show','pkid'=>$r->id])) ?></th>
                             <td><?= $r->username ?></td>
                             <td><?= $r->displayname ?></td>
                             <td><?= $r->email ?></td>
                             <td><?= $r->createAt ?></td>
+                            <td><?= count($r->callsCustomers) ?></td>
                         </tr>
                         <?php } ?>
                     </table>

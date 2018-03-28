@@ -877,6 +877,9 @@ class User extends ActiveRecord implements IdentityInterface {
     public function getCallsReaders() {
         return $this->hasMany(Call::className(), ['readerId' => 'id']);
     }
+    public function getCallsCustomers() {
+        return $this->hasMany(Call::className(), ['customerId' => 'id']);
+    }
 
     /**
      * Finds user by password reset token

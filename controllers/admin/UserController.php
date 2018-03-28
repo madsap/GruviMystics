@@ -5,7 +5,7 @@ namespace app\controllers\admin;
 use \Yii;
 use \app\components\MainController;
 use \app\models\User;
-//use \app\models\Call;
+use \app\models\Call;
 //use \app\models\Message;
 //use \app\models\UserCreditCard;
 //use \app\models\Site;
@@ -62,6 +62,16 @@ class UserController extends MainController
                                ->orderBy('createAt desc')
                                ->all();
         return $this->render('index', [ 'records' => $records ]);
+    }
+
+    public function actionShow($pkid)
+    {
+        $user = User::find()->where(['id' => $pkid])->one();
+        $calls = Call::find()->where(['customerId' => $user->id])->all();
+        return $this->render('show', [
+            'u' => $user,
+            'calls' => $calls,
+        ]);
     }
 
     
