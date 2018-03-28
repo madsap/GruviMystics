@@ -253,30 +253,44 @@ class UserController extends MainController
     public function actionDeleteReader()
     {
         $id = Yii::$app->request->get('id');
-        if(empty($id) || !User::isAdmin())return $this->goHome();
+        if(empty($id) || !User::isAdmin()) {
+            return $this->goHome();
+        }
         
         $model = User::findIdentity($id);
+        $model->is_deleted = 1;
+        $model->status = 'deleted';
+        $model->save();
+        /*
         $model->setScenario("delete");
         
-        $GruviBucks = GruviBucks::find()->where(['userId' => $id])->one(); 
-        if(!empty($GruviBucks)) $GruviBucks->delete();
+        foreach ($model->gruviBucks as $gb) {
+            $gb->delete();
+        }
         
-        $Call = Call::find()->where(['readerId' => $id])->one();    
-        if(!empty($Call)) $Call->delete();
+        $calls = Call::find()->where(['readerId' => $id])->all(); 
+        foreach ($calls as $c) {
+            $c->delete();
+        }
         
-        $File = File::find()->where(['userId' => $id])->one(); 
-        if(!empty($File)) $File->delete();
+        $files = File::find()->where(['userId' => $id])->all(); 
+        $files->delete();
         
-        $Message = Message::find()->where(['readerId' => $id])->one();   
-        if(!empty($Message)) $Message->delete();
+        $messages = Message::find()->where(['readerId' => $id])->all();   
+        foreach ($messages as $m) {
+            $m->delete();
+        }
         
-        $UserCreditCard = UserCreditCard::find()->where(['userId' => $id])->one(); 
-        if(!empty($UserCreditCard)) $UserCreditCard->delete();
+        $cards = UserCreditCard::find()->where(['userId' => $id])->all(); 
+        foreach ($cards as $c) {
+            $c->delete();
+        }
         
         $connection = Yii::$app->getDb();
         $connection->createCommand("DELETE FROM `md_user_specialty` WHERE `userId` = :user_id", [':user_id' => $id])->execute();
         
         $model->delete();     
+         */
         
         Yii::$app->session->setFlash('success', "Reader deleted successfully.");
         return $this->redirect(['user/readers']);

@@ -88,6 +88,7 @@ class User extends UserModel
                 $query->andWhere('u.id < :id', [':id' => $this->maxId]);
             }
         }
+        //$query->andWhere(['u.is_deleted' => 0]);
 
         $query->orderBy(['u.createAt' => $sort]);
 
@@ -112,6 +113,7 @@ class User extends UserModel
                 ->alias('u')->select('u.*');
 
         $query->where('u.role = :role', [':role' => User::ROLE_READER]);
+        $query->andWhere(['u.is_deleted' => 0]);
 
         $query->orderBy(['u.createAt' => SORT_DESC]);
 
@@ -140,6 +142,7 @@ class User extends UserModel
         
         $query = UserModel::find()->alias('u')->select('u.*');
         $query->where('u.role = :role', [':role' => User::ROLE_READER]);
+        $query->andWhere(['u.is_deleted' => 0]);
         if(!empty($filter['activity']))$query->andWhere('u.activity = :activity', [':activity' => $filter['activity']]);
         if(!empty($filter['keyword'])){
             $query->andWhere(['or',

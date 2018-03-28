@@ -82,6 +82,7 @@ AppAsset::register($this);
                         <div class="collapse navbar-collapse gruvi-menu" id="myNavbar">
                             <ul class="nav navbar-nav navbar-right">
                                 <?php if (User::isAdmin()) { ?>
+                                    <li><a href="<?= Url::to(['/admin/home/show'], true); ?>" class="btn">Admin Panel</a></li>
                                     <li><a href="<?= Url::to(['/user/readers'], true); ?>" class="btn">Activity</a></li>
                                 <?php } else { ?>
                                     <li><a href="<?= Url::to(['/about'], true); ?>" class="btn">About</a></li>

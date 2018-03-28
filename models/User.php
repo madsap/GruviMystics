@@ -10,6 +10,7 @@ use \app\components\StringHelper;
 use \app\models\query\User as UserQuery;
 use \app\models\GruviBucks;
 use \app\models\UserCreditCard;
+use \app\models\Message;
 use app\models\search\Message as MessageSearch;
 
 /**
@@ -128,7 +129,7 @@ class User extends ActiveRecord implements IdentityInterface {
             $name .= $this->firstName;
         } 
         if ( !empty($this->lastName) ) {
-            $name .= $this->lastName;
+            $name .= ' '.$this->lastName;
         } 
         if ( empty($name) ) {
             $name = $this->renderDisplayName();
@@ -876,6 +877,20 @@ class User extends ActiveRecord implements IdentityInterface {
 
     public function getCallsReaders() {
         return $this->hasMany(Call::className(), ['readerId' => 'id']);
+    }
+    public function getCallsCustomers() {
+        return $this->hasMany(Call::className(), ['customerId' => 'id']);
+    }
+
+    public function getMessagesReaders() {
+        return $this->hasMany(Message::className(), ['readerId' => 'id']);
+    }
+    public function getMessagesCustomers() {
+        return $this->hasMany(Message::className(), ['customerId' => 'id']);
+    }
+
+    public function getGruviBucks() {
+        return $this->hasMany(GruviBucks::className(), ['userId' => 'id']);
     }
 
     /**

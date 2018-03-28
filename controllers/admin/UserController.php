@@ -5,7 +5,8 @@ namespace app\controllers\admin;
 use \Yii;
 use \app\components\MainController;
 use \app\models\User;
-//use \app\models\Call;
+use \app\models\Call;
+use \app\models\GruviBucks;
 //use \app\models\Message;
 //use \app\models\UserCreditCard;
 //use \app\models\Site;
@@ -13,7 +14,6 @@ use \app\models\User;
 //use \app\models\File;
 //use app\models\search\User as UserSearch;
 //use app\components\widgets\ReadersTeaser;
-//use \app\models\GruviBucks;
 use \app\models\UserRelation;       
 
 /**
@@ -54,6 +54,27 @@ class UserController extends MainController
             return $this->goHome();
         }
         return parent::beforeAction($action);
+    }
+
+    public function actionIndex()
+    {
+        $records = User::find()->where(['role' => 'user'])
+                               ->orderBy('createAt desc')
+                               ->all();
+        return $this->render('index', [ 'records' => $records ]);
+    }
+
+    public function actionShow($pkid)
+    {
+        $user = User::find()->where(['id' => $pkid])->one();
+        $calls = Call::find()->where(['customerId' => $user->id])->all();
+        //$gruvibucks = GruviBucks::find()->where(['userId' => $user->id])->all();
+        $gruvibucks = $user->gruviBucks;
+        return $this->render('show', [
+            'u' => $user,
+            'calls' => $calls,
+            'gruvibucks' => $gruvibucks,
+        ]);
     }
 
     
