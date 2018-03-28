@@ -90,7 +90,7 @@ use yii\helpers\Url;
             <div class="col-xs-12">
                 <div class="edit-link pull-right">
                     <?php if($editable){ ?>
-                        <a href="<?= Url::to(['/user/reader/'.$model->id], true);?>" class="text-default"><span class="btn btn-primary text-orange">Edit profile</span></a>
+                        <a href="<?= Url::to(['/user/reader/'.$model->id], true);?>" class="text-default"><span class="btn btn-primary">Edit profile</span></a>
                     <?php } ?>
                 </div>
             </div>
