@@ -213,13 +213,22 @@ class UserController extends MainController
     // %PSG: handles both GET & POST (show, edit, update, etc)
     public function actionReader($id = null)
     {
-        if(empty($id) || !User::isAdmin())$id = Yii::$app->user->identity->id;
+        $sessionUser = Yii::$app->user->identity;
+
+        if ( User::isAdmin() && is_null($id) ) {
+            throw new \Exception('Viewing as admin requires id parameter');
+        } else if ($sessionUser->id != $id) {
+            // not viewing own page
+            throw new \Exception('Access denied');
+        }
         
         $model = User::findIdentity($id);
 		$model->setScenario("update");
         
         //if(empty($model->id) || $model->getAttribute('role') != User::ROLE_READER) return $this->goHome();
-        if(empty($model->id)) return $this->goHome();
+        if(empty($model->id)) {
+            return $this->goHome();
+        }
         
         if(Yii::$app->request->post()){
             $post = Yii::$app->request->post();
