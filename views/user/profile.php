@@ -2,12 +2,14 @@
 
 use yii\helpers\Html;
 use \app\models\User;
+use yii\helpers\Url;
 
 ?>
 
 <div class="profile col-xs-12">
-    <div class="row profile-header">
-        <div class="card col-xs-5 col-xs-offset-1">
+    <div class="row">
+        <div class="col-xs-12 profile-header">
+            <div class="card col-xs-6">
             <div class="card-body">
                 <div class="reader-card">
                     <div class="col-xs-4 left-col">
@@ -29,7 +31,7 @@ use \app\models\User;
                                 <?= Html::encode($model->tagLine); ?>
                             </div>
                         </div>
-                        <div class="status-group col-xs-10 col-xs-offset-2 col-md-8 col-md-offset-4">
+                        <div class="status-group col-xs-12">
                             <?php if ($editable) { ?>
                                 <div class="btn-group status-btns" role="group" aria-label="Select status">
                                     <button type="button" onclick="changeReaderStatus('available');" class="btn btn-sm <?php echo ($model->activity == User::ACTIVITY_DISABLED) ? 'btn-default' : 'btn-primary active';?>">Available</button>
@@ -71,19 +73,27 @@ use \app\models\User;
                 </div>
             </div>
         </div>
-        <div class="col-xs-5 col-xs-offset-1">
-            <div class="title-container">
-                <span class="title">Specialties</span>
-            </div>
-            <?php
-            if (!empty($specialties)) {
-                echo '<div class="specialty-group">';
-                foreach ($specialties as $tag) {
-                    echo '<div class="col-xs-6"><span class="profile_tags_cell">' . Html::encode($tag) . '</span></div>';
+            <div class="col-xs-6 col-md-5 col-md-offset-1">
+                <div class="title-container">
+                    <span class="title">Specialties</span>
+                </div>
+                <?php
+                if (!empty($specialties)) {
+                    echo '<div class="specialty-group">';
+                    foreach ($specialties as $tag) {
+                        echo '<div class="col-xs-6"><span class="profile_tags_cell">' . Html::encode($tag) . '</span></div>';
+                    }
+                    echo '</div>';
                 }
-                echo '</div>';
-            }
-            ?>
+                ?>
+            </div>
+            <div class="col-xs-12">
+                <div class="edit-link pull-right">
+                    <?php if($editable){ ?>
+                        <a href="<?= Url::to(['/user/reader/'.$model->id], true);?>" class="text-default"><span class="btn btn-primary text-orange">Edit profile</span></a>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
