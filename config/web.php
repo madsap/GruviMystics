@@ -162,6 +162,7 @@ $config = [
                 '/<action:about>'                                            => 'site/<action>',
                 '/<action:request-password-reset>'                           => 'site/<action>',
                 '/<action:reset-password>'                                   => 'site/<action>',
+                '/<action:notice-webrtc>'                                    => 'site/<action>',
 
                 '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\w+>'        => '<module>/<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:\w+>'                 => '<module>/<controller>/<action>',
