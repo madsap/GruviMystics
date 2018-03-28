@@ -403,7 +403,7 @@ body {
 }
 .reader-card .left-col .price-text {
   position: relative;
-  bottom: -20px;
+  bottom: 0px;
   color: #442B5D;
   text-align: center;
   font-size: 20px;
