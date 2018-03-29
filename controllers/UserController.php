@@ -217,8 +217,8 @@ class UserController extends MainController
 
         if ( User::isAdmin() && is_null($id) ) {
             throw new \Exception('Viewing as admin requires id parameter');
-        } else if ($sessionUser->id != $id) {
-            // not viewing own page
+        } else if ( !User::isAdmin() && ($sessionUser->id != $id) ) {
+            // not admin *and* not viewing own page
             throw new \Exception('Access denied');
         }
         
