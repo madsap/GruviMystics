@@ -261,6 +261,10 @@ class UserController extends MainController
      */
     public function actionDeleteReader()
     {
+        // only admin can do this
+        if ( !User::isAdmin() ) {
+            throw new \Exception('Access denied');
+        }
         $id = Yii::$app->request->get('id');
         if(empty($id) || !User::isAdmin()) {
             return $this->goHome();
