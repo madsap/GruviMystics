@@ -1,9 +1,6 @@
 <?php
 
 namespace app\controllers;
-
-namespace app\controllers;
-
 use \Yii;
 use \yii\db;
 use \yii\filters\AccessControl;
@@ -1736,8 +1733,9 @@ class ApiController extends MainController {
     }
     
     protected function convert_time_zone($date_time, $from_tz, $to_tz) {
-        $time_object = new DateTime($date_time, new DateTimeZone($from_tz));
-        $time_object->setTimezone(new DateTimeZone($to_tz));
+        $from_tz_object = new \DateTimeZone($from_tz);
+        $time_object = new \DateTime($date_time, $from_tz_object);
+        $time_object->setTimezone(new \DateTimeZone($to_tz));
         return $time_object->format('Y-m-d H:i:s');
     }
 
