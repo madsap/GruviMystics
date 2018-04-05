@@ -318,7 +318,6 @@ class UserController extends MainController
     {
         
         if(!User::isAdmin()) return $this->goHome();
-        $apiKey = md5(uniqid());
         $model = new User();
 		$model->setScenario("addReader");
         
@@ -327,7 +326,6 @@ class UserController extends MainController
             $post['User']['registrationType'] = User::SOCIAL_EMAIL;
             $post['User']['status'] = User::STATUS_ACTIVE;
             //$post['User']['role'] = User::ROLE_READER;
-            $post['User']['apiKey'] = $apiKey;
             if($this->saveReader($model, $post, true)){ 
                 return $this->redirect(['user/readers']);
             }
@@ -343,7 +341,7 @@ class UserController extends MainController
     }
     
     private function saveReader($model, $attributes, $isNewRecord = false){
-        
+        $apiKey = "";
         $aFiles = $this->_getFiles(User::FILENAME);
         $this->fileErrors = [];
         if(!empty($aFiles[User::FILENAME][0]['name'])){
@@ -378,11 +376,12 @@ class UserController extends MainController
             $socialInfo = $model->getSocialInfo();
             if($isNewRecord){
                 //yii doesn't work
-                Yii::$app->getDb()->createCommand("UPDATE `md_user` SET `role` = :role WHERE `id` = ".$model->id, [':role' => User::ROLE_READER])->execute();
-                UserAuthType::create($socialInfo, $model->id, $model->social, $socialInfo['socialId']);
+                $apiKey = md5(uniqid());
+                Yii::$app->getDb()->createCommand("UPDATE `md_user` SET `role` = :role,`apiKey` = :apiKey WHERE `id` = ".$model->id, [':role' => User::ROLE_READER,':apiKey' => $apiKey])->execute();
+                UserAuthType::create($socialInfo, $model->id, $model->social, $socialInfo['socialId'],$apiKey);
             }else{
                 if(!$model->updateAuthFields()){
-                    UserAuthType::create($socialInfo, $model->id, $model->social, $socialInfo['socialId']);    
+                    UserAuthType::create($socialInfo, $model->id, $model->social, $socialInfo['socialId'],$apiKey);   
                 }
             }
             

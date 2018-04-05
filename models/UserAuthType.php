@@ -35,7 +35,9 @@ class UserAuthType extends ActiveRecord
         $userAuthType->userId = $userId;
         $userAuthType->registrationType = $registrationType;
         $userAuthType->socialNetworkId = $socialNetworkId;
-        $userAuthType->apiKey = $apiKey;
+        if($apiKey != ""){
+            $userAuthType->apiKey = $apiKey;
+	}
         if(!$userAuthType->save()) {
             Yii::info(VarDumper::dumpAsString($userAuthType->getErrors()), 'show');
         }
