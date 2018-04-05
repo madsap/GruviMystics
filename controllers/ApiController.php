@@ -130,7 +130,7 @@ class ApiController extends MainController {
           $activeCalls = $command->queryAll();
           echo $connection->createCommand()->getRawSql(); */
 
-        /* $rows = (new \yii\db\Query())
+         /*$rows = (new \yii\db\Query())
           ->select(['id','userId'])
           ->from('md_user_auth_type')->where(['apiKey' => ""])->all();
 
@@ -144,8 +144,8 @@ class ApiController extends MainController {
           $command1 = $connection->createCommand("update md_user set apiKey = '".$apiKey."' where id = '".$row['userId']."'");
           $command1->execute();
 
-          } */
-
+          } 
+        */
         $response['error'] = true;
         $response['msg'] = "No direct access allowed.";
         echo json_encode($response);
@@ -614,8 +614,9 @@ class ApiController extends MainController {
                         }
                         if (!empty($messages)) {
                             foreach ($messages as $key => $message) {
+                                $createAt = $this->convert_time_zone($message->createAt,'UTC','America/Los_Angeles');
                                 $messageShow[$key] = $message->getAttributes();
-                                $messageShow[$key]['time'] = date('h:i A', strtotime($message->createAt));
+                                $messageShow[$key]['time'] = date('h:i A', strtotime($createAt));
                                 $messageShow[$key]['firstName'] = $message->customer->firstName;
                                 $messageShow[$key]['lastName'] = $message->customer->lastName;
                             }
@@ -675,8 +676,9 @@ class ApiController extends MainController {
                         $messages = $readerResult->getChat(0, 0, $lastMessageId);
                         if (!empty($messages)) {
                             foreach ($messages as $key => $message) {
+                                $createAt = $this->convert_time_zone($message->createAt,'UTC','America/Los_Angeles');
                                 $messageShow[$key] = $message->getAttributes();
-                                $messageShow[$key]['time'] = date('h:i A', strtotime($message->createAt));
+                                $messageShow[$key]['time'] = date('h:i A', strtotime($createAt));
                                 $messageShow[$key]['firstName'] = $message->customer->firstName;
                                 $messageShow[$key]['lastName'] = $message->customer->lastName;
                             }
@@ -1731,6 +1733,12 @@ class ApiController extends MainController {
             }
         }
         return null;
+    }
+    
+    protected function convert_time_zone($date_time, $from_tz, $to_tz) {
+        $time_object = new DateTime($date_time, new DateTimeZone($from_tz));
+        $time_object->setTimezone(new DateTimeZone($to_tz));
+        return $time_object->format('Y-m-d H:i:s');
     }
 
 }
