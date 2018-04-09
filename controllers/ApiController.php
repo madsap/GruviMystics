@@ -171,7 +171,7 @@ class ApiController extends MainController {
                     $price = $post['amount'];
                     $total = $price + $shipping;
 
-                    $this->apiContext = new ApiContext(new OAuthTokenCredential(Yii::$app->params['paypal']['sandbox']['ClientID'], Yii::$app->params['paypal']['sandbox']['secret']));
+                    $this->apiContext = new ApiContext(new OAuthTokenCredential(Yii::$app->params['paypal']['production']['ClientID'], Yii::$app->params['paypal']['production']['secret']));
 
                     $payer = new Payer();
                     $payer->setPaymentMethod("PayPal");
@@ -252,7 +252,7 @@ class ApiController extends MainController {
             $execution->setPayerId($customer_id);
 
             try {
-                $this->apiContext = new ApiContext(new OAuthTokenCredential(Yii::$app->params['paypal']['sandbox']['ClientID'], Yii::$app->params['paypal']['sandbox']['secret']));
+                $this->apiContext = new ApiContext(new OAuthTokenCredential(Yii::$app->params['paypal']['production']['ClientID'], Yii::$app->params['paypal']['production']['secret']));
                 $payment = Payment::get($transaction_id, $this->apiContext);
                 $result = $payment->execute($execution, $this->apiContext);
 
