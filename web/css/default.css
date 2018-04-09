@@ -810,6 +810,8 @@ body {
 .profile-chat .profile-card .profile-text {
   color: #442B5D;
   padding: 10px;
+  height: 490px;
+  overflow: auto;
 }
 .profile-chat .chat-time {
   position: relative;
