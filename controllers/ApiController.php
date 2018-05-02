@@ -172,7 +172,16 @@ class ApiController extends MainController {
                     $total = $price + $shipping;
 
                     $this->apiContext = new ApiContext(new OAuthTokenCredential(Yii::$app->params['paypal']['production']['ClientID'], Yii::$app->params['paypal']['production']['secret']));
-
+                    $this->apiContext->setConfig(
+			array(
+			    'mode' => 'live',
+			    'http.ConnectionTimeOut' => 30,
+			    'log.LogEnabled' => true,
+			    'log.FileName' => '../PayPal.log',
+			    'log.LogLevel' => 'FINE',
+			    'validation.level' => 'log'
+			)
+		    );
                     $payer = new Payer();
                     $payer->setPaymentMethod("PayPal");
 
