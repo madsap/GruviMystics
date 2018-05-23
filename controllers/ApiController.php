@@ -173,15 +173,15 @@ class ApiController extends MainController {
 
                     $this->apiContext = new ApiContext(new OAuthTokenCredential(Yii::$app->params['paypal']['production']['ClientID'], Yii::$app->params['paypal']['production']['secret']));
                     $this->apiContext->setConfig(
-			array(
-			    'mode' => 'live',
-			    'http.ConnectionTimeOut' => 30,
-			    'log.LogEnabled' => true,
-			    'log.FileName' => '../PayPal.log',
-			    'log.LogLevel' => 'FINE',
-			    'validation.level' => 'log'
-			)
-		    );
+                        array(
+                            'mode' => 'live',
+                            'http.ConnectionTimeOut' => 30,
+                            'log.LogEnabled' => true,
+                            'log.FileName' => '../PayPal.log',
+                            'log.LogLevel' => 'FINE',
+                            'validation.level' => 'log'
+                        )
+		            );
                     $payer = new Payer();
                     $payer->setPaymentMethod("PayPal");
 
@@ -262,6 +262,16 @@ class ApiController extends MainController {
 
             try {
                 $this->apiContext = new ApiContext(new OAuthTokenCredential(Yii::$app->params['paypal']['production']['ClientID'], Yii::$app->params['paypal']['production']['secret']));
+                $this->apiContext->setConfig(
+                    array(
+                        'mode' => 'live',
+                        'http.ConnectionTimeOut' => 30,
+                        'log.LogEnabled' => true,
+                        'log.FileName' => '../PayPal.log',
+                        'log.LogLevel' => 'FINE',
+                        'validation.level' => 'log'
+                    )
+                );
                 $payment = Payment::get($transaction_id, $this->apiContext);
                 $result = $payment->execute($execution, $this->apiContext);
 
