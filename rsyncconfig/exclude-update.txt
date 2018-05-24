@@ -51,3 +51,4 @@ HERE.txt
 
 web/phpMyAdmin*
 CMD.txt
+PayPal.log
